@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins&display=swap");
+* {
+  font-family: "Oswald", sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -13,8 +18,14 @@ p {
   padding: 0;
 }
 
-body {
+.navbar-hover {
+  @apply transition duration-300 ease-in-out hover:text-bluetheme;
 }
 
-code {
+.active {
+  @apply text-theme rounded bg-bluetheme p-1;
+}
+
+.homeIcons {
+  @apply text-bluetheme transition duration-300 ease-in-out border-bluetheme border-2 rounded-xl hover:scale-125 hover:text-darktheme hover:border-darktheme;
 }
