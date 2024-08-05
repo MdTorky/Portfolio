@@ -19,8 +19,31 @@ p {
   padding: 0;
 }
 
-.transition {
-  @apply transition-colors duration-300;
+*::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #525ceb;
+  border-radius: 10px;
+  transition: 0.8s ease all;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #5e67e1;
+  height: 100px;
+  transition: 0.8s ease all;
+}
+
+.transitions {
+  @apply transition duration-200 ease-linear;
 }
 
 .navbar-hover {
@@ -29,23 +52,28 @@ p {
 .navbar-hover-icons {
   @apply transition duration-300 ease-linear hover:text-bluetheme dark:text-darktheme p-2 md:p-0;
 }
-.navbar-hover-phone {
-  @apply hover:text-bluetheme p-2;
-}
-
 .active {
-  @apply text-theme dark:text-darktheme rounded bg-bluetheme md:p-1 md:py-2 md:px-3 p-2 my-1 md:my-0;
-}
-
-.active_phone {
-  @apply text-bluetheme  p-2;
+  @apply text-darktheme dark:text-theme md:text-theme md:dark:text-darktheme rounded bg-bluetheme p-2 my-1 md:my-0;
 }
 
 .homeIcons {
-  @apply transition-all ease-in-out duration-300 text-bluetheme  border-bluetheme border-2 rounded-xl hover:scale-125 hover:text-darktheme hover:border-darktheme dark:hover:text-theme dark:hover:border-theme;
+  @apply transition-all ease-in-out duration-700 text-bluetheme  border-bluetheme border-2 rounded-xl hover:scale-125 hover:text-darktheme hover:border-darktheme dark:hover:text-theme dark:hover:border-theme;
 }
 
-.width {
-  width: 500px;
-  height: 500px;
+.title {
+  @apply absolute bottom-0 left-0 right-0 top-0 z-10 bg-darktheme dark:bg-theme;
+}
+
+.background-gradient {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.9)
+  );
+  height: 50%;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  opacity: 0.5;
 }

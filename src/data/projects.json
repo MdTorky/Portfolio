@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "ISS Egypt Gateway",
+    "description": "A student portal for UTM's International Student Society to help students with their academic and social lives.",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722882859/Portfolio/ISS_EGYPT_dxc40z.png",
+    "technology": "MERN STACK",
+    "liveDemo": "https://issegypt.vercel.app/",
+    "github": "https://github.com/MdTorky/IssEgypt-frontend",
+    "websiteLink": "/issEgypt"
+  },
+  {
+    "id": 2,
+    "name": "Marketify",
+    "description": "A marketplace for students and faculty members inside the university's campus",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmGq-f7vA-bBxyUWNvr1RGPjHDhDCInKX0tg&s",
+    "technology": "MERN STACK",
+    "liveDemo": "https://marketifyutm.vercel.app/",
+    "github": "https://github.com/MdTorky/MarketifyWeb",
+    "websiteLink": "/issEgypt"
+  }
+]
