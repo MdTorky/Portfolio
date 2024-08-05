@@ -89,6 +89,9 @@ const Projects = () => {
                         src={project.image}
                         alt=""
                         className='w-full h-full bg-cover cursor-pointer transform m-auto rounded-xl'
+                        initial={{
+                            scale: 1,
+                        }}
                         whileHover={{
                             scale: 1.2,
                             transition: {
@@ -97,6 +100,14 @@ const Projects = () => {
                                 ease: 'easeInOut'
                             },
                         }}
+                        animate={{
+                            scale: 1,
+                            transition: {
+                                duration: 1,
+                                ease: "easeInOut",
+                            },
+                        }}
+
                     />
                 </motion.div>
                 <div className='my-2 flex w-full justify-between items-center'>
@@ -133,7 +144,7 @@ const Projects = () => {
                                 ease: "linear",
                             },
                         }}
-                        className='py-2 flex items-center text-xl gap-2 text-darktheme dark:text-theme transitions'
+                        className='py-2 flex items-center text-xl gap-2 font-normal text-darktheme dark:text-theme transitions'
                     >
                         Read More<Icon className="mt-1 text-lg" icon="ep:arrow-right-bold" />
 

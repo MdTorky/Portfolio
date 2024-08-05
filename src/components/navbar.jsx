@@ -3,7 +3,7 @@ import lightLogo from '../img/Light logo.png';
 import darkLogo from '../img/Dark Logo.png';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { motion, MotionConfig } from "framer-motion";
+import { easeInOut, motion, MotionConfig } from "framer-motion";
 
 const Navbar = ({ toggleDarkMode, darkMode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -84,21 +84,48 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
         }
     });
 
+
+    const pathVariant = {
+        hidden: {
+            opacity: 0,
+            pathLength: 0
+        },
+        visible: {
+            opacity: 1,
+            pathLength: 1,
+            transition: {
+                duration: 1,
+                ease: "easeInOut"
+            }
+        }
+    }
+
     return (
         <motion.nav
             variants={navVariant}
             initial="hidden"
             animate="visible"
-            className="flex px-10 items-center w-full justify-between md:justify-evenly shadow-lg md:shadow-none md:bg-transparent bg-theme dark:bg-darktheme md:relative sticky top-0 z-10">
+            className="flex px-10  items-center w-full justify-between md:justify-evenly shadow-lg md:shadow-none  bg-theme dark:bg-darktheme  sticky top-0 z-10">
             <Link to="/"><motion.img
+                initial={{
+                    scale: 1,
+                    skew: 0,
+                }}
                 whileHover={{
-                    scale: 1.5,
+                    scale: 2.5,
                     skew: '-4deg,-4deg',
                     transition: {
-                        duration: 0.3,
+                        duration: 0.5,
                     }
                 }}
-                src={darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20" /></Link>
+                animate={{
+                    scale: 1,
+                    skew: 0,
+                    transition: {
+                        duration: 0.5,
+                    }
+                }}
+                src={darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20 " /></Link>
             <div className="hidden md:flex text-2xl justify-between text-darktheme dark:text-theme gap-5 items-center">
                 <Link to="/projects" className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`}>PROJECTS</Link>
                 <Link to="/resume" className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`}>RESUME</Link>
@@ -116,10 +143,19 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
 
             </div>
             {/* <div className="md:hidden flex items-center">
-                <button onClick={toggleMenu} className="focus:outline-none">
+                <button onClick={toggleMenu} className="focus:outline-none text-3xl text-darktheme dark:text-theme">
+                    {!isOpen && (<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <motion.path
+                            variants={pathVariant}
+                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 6h10M4 12h16M7 12h13M7 18h10" /></svg>)}
+                    {isOpen && (<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <motion.path
+                            variants={pathVariant}
+                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" /></svg>)}
                     <Icon icon={`${isOpen ? 'majesticons:minus' : 'tabler:menu-4'}`} className="text-3xl text-darktheme dark:text-theme" />
                 </button>
             </div> */}
+
 
             <MotionConfig
                 transition={{

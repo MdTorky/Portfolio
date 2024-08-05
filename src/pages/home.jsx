@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Me from '../img/Torky.png'
 import { motion, useAnimation } from "framer-motion"
+import pdf from '../data/resume.pdf'
 const Home = () => {
 
     const mainVariant = {
@@ -48,11 +49,21 @@ const Home = () => {
         }
     }
 
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = pdf;
+        link.download = 'CV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <motion.div
             variants={mainVariant}
             exit="exit"
-            className=" md:p-10 md:px-20 flex md:flex-row flex-wrap flex-col items-center justify-center w-full overflow-hidden">
+            className=" md:p-10 md:px-20 flex md:flex-row flex-wrap flex-col items-center justify-center w-full">
             <motion.div
                 variants={homeContainer}
                 initial="hidden"
@@ -83,7 +94,7 @@ const Home = () => {
                     <Link to="https://github.com/MdTorky" className="text-5xl "><Icon icon="mdi:github" className='homeIcons' /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-5xl "><Icon icon="mdi:linkedin" className='homeIcons' /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-5xl "><Icon icon="mdi:instagram" className='homeIcons' /></Link>
-                    <Link className="text-2xl"><p className='homeIcons px-10 py-2 md:p-2 flex items-center gap-2'>Download CV <Icon icon="icon-park-outline:download-one" className="text-3xl" /></p></Link>
+                    <button onClick={handleDownload} className="text-2xl"><p className='homeIcons px-10 py-2 md:p-2 flex items-center gap-2'>Download CV <Icon icon="icon-park-outline:download-one" className="text-3xl" /></p></button>
                 </div>
             </motion.div>
             <motion.div

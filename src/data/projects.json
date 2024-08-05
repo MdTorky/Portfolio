@@ -13,10 +13,10 @@
     "id": 2,
     "name": "Marketify",
     "description": "A marketplace for students and faculty members inside the university's campus",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmGq-f7vA-bBxyUWNvr1RGPjHDhDCInKX0tg&s",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722883237/Portfolio/Marketify_er23tu.png",
     "technology": "MERN STACK",
     "liveDemo": "https://marketifyutm.vercel.app/",
     "github": "https://github.com/MdTorky/MarketifyWeb",
-    "websiteLink": "/issEgypt"
+    "websiteLink": "/marketify"
   }
 ]
