@@ -89,7 +89,9 @@ const Home = () => {
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugit unde tempore placeat similique. Sint ullam quam consequuntur nobis quod, exercitationem modi, perspiciatis, debitis</p>
+                    I am a Software Engineer who seeks improvement and is committed to my work until it is nearly flawless. I'm continuously looking for
+                    ways to improve what I'm doing. Furthermore, I am a good listener who can gain much experience by listening to others and
+                    finding solutions to their problems.</p>
                 <div className='mt-5 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-center 2xl:justify-normal'>
                     <Link to="https://github.com/MdTorky" className="text-5xl "><Icon icon="mdi:github" className='homeIcons' /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-5xl "><Icon icon="mdi:linkedin" className='homeIcons' /></Link>
