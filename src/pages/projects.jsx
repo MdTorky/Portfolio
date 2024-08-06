@@ -80,15 +80,12 @@ const Projects = () => {
                 viewport={{ once: true, margin: "-10px" }}
                 className=' overflow-hidden w-min rounded-xl p-2'>
                 <motion.div
-                    className='relative w-[350px] h-[250px] md:w-[400px] md:h-[300px] overflow-hidden hover:blur-xs rounded-xl'
+                    className='relative w-[350px] h-[250px] md:w-[400px] md:h-[300px] overflow-hidden hover:blur-xs rounded-sm'
                 >
-                    <motion.div>
-
-                    </motion.div>
                     <motion.img
                         src={project.image}
                         alt=""
-                        className='w-full h-full bg-cover cursor-pointer transform m-auto rounded-xl'
+                        className='w-full h-full bg-cover cursor-pointer transform m-auto rounded-sm'
                         initial={{
                             scale: 1,
                         }}

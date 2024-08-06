@@ -4,7 +4,7 @@ import Navbar from './components/navbar';
 import Home from './pages/home';
 import Projects from './pages/projects';
 import { AnimatePresence } from "framer-motion"
-
+import Resume from './pages/resume';
 
 function App() {
   const location = useLocation()
@@ -28,6 +28,7 @@ function App() {
         <Routes location={location} key={location.key}>
           <Route exact path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
 
       </AnimatePresence>

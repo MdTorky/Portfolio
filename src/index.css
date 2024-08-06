@@ -5,7 +5,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins&display=swap");
 * {
   font-family: "Oswald", sans-serif;
-  /* @apply transition-colors duration-200 ease-in-out; */
 }
 
 h1,
@@ -64,8 +63,23 @@ p {
   @apply absolute bottom-0 left-0 right-0 top-0 z-10 bg-darktheme dark:bg-theme;
 }
 
-.skews {
-  transform: skew(-4deg, -4deg);
+/* .tabStyle {
+  @apply transitions !font-oswald !text-xl !rounded-md !font-normal !px-4 !py-2 !my-2 !bg-gray-300 !w-96;
+}
+.tabStyleActive {
+  @apply !bg-darktheme !text-theme;
+} */
+
+.tabStyle {
+  @apply transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex  items-center justify-center gap-3;
+}
+
+.tabStyleActive {
+  @apply bg-bluetheme text-theme hover:bg-bluetheme;
+}
+
+.resumeContainer {
+  @apply flex flex-col p-2;
 }
 
 .background-gradient {

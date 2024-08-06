@@ -68,14 +68,14 @@ const Home = () => {
                 variants={homeContainer}
                 initial="hidden"
                 animate="visible"
-                className="md:p-20 mt-5 2xl:m-20 w-[90%] 2xl:w-3/6 2xl:order-none order-2 text-center 2xl:text-start "
+                className="md:p-20 mt-5 2xl:m-20  2xl:w-3/6 2xl:order-none order-2 text-center 2xl:text-start "
             >
-                <p className="text-bluetheme text-xl md:text-4xl uppercase font-medium relative">
+                <p className="text-bluetheme  text-xl md:text-4xl uppercase font-medium relative">
                     <motion.div
                         variants={titleVariant}
                         className="title">
                     </motion.div>Software Engineer</p>
-                <h1 className=" text-darktheme dark:text-theme text-5xl md:text-8xl uppercase font-semibold relative">
+                <h1 className=" text-darktheme dark:text-theme text-5xl md:text-6xl xl:text-8xl uppercase font-semibold relative">
                     <motion.div
                         variants={titleVariant}
                         className="title">
@@ -84,7 +84,7 @@ const Home = () => {
 
 
 
-                <p className="text-darktheme  dark:text-theme 2xl:text-justify mt-2 relative" >
+                <p className="text-darktheme w-[90%] md:w-full m-auto md:m-0 dark:text-theme 2xl:text-justify mt-2 relative" >
                     <motion.div
                         variants={titleVariant}
                         className="title">

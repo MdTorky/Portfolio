@@ -78,8 +78,9 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
                 ? '0px 0px 08px 6px rgba(235,179,8,0.7)'
                 : '0px 0px 08px 6px rgba(82,92,235,0.7)',
             transition: {
-                type: "spring",
-                duration: 2,
+                // type: "spring",
+                duration: 1,
+                delay: 0,
             }
         }
     });
@@ -139,7 +140,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
                 <motion.button
                     variants={darkVariant(darkMode)}
                     whileHover="hover"
-                    className="transition bg-bluetheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 hover:text-darktheme"><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></motion.button>
+                    className="bg-bluetheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 hover:text-darktheme"><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></motion.button>
 
             </div>
             {/* <div className="md:hidden flex items-center">
