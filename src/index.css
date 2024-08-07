@@ -82,6 +82,10 @@ p {
   @apply flex flex-col p-2;
 }
 
+.image-clip {
+  clip-path: polygon(33% 0, 55% 100%, 0 100%, 0 0);
+}
+
 .background-gradient {
   background-image: linear-gradient(
     rgba(255, 255, 255, 0),

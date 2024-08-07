@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Tabs, Tab, Box, Typography, duration } from '@mui/material'
 import { Icon } from '@iconify/react';
 import { button } from '@material-tailwind/react';
 import Experience from '../components/Experience';
+import Education from '../components/Education';
 
 const Resume = () => {
 
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(() => {
+        const savedValue = localStorage.getItem('resumeValue')
+        return savedValue ? JSON.parse(savedValue) : 1
+
+    });
+
+    useEffect(() => {
+        localStorage.setItem('resumeValue', JSON.stringify(value))
+    }, [value])
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -129,7 +138,7 @@ const Resume = () => {
         visible: {
             left: '100%',
             transition: {
-                duration: 0.5
+                duration: 0.2
             }
 
         }
@@ -198,7 +207,7 @@ const Resume = () => {
                         variants={titleVariant2}
                         className='text-4xl text-center md:text-6xl font-normal'>My Resume </motion.h1>
                 </div>
-                <h1 className='transitions hidden xl:flex text-6xl text-darktheme dark:text-theme font-light mb-10 relative'>
+                <h1 className=' hidden xl:flex text-6xl text-darktheme dark:text-theme font-light mb-10 relative'>
                     <motion.div
                         variants={titleVariant}
                         className="title">
@@ -233,12 +242,15 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div
-                    variants={getMotionVariants()}
-                    animate={value === 2 ? "open" : "closed"}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+
+                    animate={value === 2 ? "visible" : "hidden"}
                     className={`${value != 2 ? "hidden" : "resumeContainer"}`}
 
                 >
-                    Hello
+                    <h1 className='transitions text-4xl dark:text-theme'>My Education</h1>
+                    <Education />
                 </motion.div>
                 <motion.div
                     variants={getMotionVariants()}
