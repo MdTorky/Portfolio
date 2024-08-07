@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom'
 
 const Education = () => {
 
@@ -23,6 +24,20 @@ const Education = () => {
         }
     }
 
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setSelected(null)
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     const education = [
         {
             id: 1,
@@ -33,7 +48,8 @@ const Education = () => {
             country: "Malaysia",
             city: "Johor Bahru",
             gpa: "3.78",
-            icon: "lucide:university"
+            icon: "lucide:university",
+            img: "https://www.studymalaysiainfo.com/wp-content/uploads/2016/11/UTM-image.jpg",
         },
         {
             id: 2,
@@ -44,13 +60,13 @@ const Education = () => {
             country: "Saudi Arabia",
             city: "Riyadh",
             gpa: "4",
-            icon: "lucide:school"
+            icon: "lucide:school",
+            img: "https://lh3.googleusercontent.com/p/AF1QipMYyUTTkYFTbmtjKr9vz-azFuOVIXjmfaaAZCso=s680-w680-h510"
         }
     ]
 
     return (
         <div className='mt-10 flex justify-center gap-10 flex-wrap'>
-            {/* {experiences.map((exp) => ( */}
             {education.map((ed) => (
 
 
@@ -71,7 +87,7 @@ const Education = () => {
                             duration: 1
                         }
                     }}
-                    className='bg-gray-200 dark:bg-gray-800 rounded-md p-3 flex flex-col w-96 cursor-pointer'
+                    className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
                     onClick={() => setSelected(ed)}
                 >
                     <motion.div
@@ -94,7 +110,65 @@ const Education = () => {
                     </div>
                 </motion.div>
             ))}
+            <AnimatePresence>
+                {selected && (
+                    <motion.div
+                        onClick={() => setSelected(null)}
 
+                        className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{
+                                opacity: 1, scale: 1,
+                                transition: {
+                                    duration: 1,
+                                    type: 'spring',
+                                    stiffness: 80,
+                                }
+                            }}
+                            exit={{
+                                opacity: 0, scale: 0, transition: {
+                                    duration: 0.5,
+                                }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-theme dark:bg-darktheme p-4 w-[600px] rounded-md relative">
+                            <button
+                                className='absolute top-6 right-6 text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions z-50'
+                                onClick={() => setSelected(null)}
+                            >
+                                <Icon icon="zondicons:close-outline" />
+                            </button>
+                            <p className="absolute text-xl xl:text-2xl text-darktheme bg-theme dark:bg-darktheme dark:text-theme z-50 rounded-tl-md rounded-br-md p-2 border-darktheme dark:border-theme border-r-2 border-b-2">{selected.gpa} / 4</p>
+                            <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-700 border-2 ">
+                                <div className=' relative w-full h-[150px] xl:h-[250px] border-theme border-2 rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b]'>
+                                    <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full bg-cover  transform hover:scale-125 mix-blend-overlay" />
+                                </div>
+                                <div className="px-2 xl:px-6">
+                                    <div className=" mt-5 flex items-center justify-between">
+                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{selected.name}</h1>
+                                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-md whitespace-nowrap'>{selected.country} - {selected.city}</p>
+                                    </div>
+                                    <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.degree} {selected.major}</p>
+                                    <div className="flex justify-end my-2">
+                                        {/* <Link to="https://google.com" className='flex items-center text-xl bg-bluetheme p-2 gap-2 text-theme rounded-md'><Icon icon="cil:link" /> Link</Link> */}
+                                        <div className="flex items-center justify-end text-bluetheme">
+
+                                            {/* <div className="flex items-center justify-evenly text-theme bg-bluetheme rounded-md"> <p>Start</p> End</div> */}
+                                            {selected.date}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </motion.div>
+
+                    </motion.div>
+                )
+
+                }
+            </AnimatePresence>
         </div>
     )
 }

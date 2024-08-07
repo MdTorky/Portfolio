@@ -87,7 +87,7 @@ const Experience = () => {
                             duration: 1
                         }
                     }}
-                    className='bg-gray-200 dark:bg-gray-800 rounded-md p-3 flex flex-col w-96 cursor-pointer'
+                    className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
                     onClick={() => setSelected(exp)}
                 >
                     <motion.div
@@ -133,7 +133,7 @@ const Experience = () => {
                             }}
                             // layoutId={`card-${selected.id}`}
                             onClick={(e) => e.stopPropagation()}
-                            className='bg-gray-200 dark:bg-gray-800 rounded-md p-3 flex  flex-col w-[600px] cursor-pointer relative gap-2'
+                            className='gradient-color rounded-md p-3 flex  flex-col w-[600px] cursor-pointer relative gap-2'
                         >
                             <button
                                 className='absolute top-2 right-2 text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions'

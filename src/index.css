@@ -71,7 +71,7 @@ p {
 } */
 
 .tabStyle {
-  @apply transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex  items-center justify-center gap-3;
+  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex  items-center justify-center gap-3;
 }
 
 .tabStyleActive {
@@ -86,7 +86,11 @@ p {
   clip-path: polygon(33% 0, 55% 100%, 0 100%, 0 0);
 }
 
-.background-gradient {
+.gradient-color {
+  @apply bg-gradient-to-tr from-theme to-gray-300 dark:bg-gradient-to-tr dark:from-darktheme dark:to-gray-900;
+}
+
+/* .background-gradient {
   background-image: linear-gradient(
     rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 0.9)
@@ -98,4 +102,9 @@ p {
   left: 0%;
   right: 0%;
   opacity: 0.5;
+} */
+
+.shadows {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
