@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import { button } from '@material-tailwind/react';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
+import Activities from '../components/Activities';
 
 const Resume = () => {
 
@@ -244,7 +245,6 @@ const Resume = () => {
                 <motion.div
                     variants={ExperienceVariant}
                     initial="hidden"
-
                     animate={value === 2 ? "visible" : "hidden"}
                     className={`${value != 2 ? "hidden" : "resumeContainer"}`}
 
@@ -252,13 +252,45 @@ const Resume = () => {
                     <h1 className='transitions text-4xl dark:text-theme'>My Education</h1>
                     <Education />
                 </motion.div>
-                <motion.div
-                    variants={getMotionVariants()}
-                    animate={value === 3 ? "open" : "closed"}
-                    className={`${value != 3 ? "hidden" : "resumeContainer"}`}
 
+                <motion.div
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={value === 3 ? "visible" : "hidden"}
+                    className={`${value != 3 ? "hidden" : "resumeContainer"}`}
                 >
-                    Hello
+                    <h1 className='transitions text-4xl dark:text-theme'>My Activities</h1>
+                    <Activities />
+                </motion.div>
+
+                <motion.div
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={value === 4 ? "visible" : "hidden"}
+                    className={`${value != 4 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>My Awards</h1>
+                    <Activities />
+                </motion.div>
+
+                <motion.div
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={value === 5 ? "visible" : "hidden"}
+                    className={`${value != 5 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>My Skills</h1>
+                    <Activities />
+                </motion.div>
+
+                <motion.div
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={value === 6 ? "visible" : "hidden"}
+                    className={`${value != 6 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>My Languages</h1>
+                    <Activities />
                 </motion.div>
 
             </div>

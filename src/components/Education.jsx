@@ -100,7 +100,7 @@ const Education = () => {
                         </div>
                     </motion.div>
                     <h1 className='transitions mt-2 text-xl dark:text-theme'>{ed.name}</h1>
-                    <h2 className='transitions text-md dark:text-gray-400'>{ed.degree} {ed.major}</h2>
+                    <h2 className='transitions text-md dark:text-gray-400 text-gray-500'>{ed.degree} {ed.major}</h2>
                     <div className='flex justify-between mt-5 items-center'>
                         <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{ed.country} - {ed.city}</p>
                         <div className='flex justify-end  items-center gap-2'>
