@@ -270,7 +270,8 @@ const Resume = () => {
                     className={`${value != 4 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Awards</h1>
-                    <Activities />
+                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
+
                 </motion.div>
 
                 <motion.div
@@ -280,7 +281,8 @@ const Resume = () => {
                     className={`${value != 5 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Skills</h1>
-                    <Activities />
+                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
+
                 </motion.div>
 
                 <motion.div
@@ -290,7 +292,7 @@ const Resume = () => {
                     className={`${value != 6 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Languages</h1>
-                    <Activities />
+                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
                 </motion.div>
 
             </div>
