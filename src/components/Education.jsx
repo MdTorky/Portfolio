@@ -139,9 +139,9 @@ const Education = () => {
                             >
                                 <Icon icon="zondicons:close-outline" />
                             </button>
-                            <p className="absolute text-xl xl:text-2xl text-darktheme bg-theme dark:bg-darktheme dark:text-theme z-50 rounded-tl-md rounded-br-md p-2 border-darktheme dark:border-theme border-r-2 border-b-2 top-4 left-4">{selected.gpa} / 4</p>
-                            <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-700 border-2 ">
-                                <div className=' relative w-full h-[150px] xl:h-[250px] border-theme border-2 rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-center'>
+                            <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-300 dark:border-gray-700 border-2">
+                                <p className="absolute text-xl xl:text-2xl text-darktheme bg-theme dark:bg-darktheme dark:text-theme z-50  rounded-br-md p-2 border-darktheme dark:border-theme border-r-2 border-b-2 top-0 left-0">{selected.gpa} / 4</p>
+                                <div className=' relative w-full h-[150px] xl:h-[250px] dark:border-theme border-2 border-darktheme rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-center'>
                                     <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full bg-cover  transform hover:scale-125 mix-blend-overlay" />
                                 </div>
                                 <div className="px-2 xl:px-6">

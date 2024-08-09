@@ -130,8 +130,8 @@ const Awards = () => {
                             >
                                 <Icon icon="zondicons:close-outline" />
                             </button>
-                            <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-700 border-2 ">
-                                {selected.img && <div className=' relative w-full h-[150px] xl:h-[250px] border-theme border-2 rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-end'>
+                            <div className="bg-gray-400 relative w-full rounded-md gradient-color border-gray-300 dark:border-gray-700 border-2 ">
+                                {selected.img && <div className=' relative w-full h-[150px] xl:h-[250px] rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-end'>
                                     <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full  object-center transform hover:scale-125 mix-blend-overlay" />
                                 </div>}
                                 <div className={`px-2 xl:px-6 ${!selected.img ? "mt-14" : ""}`}>
