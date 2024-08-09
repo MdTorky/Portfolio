@@ -6,6 +6,7 @@ import { button } from '@material-tailwind/react';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Activities from '../components/Activities';
+import Awards from '../components/Awards';
 
 const Resume = () => {
 
@@ -270,8 +271,7 @@ const Resume = () => {
                     className={`${value != 4 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Awards</h1>
-                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
-
+                    <Awards />
                 </motion.div>
 
                 <motion.div

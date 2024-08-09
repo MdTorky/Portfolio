@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom'
 
-const Education = () => {
+
+const Awards = () => {
 
     const [selected, setSelected] = useState(null);
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setSelected(null)
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
     const childVariant = {
         hidden: {
             opacity: 0,
@@ -23,56 +37,36 @@ const Education = () => {
         }
     }
 
-
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setSelected(null)
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
-
-    const education = [
+    const awards = [
         {
             id: 1,
-            name: "Universiti Teknologi Malaysia",
-            degree: "Computer Science",
-            major: "(Software Engineering)",
-            date: "Oct 2020 - Jul 2024",
-            country: "Malaysia",
-            city: "Johor Bahru",
-            gpa: "3.78",
-            icon: "lucide:university",
-            img: "https://www.studymalaysiainfo.com/wp-content/uploads/2016/11/UTM-image.jpg",
+            name: "Champion at Microsoft APAC AI Accessibility Hackathon",
+            company: "Microsoft",
+            date: "14 Jun 2023",
+            description: 'Participated in and achieved First place in the prestigious Microsoft APAC AI Hackathon. Our winning project, "A-EYE," was a groundbreaking AI-powered solution designed to empower visually impaired individuals by providing them with real-time auditory cues, thereby enhancing their confidence in navigating urban environments.',
+            icon: "mdi:microsoft",
+            img: "https://media.licdn.com/dms/image/v2/D5622AQESAChR8CRJMQ/feedshare-shrink_800/feedshare-shrink_800/0/1689043468706?e=1726099200&v=beta&t=wVt-ukKZbzvCe4HS2Lqiy4nelIvUZLiMf8duoz5qKXI",
+            link: "https://www.linkedin.com/feed/update/urn:li:activity:7084361783041277953/?utm_source=share&utm_medium=member_desktop"
+
         },
         {
             id: 2,
-            name: "Qimam Elhayat International School",
-            degree: "High School",
-            major: "",
-            date: "Oct 2017 - Aug 2020",
-            country: "Saudi Arabia",
-            city: "Riyadh",
-            gpa: "4",
-            icon: "lucide:school",
-            img: "https://lh3.googleusercontent.com/p/AF1QipMYyUTTkYFTbmtjKr9vz-azFuOVIXjmfaaAZCso=s680-w680-h510"
+            name: "AutoCar & Line-follower Robot Workshop Competition",
+            company: "ISS Egypt, Yemen, Iraq UTM",
+            date: "03 Jun 2023",
+            description: 'Secured First place at the Auto Car Line Follower Robot Workshop Competition, showcasing exceptional problem-solving, technical skills, teamwork ability, dedication to mastering engineering challenges, and commitment to continuous learning in robotics.',
+            icon: "ci:car-auto",
+            img: "",
+            link: "https://www.instagram.com/p/CtMVQfsBp23/"
+
         }
     ]
 
     return (
         <div className='mt-10 flex justify-center gap-10 flex-wrap'>
-            {education.map((ed) => (
-
-
+            {awards.map((award) => (
                 <motion.div
-                    key={ed.id}
-                    // layoutId={`card-${exp.id}`}
-
+                    key={award.id}
                     variants={childVariant}
                     whileHover={{
                         scale: 1.05,
@@ -87,28 +81,25 @@ const Education = () => {
                         }
                     }}
                     className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
-                    onClick={() => setSelected(ed)}
+                    onClick={() => setSelected(award)}
                 >
                     <motion.div
                         className='flex items-center justify-between'>
                         <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                            <Icon icon={ed.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
+                            <Icon icon={award.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
                         </div>
-                        <div>
-                            <p className='text-bluetheme text-lg'>{ed.date}</p>
-                        </div>
+                        <p className='text-bluetheme'>{award.date}</p>
                     </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{ed.name}</h1>
-                    <h2 className='transitions text-md dark:text-gray-400 text-gray-500'>{ed.degree} {ed.major}</h2>
-                    <div className='flex justify-between mt-5 items-center'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{ed.country} - {ed.city}</p>
-                        <div className='flex justify-end  items-center gap-2'>
-                            <p className='text-bluetheme text-lg'>•</p>
-                            <p className='text-gray-500 text-lg'>GPA {ed.gpa} / 4</p>
-                        </div>
+                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{award.name}</h1>
+
+                    <div className='flex mt-5 items-center gap-2'>
+                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{award.company}</p>
+
                     </div>
                 </motion.div>
             ))}
+
+
             <AnimatePresence>
                 {selected && (
                     <motion.div
@@ -139,23 +130,21 @@ const Education = () => {
                             >
                                 <Icon icon="zondicons:close-outline" />
                             </button>
-                            <p className="absolute text-xl xl:text-2xl text-darktheme bg-theme dark:bg-darktheme dark:text-theme z-50 rounded-tl-md rounded-br-md p-2 border-darktheme dark:border-theme border-r-2 border-b-2 top-4 left-4">{selected.gpa} / 4</p>
                             <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-700 border-2 ">
-                                <div className=' relative w-full h-[150px] xl:h-[250px] border-theme border-2 rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-center'>
-                                    <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full bg-cover  transform hover:scale-125 mix-blend-overlay" />
-                                </div>
-                                <div className="px-2 xl:px-6">
+                                {selected.img && <div className=' relative w-full h-[150px] xl:h-[250px] border-theme border-2 rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-end'>
+                                    <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full  object-center transform hover:scale-125 mix-blend-overlay" />
+                                </div>}
+                                <div className={`px-2 xl:px-6 ${!selected.img ? "mt-14" : ""}`}>
                                     <div className=" mt-5 flex items-center justify-between">
                                         <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{selected.name}</h1>
-                                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-md whitespace-nowrap'>{selected.country} - {selected.city}</p>
+                                        <Link to={selected.link} className="homeIcons flex items-center p-2 !rounded-lg"><Icon icon="fa-solid:link" /></Link>
                                     </div>
-                                    <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.degree} {selected.major}</p>
+                                    <p className='dark:text-gray-400 text-gray-600 xl:text-justify mt-1'>{selected.description}</p>
                                     <div className="flex justify-end my-2">
-                                        {/* <Link to="https://google.com" className='flex items-center text-xl bg-bluetheme p-2 gap-2 text-theme rounded-md'><Icon icon="cil:link" /> Link</Link> */}
-                                        <div className="flex items-center justify-end text-bluetheme">
-
-                                            {/* <div className="flex items-center justify-evenly text-theme bg-bluetheme rounded-md"> <p>Start</p> End</div> */}
-                                            {selected.date}
+                                        <div className="flex items-center justify-between text-bluetheme w-full">
+                                            {/* <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.company}</p> */}
+                                            <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-lg whitespace-nowrap'>{selected.company}</p>
+                                            <p className='text-lg'>{selected.date}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -172,4 +161,4 @@ const Education = () => {
     )
 }
 
-export default Education
+export default Awards
