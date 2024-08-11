@@ -8,6 +8,7 @@ import Education from '../components/Education';
 import Activities from '../components/Activities';
 import Awards from '../components/Awards';
 import Skills from '../components/Skills';
+import Languages from '../components/Languages';
 
 const Resume = () => {
 
@@ -292,7 +293,7 @@ const Resume = () => {
                     className={`${value != 6 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Languages</h1>
-                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
+                    <Languages />
                 </motion.div>
 
             </div>
