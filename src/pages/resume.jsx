@@ -7,6 +7,7 @@ import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Activities from '../components/Activities';
 import Awards from '../components/Awards';
+import Skills from '../components/Skills';
 
 const Resume = () => {
 
@@ -281,8 +282,7 @@ const Resume = () => {
                     className={`${value != 5 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>My Skills</h1>
-                    <h1 className='transitions text-1xl mt-3 dark:text-theme'>COMING SOON</h1>
-
+                    <Skills />
                 </motion.div>
 
                 <motion.div
