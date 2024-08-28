@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Home from './pages/Home';
+import Home from './pages/home';
 import Projects from './pages/projects';
 import { AnimatePresence } from "framer-motion"
 import Resume from './pages/resume';
