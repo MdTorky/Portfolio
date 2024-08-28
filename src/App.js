@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Home from './pages/home';
+import Home from './pages/Home';
 import Projects from './pages/projects';
 import { AnimatePresence } from "framer-motion"
 import Resume from './pages/resume';
+import About from './pages/About';
 
 function App() {
   const location = useLocation()
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<About />} />
         </Routes>
 
       </AnimatePresence>

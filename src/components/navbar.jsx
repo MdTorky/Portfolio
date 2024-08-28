@@ -106,7 +106,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
             variants={navVariant}
             initial="hidden"
             animate="visible"
-            className="flex px-10  items-center w-full justify-between md:justify-evenly shadow-lg md:shadow-none  bg-theme dark:bg-darktheme  sticky top-0 z-10">
+            className="flex px-10  items-center w-full justify-between md:justify-evenly shadow-lg md:shadow-none  bg-theme dark:bg-darktheme  sticky top-0 z-50">
             <Link to="/"><motion.img
                 initial={{
                     scale: 1,

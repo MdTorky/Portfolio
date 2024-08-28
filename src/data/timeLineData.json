@@ -1,0 +1,44 @@
+[
+  {
+    "date": "Jan 2020",
+    "title": "Passed the SAT Test",
+    "location": "",
+    "description": "In January 2020, I received my SAT results, which were 1580 out of 1600. I received 800 in math and 780 in English.",
+    "icon": "healthicons:i-exam-multiple-choice"
+  },
+  {
+    "date": "May 2020",
+    "title": "Graduated High School",
+    "location": "",
+    "description": "I completed high school with a GPA of 4 out of 4.",
+    "icon": "lucide:school"
+  },
+  {
+    "date": "Oct 2020",
+    "title": "Enrolled in College",
+    "location": "",
+    "description": "In October 2020, I got admitted to study computer science focusing in Software Engineering at Universiti Teknologi Malaysia.",
+    "icon": "hugeicons:university"
+  },
+  {
+    "date": "Jun 2023",
+    "title": "Won my First Hackathon",
+    "location": "",
+    "description": "Participated in and won first place in the renowned Microsoft APAC AI Hackathon.",
+    "icon": "mdi:microsoft"
+  },
+  {
+    "date": "Sept 2023",
+    "title": "Landed my First Internship",
+    "location": "",
+    "description": "In September 2023, I entered the industrial field as an intern with Micro semiconductor Sdn Bhd., where I learned a lot about how the industries work.",
+    "icon": "material-symbols:work"
+  },
+  {
+    "date": "Jul 2024",
+    "title": "Graduated University",
+    "location": "",
+    "description": "In July 2024, I finally graduated from university with a GPA of 3.79 out of 4.",
+    "icon": "ri:graduation-cap-fill"
+  }
+]

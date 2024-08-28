@@ -121,7 +121,8 @@ const Skills = () => {
         },
     ]
     return (
-        <div className='mt-10 flex justify-center xl:w-[850px] xl:h-[360px] xl:border-2 dark:xl:border-gray-800 xl:border-gray-200 xl:rounded-md xl:overflow-y-auto xl:py-5 gap-10 flex-wrap'>
+        // <div className='mt-10 flex justify-center xl:w-[850px] xl:h-[360px] xl:border-2 dark:xl:border-gray-800 xl:border-gray-200 xl:rounded-md xl:overflow-y-auto xl:py-5 gap-10 flex-wrap'>
+        <div className='mt-10 flex justify-center xl:w-[850px] h-[360px] xl:border-2 dark:xl:border-gray-800 xl:border-gray-200 xl:rounded-md overflow-y-auto xl:py-5 gap-10 flex-wrap'>
             {skills.map((skill) => (
 
 

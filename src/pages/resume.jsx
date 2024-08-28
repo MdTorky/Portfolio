@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
-import { Tabs, Tab, Box, Typography, duration } from '@mui/material'
 import { Icon } from '@iconify/react';
 import { button } from '@material-tailwind/react';
 import Experience from '../components/Experience';

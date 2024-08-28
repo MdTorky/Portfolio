@@ -129,7 +129,7 @@ const Activities = () => {
 
     ]
     return (
-        <div className='mt-10 flex justify-center xl:w-[850px]  xl:h-[380px] xl:overflow-y-auto xl:py-5 gap-10 flex-wrap '>
+        <div className='mt-10 flex justify-center xl:w-[850px] h-[380px] overflow-y-auto xl:py-5 gap-10 flex-wrap '>
             {activities.map((activ) => (
                 <motion.div
                     key={activ.id}

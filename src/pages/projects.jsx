@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import test from '../img/test.png'
 import { motion, useInView, useAnimation } from "framer-motion"
 import projectsData from '../data/projects.json'
 import { Icon } from '@iconify/react';

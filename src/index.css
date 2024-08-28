@@ -7,6 +7,12 @@
   font-family: "Oswald", sans-serif;
 }
 
+:root {
+  --bluetheme: #525ceb;
+  --darktheme: #2e3944;
+  --theme: #f1f1fb;
+}
+
 h1,
 h2,
 h3,
@@ -52,7 +58,7 @@ p {
   @apply transition duration-300 ease-linear hover:text-bluetheme dark:text-darktheme p-2 md:p-0;
 }
 .active {
-  @apply text-darktheme dark:text-theme md:text-theme md:dark:text-darktheme rounded bg-bluetheme p-2 my-1 md:my-0;
+  @apply text-darktheme dark:text-theme md:text-theme md:dark:text-darktheme rounded-md bg-bluetheme p-2 my-1 md:my-0;
 }
 
 .homeIcons {
@@ -86,8 +92,26 @@ p {
   clip-path: polygon(33% 0, 55% 100%, 0 100%, 0 0);
 }
 
+.dateStyle {
+  color: var(--darktheme);
+  font-size: "40px";
+}
+
 .gradient-color {
   @apply bg-gradient-to-tr from-theme to-gray-300 dark:bg-gradient-to-tr dark:from-darktheme dark:to-gray-900;
+}
+
+.timeline::after {
+  animation: moveline 3s linear forwards;
+}
+
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
 }
 
 /* .background-gradient {
