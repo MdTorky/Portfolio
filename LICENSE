@@ -1,0 +1,7 @@
+### Instructions to Add the Screenshot:
+
+1. Take a screenshot of your portfolio website.
+2. Upload the screenshot to your GitHub repository or a trusted image hosting service.
+3. Replace the placeholder image link in the `![Portfolio Screenshot](src/img/Portfolio.png)` with the actual URL of your screenshot.
+
+This README provides a comprehensive overview of your project with a visual preview.

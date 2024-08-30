@@ -1,7 +1,5 @@
 # Mohamed Torky - Portfolio
 
-<!-- ![Portfolio Banner](https://user-images.githubusercontent.com/your-username/your-repository/banner.png) -->
-
 ![Portfolio Banner](src/img/Portfolio.png)
 
 ![GitHub](https://img.shields.io/github/license/MdTorky/Portfolio)
@@ -19,7 +17,6 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -37,22 +34,25 @@ Experience the portfolio live on [https://mohamedtorky.vercel.app/](https://moha
 - **Skills**: A comprehensive overview of my technical skills and proficiencies.
 - **Experience**: Insight into my professional background and career milestones.
 - **Education**: Information about my academic qualifications and certifications.
-- **Blog**: Read my latest articles on software development and technology trends.
 - **Contact**: Easily reach out to me through a contact form or connect via social media.
 
 ## Screenshots
 
 ### Home Page
 
-![Home Page](https://user-images.githubusercontent.com/your-username/your-repository/homepage.png)
+![Home Page](src/img/pages/Home%20Page.png)
 
 ### Projects Section
 
-![Projects](https://user-images.githubusercontent.com/your-username/your-repository/projects.png)
+![Projects](src/img/pages/Projects%20Page.png)
 
-### Contact Form
+### Resume Page
 
-![Contact](https://user-images.githubusercontent.com/your-username/your-repository/contact.png)
+![Resume](src/img/pages/Resume%20Page.png)
+
+### About Page
+
+![About](src/img/pages/About%20Page.png)
 
 ## Technologies Used
 
@@ -129,36 +129,7 @@ Ensure you have the following installed:
 ## Usage
 
 - **Explore Projects:** Browse through the projects section to see my work.
-- **Read Blog Posts:** Stay updated with my latest articles on technology and software development.
-- **Get in Touch:** Use the contact form to send me a message or connect via social media links provided.
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-1. **Fork the repository**
-2. **Create a new branch**
-
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-
-3. **Make your changes**
-4. **Commit your changes**
-
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-
-5. **Push to the branch**
-
-   ```bash
-   git push origin feature/YourFeature
-   ```
-
-6. **Open a pull request**
-
-Please ensure your contributions adhere to the project's [code of conduct](CODE_OF_CONDUCT.md) and [contribution guidelines](CONTRIBUTING.md) if available.
+- **Get in Touch:** Use the contact section to send me a message or connect via social media links provided.
 
 ## License
 
@@ -170,7 +141,7 @@ This project is licensed under the [MIT License](LICENSE).
 - **LinkedIn:** [linkedin.com/in/mohamed-torky-243196221](https://www.linkedin.com/in/mohamed-torky-243196221/)
 - **GitHub:** [@MdTorky](https://github.com/MdTorky)
 
-Feel free to reach out for collaborations, questions, or just to say hi!
+Feel free to reach out for questions or just to say hi!
 
 ---
 
