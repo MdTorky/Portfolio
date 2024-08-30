@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# Mohamed Torky - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- ![Portfolio Banner](https://user-images.githubusercontent.com/your-username/your-repository/banner.png) -->
 
-## Available Scripts
+![Portfolio Banner](src/img/Portfolio.png)
 
-In the project directory, you can run:
+![GitHub](https://img.shields.io/github/license/MdTorky/Portfolio)
+![GitHub last commit](https://img.shields.io/github/last-commit/MdTorky/Portfolio)
+![GitHub issues](https://img.shields.io/github/issues/MdTorky/Portfolio)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [About](#about)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## About
 
-### `npm test`
+Welcome to my personal portfolio! I'm Mohamed Torky, a passionate software engineer specializing in building exceptional digital experiences. This portfolio showcases my projects, skills, and professional journey. Feel free to explore and get in touch!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live Demo
 
-### `npm run build`
+Experience the portfolio live on [https://mohamedtorky.vercel.app/](https://mohamedtorky.vercel.app/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Projects**: Detailed showcases of my projects with descriptions, technologies used, and live links.
+- **Skills**: A comprehensive overview of my technical skills and proficiencies.
+- **Experience**: Insight into my professional background and career milestones.
+- **Education**: Information about my academic qualifications and certifications.
+- **Blog**: Read my latest articles on software development and technology trends.
+- **Contact**: Easily reach out to me through a contact form or connect via social media.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+### Home Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Home Page](https://user-images.githubusercontent.com/your-username/your-repository/homepage.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Projects Section
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point, you're on your own.
+![Projects](https://user-images.githubusercontent.com/your-username/your-repository/projects.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Contact Form
 
-## Learn More
+![Contact](https://user-images.githubusercontent.com/your-username/your-repository/contact.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Frontend**:
+  - [React](https://reactjs.org/)
+  - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- **Deployment**:
+  - [Vercel](https://vercel.com/)
+- **Version Control**:
+  - [Git](https://git-scm.com/)
+  - [GitHub](https://github.com/)
 
-### Code Splitting
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Follow these instructions to set up the project locally.
 
-### Analyzing the Bundle Size
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Ensure you have the following installed:
 
-### Making a Progressive Web App
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Installation
 
-### Advanced Configuration
+1. **Clone the repository:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   git clone https://github.com/MdTorky/Portfolio.git
+   ```
 
-### Deployment
+2. **Navigate to the project directory:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+   cd Portfolio
+   ```
 
-### `npm run build` fails to minify
+3. **Install dependencies:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Or using Yarn:
+
+   ```bash
+   yarn install
+   ```
+
+4. **Run the development server:**
+
+   Using npm:
+
+   ```bash
+   npm start
+   ```
+
+   Or using Yarn:
+
+   ```bash
+   yarn start
+   ```
+
+5. **Open your browser and visit:**
+
+   ```
+   http://localhost:3000
+   ```
+
+## Usage
+
+- **Explore Projects:** Browse through the projects section to see my work.
+- **Read Blog Posts:** Stay updated with my latest articles on technology and software development.
+- **Get in Touch:** Use the contact form to send me a message or connect via social media links provided.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. **Fork the repository**
+2. **Create a new branch**
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. **Make your changes**
+4. **Commit your changes**
+
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+
+5. **Push to the branch**
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+6. **Open a pull request**
+
+Please ensure your contributions adhere to the project's [code of conduct](CODE_OF_CONDUCT.md) and [contribution guidelines](CONTRIBUTING.md) if available.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+- **Email:** [mohamed2003torky@gmail.com](mailto:mohamed2003torky@gmail.com)
+- **LinkedIn:** [linkedin.com/in/mohamed-torky-243196221](https://www.linkedin.com/in/mohamed-torky-243196221/)
+- **GitHub:** [@MdTorky](https://github.com/MdTorky)
+
+Feel free to reach out for collaborations, questions, or just to say hi!
+
+---
+
+_Thank you for visiting my portfolio!_
