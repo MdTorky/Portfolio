@@ -34,7 +34,7 @@ Experience the portfolio live on [https://mohamedtorky.vercel.app/](https://moha
 - **Skills**: A comprehensive overview of my technical skills and proficiencies.
 - **Experience**: Insight into my professional background and career milestones.
 - **Education**: Information about my academic qualifications and certifications.
-- **Contact**: Easily reach out to me through a contact form or connect via social media.
+- **Contact**: Easily reach out to me through a contact section or connect via social media.
 
 ## Screenshots
 

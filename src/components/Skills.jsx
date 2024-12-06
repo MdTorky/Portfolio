@@ -119,6 +119,16 @@ const Skills = () => {
             name: 'Video Editor',
             icon: "skill-icons:premiere"
         },
+        {
+            id: 17,
+            name: 'Canva',
+            icon: "lineicons:canva"
+        },
+        {
+            id: 18,
+            name: 'Tailwind',
+            icon: "devicon:tailwindcss"
+        },
     ]
     return (
         // <div className='mt-10 flex justify-center xl:w-[850px] xl:h-[360px] xl:border-2 dark:xl:border-gray-800 xl:border-gray-200 xl:rounded-md xl:overflow-y-auto xl:py-5 gap-10 flex-wrap'>

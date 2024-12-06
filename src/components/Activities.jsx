@@ -42,17 +42,39 @@ const Activities = () => {
     const activities = [
         {
             id: 1,
-            name: "Head of the Academic Committee",
+            name: "Head of the Egyptian Academic Committee",
             role: "President",
             organizers: "ISS Egypt UTM",
-            date: "Nov 2023 - Present",
-            description: 'Responsible for organizing and managing all the workshops and revision classes which will help the students in their academic curriculum',
+            date: "Nov 2023 - Dec 2024",
+            description: 'Organized academic seminars and revision sessions across university majors, supporting students’ academic success.',
             icon: "solar:square-academic-cap-bold",
             link: "",
             webLink: "https://www.instagram.com/issegypt/"
         },
         {
             id: 2,
+            name: "Head of the Egyptian Multimedia Committee",
+            role: "President",
+            organizers: "ISS Egypt UTM",
+            date: "Nov 2023 - Dec 2024",
+            description: 'Managed content creation, including posters, videos, and social media, and led photography/videography for ISS Egypt events.',
+            icon: "pajamas:media-broken",
+            link: "",
+            webLink: "https://www.instagram.com/issegypt/"
+        },
+        {
+            id: 3,
+            name: "Head of the Media Committee",
+            role: "President",
+            organizers: "Arabic Cultural Day 2024",
+            date: "Sept 2024 - Dec 2024",
+            description: 'Supervised a team of creatives (photographers, designers, writers) to execute media coverage for the Arabic Cultural Day event.',
+            icon: "mdi:abjad-arabic",
+            link: "",
+            webLink: "https://www.instagram.com/arabiccultureday/"
+        },
+        {
+            id: 4,
             name: "Education Team",
             role: "Member",
             organizers: "Global Buddies Club",
@@ -64,44 +86,42 @@ const Activities = () => {
 
         },
         {
-            id: 3,
-            name: "Amitabha Malaysia Orphanage Volunteer",
+            id: 5,
+            name: "Volunteer, Amitabha Malaysia Orphanage",
             role: "Volunteer",
             organizers: "AIESEC in Malaysia",
             date: "Feb 2023 - Mar 2023",
-            description: 'I volunteered with AIESEC Malaysia at the Amitabha Orphanage, where I committed my time and abilities to teaching children. My primary responsibility was to provide instructional help in various topics, including Science, English, and the Arts. This experience enabled me to build excellent teaching tactics and communication skills while modifying my approach to fit the children\'\s various learning requirements.',
+            description: 'Taught Science, English, and Arts to children, enhancing instructional skills and adapting to diverse learning needs.',
             icon: "material-symbols-light:volunteer-activism",
             link: "",
             webLink: "https://www.instagram.com/aiesecinmalaysia/"
 
         },
         {
-            id: 4,
-            name: "Southern Leadership Bootcamp",
+            id: 6,
+            name: "Participant, Southern Leadership Bootcamp",
             role: "Delegate",
             organizers: "AIESEC in Malaysia",
             date: "Jan 2023",
-            description: 'I participated in "Southern Leadership Bootcamp," a program organized by AIESEC. This experience was a pivotal moment in my personal and leadership development journey. Throughout the program, I engaged in a series of immersive activities and workshops designed to cultivate leadership skills and global awareness.',
+            description: 'Completed an intensive leadership development program focused on personal growth and team management.',
             icon: "iconoir:leaderboard-star",
             link: "https://drive.google.com/file/d/1RrW2la_smD4r2aBBtL0aAYB4nuQ7gw2u/view",
             webLink: "https://www.instagram.com/aiesecinmalaysia/"
 
         },
         {
-            id: 5,
-            name: "Social Committee Member",
+            id: 7,
+            name: "Member of the Egyptian Social Committee",
             role: "Member",
             organizers: "ISS Egypt UTM",
             date: "May 2023 - Dec 2023",
-            description: 'I proudly served as a Social Committee Member within the UTM International Student Society (ISS) Egypt. In this role, I actively contributed to the vibrant international student community by organizing and participating in a wide range of social and cultural activities.',
+            description: 'Assisted in planning and executing cultural events to foster community engagement among international students.',
             icon: "tdesign:member",
             link: "",
             webLink: "https://www.instagram.com/issegypt/"
-
-
         },
         {
-            id: 6,
+            id: 8,
             name: "AutoCar Workshop",
             role: "Participant",
             organizers: "ISS Egypt, Yemen, Iraq UTM",
@@ -110,16 +130,14 @@ const Activities = () => {
             icon: "ci:car-auto",
             link: "https://drive.google.com/file/d/17meit4vmLdnBZJbg7qkjbkYilFBe17o5/view?usp=drive_link",
             webLink: "https://www.instagram.com/issegypt/"
-
-
         },
         {
-            id: 7,
-            name: "Leader 2 You Summit",
+            id: 9,
+            name: "Event Organizer, Leaders 2 You Summit",
             role: "Organizer",
             organizers: "AIESEC in Malaysia",
             date: "Jun 2023",
-            description: 'Served as an Organizing Committee Member in the Special Events Team for the Leader 2 You Summit. In this role, I played a pivotal part in enhancing the overall attendee experience at various special events. My responsibilities encompassed developing and implementing innovative engagement tactics to ensure that participants remained actively involved and connected throughout each event.',
+            description: '•Enhanced attendee experiences through creative event planning and innovative engagement strategies.',
             icon: "fluent-mdl2:party-leader",
             link: "https://drive.google.com/file/d/1a3WqjS2Ihpl5hfY8phoKldAsBGn-pja6/view",
             webLink: "https://www.instagram.com/aiesecinmalaysia/"
