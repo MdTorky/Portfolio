@@ -130,6 +130,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
             <div className="hidden md:flex text-2xl justify-between text-darktheme dark:text-theme gap-5 items-center">
                 <Link to="/projects" className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`}>PROJECTS</Link>
                 <Link to="/resume" className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`}>RESUME</Link>
+                <Link to="/services" className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`}>SERVICES</Link>
                 <Link to="/about" className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`}>ABOUT</Link>
                 <div className="bg-darktheme dark:bg-theme px-3 py-2 flex text-theme text-3xl items-center gap-1 rounded-md">
                     <Link to="https://github.com/MdTorky" className="navbar-hover-icons"><Icon icon="mdi:github" /></Link>
@@ -226,6 +227,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
                 <Link to="/projects" onClick={toggleMenu}><motion.div className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`} variants={itemVariants}>
                     PROJECTS</motion.div></Link>
                 <Link to="/resume" onClick={toggleMenu}><motion.div className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`} variants={itemVariants}>RESUME</motion.div></Link>
+                <Link to="/services" onClick={toggleMenu}><motion.div className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`} variants={itemVariants}>SERVICES</motion.div></Link>
                 <Link to="/about" onClick={toggleMenu}><motion.div className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`} variants={itemVariants}>ABOUT</motion.div></Link>
                 <motion.div variants={itemVariants} className="flex gap-3 py-2">
                     <Link to="https://github.com/MdTorky" className="text-2xl navbar-hover"><Icon icon="mdi:github" /></Link>

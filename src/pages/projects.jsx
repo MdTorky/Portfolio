@@ -119,7 +119,7 @@ const Projects = () => {
                 <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions'>{project.description}</p>
 
                 <Link to={project.websiteLink} >
-                    <motion.div
+                    {/* <motion.div
                         initial={{
                             x: 0,
                             gap: "2px",
@@ -144,7 +144,7 @@ const Projects = () => {
                     >
                         Read More<Icon className="mt-1 text-lg" icon="ep:arrow-right-bold" />
 
-                    </motion.div>
+                    </motion.div> */}
                 </Link>
 
             </motion.div>

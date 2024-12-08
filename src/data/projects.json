@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "ISS Egypt Gateway",
-    "description": "A student portal for UTM's International Student Society to help students with their academic and social lives.",
+    "description": "Developed a comprehensive student portal using the MERN stack, featuring academic and social resources tailored to enhance student life.\n\n•Achieved significant adoption, with over 2,700 users since launch, reflecting its practical value to students.",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722882859/Portfolio/ISS_EGYPT_dxc40z.png",
     "technology": "MERN STACK",
     "liveDemo": "https://issegypt.vercel.app/",
