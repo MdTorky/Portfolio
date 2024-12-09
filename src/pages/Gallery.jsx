@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 
-const CLIENT_ID = "1049353676373-9t00t6e7jve1k6pq7hb5lbus3r1hj6tm.apps.googleusercontent.com";
-const API_KEY = "AIzaSyCEkOP5HCPI-IGxHj02oH-JHYoLKKU2DTw";
-const SCOPES = "https://www.googleapis.com/auth/drive.readonly";
-const FOLDER_ID = "1q1WXMQW_luQWPgzTMLrhVRvKNH3-_9eA"; // Replace with your resume folder's ID
+const FOLDER_ID = "1q1WXMQW_luQWPgzTMLrhVRvKNH3-_9eA";
 const Gallery = () => {
 
     const [images, setImages] = useState([]);
@@ -13,9 +10,9 @@ const Gallery = () => {
         function start() {
             gapi.client
                 .init({
-                    apiKey: API_KEY,
-                    clientId: CLIENT_ID,
-                    scope: SCOPES,
+                    apiKey: process.env.REACT_APP_API_KEY,
+                    clientId: process.env.REACT_CLIENT_ID,
+                    scope: process.env.REACT_APP_SCOPES,
                     discoveryDocs: [
                         "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
                     ],
