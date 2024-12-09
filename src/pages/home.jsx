@@ -89,9 +89,10 @@ const Home = () => {
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    I am a Software Engineer who seeks improvement and is committed to my work until it is nearly flawless. I'm continuously looking for
-                    ways to improve what I'm doing. Furthermore, I am a good listener who can gain much experience by listening to others and
-                    finding solutions to their problems.</p>
+                    Results-oriented Software Engineer with a Bachelor’s degree in Computer Science and a strong front-end and full-stack development
+                    foundation. Proficient in MERN stack, Flutter, and modern web technologies, with hands-on experience crafting user-centric interfaces
+                    and innovative solutions. Skilled in Agile methodologies and proficient in Jira tools, seeking to leverage expertise in AI-driven web
+                    technologies to deliver scalable and impactful digital solutions.</p>
                 <div className='mt-5 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-center 2xl:justify-normal'>
                     <Link to="https://github.com/MdTorky" className="text-5xl "><Icon icon="mdi:github" className='homeIcons' /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-5xl "><Icon icon="mdi:linkedin" className='homeIcons' /></Link>

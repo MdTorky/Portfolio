@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion"
 import Resume from './pages/resume';
 import About from './pages/About';
 import Services from './pages/Services';
+import Gallery from './pages/Gallery';
 
 function App() {
   const location = useLocation()
@@ -33,6 +34,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
 
       </AnimatePresence>
