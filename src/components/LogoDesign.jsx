@@ -5,7 +5,6 @@ import { gapi } from "gapi-script";
 
 const FOLDER_ID = "1EKNjMI4vH6mUGmtqOwN1Xtz3h6dYqLXc";
 const LogoDesign = () => {
-    const [selected, setSelected] = useState(null);
     const [images, setImages] = useState([]);
 
     const childVariant = {
@@ -53,7 +52,13 @@ const LogoDesign = () => {
             pageSize: 100, // Adjust if needed
             fields: "files(id, name, webViewLink, thumbnailLink)",
         });
-        setImages(response.result.files);
+
+        const files = response.result.files || [];
+
+        files.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
+
+        setImages(files);
     };
 
     return (
@@ -94,9 +99,9 @@ const LogoDesign = () => {
                     <img
                         src={file.thumbnailLink}
                         alt={file.name}
-                        className="w-full h-min object-cover"
+                        className="w-full object-cover bg-white"
                     />
-                    <p className="p-2 text-center bg-darktheme text-theme rounded-md">{file.name}</p>
+                    <p className="p-2 text-center bg-darktheme dark:bg-gray-700 text-theme rounded-b-md">{file.name.replace(/\.png$/, '')}</p>
                 </motion.div>
             ))}
 

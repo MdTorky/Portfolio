@@ -156,7 +156,7 @@ const Services = () => {
 
             <motion.h1
                 variants={projectVariant}
-                className='bg-bluetheme dark:bg-bluetheme text-theme dark:text-darktheme w-80 my-4 p-2 text-center text-3xl rounded-md'
+                className='bg-bluetheme dark:bg-bluetheme text-theme w-80 my-4 p-2 text-center text-3xl rounded-md'
             >Graphic Design Services
             </motion.h1>
             <motion.div

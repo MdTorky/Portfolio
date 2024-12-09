@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { button } from '@material-tailwind/react';
 import LogoDesign from '../components/LogoDesign';
 import servicesData from '../data/services.json'
+import Posters from '../components/Posters';
 
 var graphic = servicesData.graphic
 
@@ -170,6 +171,17 @@ const Gallery = () => {
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>Logo Designs</h1>
                     <LogoDesign />
+
+                </motion.div>
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 2 ? "visible" : "hidden"}
+                    className={`${gallery != 2 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>Posters</h1>
+                    <Posters />
 
                 </motion.div>
             </div>
