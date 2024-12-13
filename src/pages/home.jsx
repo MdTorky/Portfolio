@@ -4,7 +4,8 @@ import { Icon } from '@iconify/react';
 import Me from '../img/Torky.png'
 import { motion, useAnimation } from "framer-motion"
 import pdf from '../data/resume.pdf'
-const Home = () => {
+
+const Home = ({ language, languageText }) => {
 
     const mainVariant = {
         exit: {
@@ -74,13 +75,13 @@ const Home = () => {
                     <motion.div
                         variants={titleVariant}
                         className="title">
-                    </motion.div>Software Engineer</p>
-                <h1 className=" text-darktheme dark:text-theme text-5xl md:text-6xl xl:text-8xl uppercase font-semibold relative">
+                    </motion.div>{languageText.SoftwareEngineer}</p>
+                <h1 className={` ${language === "ar" ? "mb-3" : ""} text-darktheme dark:text-theme text-5xl md:text-6xl xl:text-8xl uppercase font-semibold relative`}>
                     <motion.div
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    Mohamed Torky</h1>
+                    {languageText.MyName}</h1>
 
 
 
@@ -89,15 +90,12 @@ const Home = () => {
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    Results-oriented Software Engineer with a Bachelor’s degree in Computer Science and a strong front-end and full-stack development
-                    foundation. Proficient in MERN stack, Flutter, and modern web technologies, with hands-on experience crafting user-centric interfaces
-                    and innovative solutions. Skilled in Agile methodologies and proficient in Jira tools, seeking to leverage expertise in AI-driven web
-                    technologies to deliver scalable and impactful digital solutions.</p>
+                    {languageText.Profile}</p>
                 <div className='mt-5 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-center 2xl:justify-normal'>
                     <Link to="https://github.com/MdTorky" className="text-5xl "><Icon icon="mdi:github" className='homeIcons' /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-5xl "><Icon icon="mdi:linkedin" className='homeIcons' /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-5xl "><Icon icon="mdi:instagram" className='homeIcons' /></Link>
-                    <button onClick={handleDownload} className="text-2xl"><p className='homeIcons px-10 py-2 md:p-2 flex items-center gap-2'>Download CV <Icon icon="icon-park-outline:download-one" className="text-3xl" /></p></button>
+                    <button onClick={handleDownload} className="text-2xl"><p className='homeIcons px-10 py-2 md:p-2 flex items-center gap-2'>{languageText.DownloadCV} <Icon icon="icon-park-outline:download-one" className="text-3xl" /></p></button>
                 </div>
             </motion.div>
             <motion.div

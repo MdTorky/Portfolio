@@ -1,0 +1,29 @@
+{
+  "en": {
+    "PROJECTS": "PROJECTS",
+    "RESUME": "RESUME",
+    "SERVICES": "SERVICES",
+    "ABOUT": "ABOUT",
+
+    "SoftwareEngineer": "Software Engineer",
+    "MyName": "Mohamed Torky",
+    "Profile": "Results-oriented Software Engineer with a Bachelor’s degree in Computer Science and a strong front-end and full-stack development foundation. Proficient in MERN stack, Flutter, and modern web technologies, with hands-on experience crafting user-centric interfaces and innovative solutions. Skilled in Agile methodologies and proficient in Jira tools, seeking to leverage expertise in AI-driven web technologies to deliver scalable and impactful digital solutions.",
+    "DownloadCV": "Download CV",
+
+    "FindProjects": "Find All My Projects Here"
+  },
+
+  "ar": {
+    "PROJECTS": "المشاريع",
+    "RESUME": "السيرة الذاتية",
+    "SERVICES": "الخدمات",
+    "ABOUT": "نبذة عني",
+
+    "SoftwareEngineer": "مهندس برمجيات",
+    "MyName": "محمد تركي",
+    "Profile": "مهندس برمجيات موجه نحو النتائج وحاصل على درجة البكالوريوس في علوم الكمبيوتر وأساس قوي في تطوير الواجهة الأمامية والبرمجيات الكاملة. متمكن من مجموعة MERN وFlutter وتقنيات الويب الحديثة، مع خبرة عملية في صياغة واجهات تركز على المستخدم وحلول مبتكرة. ماهر في منهجيات Agile ومتمكن في أدوات Jira، ويسعى إلى الاستفادة من الخبرة في تقنيات الويب التي تعتمد على الذكاء الاصطناعي لتقديم حلول رقمية قابلة للتطوير وفعالة.",
+    "DownloadCV": "تنزيل السيرة الذاتية",
+
+    "FindProjects": "ابحث عن جميع مشاريعي هنا"
+  }
+}

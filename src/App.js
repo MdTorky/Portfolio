@@ -8,9 +8,14 @@ import Resume from './pages/resume';
 import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
+import { useLanguage } from './contexts/languageContext';
+import languageData from './data/language.json';
+
 
 function App() {
   const location = useLocation()
+  const { language, changeLanguage } = useLanguage();
+  const languageText = languageData[language];
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');
@@ -24,13 +29,18 @@ function App() {
     setDarkMode(!darkMode)
   }
 
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'ar' : 'en';
+    changeLanguage(newLanguage);
+  };
+
   return (
-    <div className={`${darkMode && "dark"} bg-theme dark:bg-darktheme min-h-screen`}>
+    <div className={`${darkMode && "dark"} bg-theme dark:bg-darktheme min-h-screen ${language === 'ar' ? "arabic" : ""}`}>
       <AnimatePresence>
-        <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} toggleLanguage={toggleLanguage} language={language} languageText={languageText} />
         <Routes location={location} key={location.key}>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route exact path="/" element={<Home language={language} languageText={languageText} />} />
+          <Route path="/projects" element={<Projects languageText={languageText} language={language} />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />

@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap");
+
 * {
   font-family: "Oswald", sans-serif;
+  /* font-family: 'Noto Kufi Arabic', sans-serif; */
+}
+
+.arabic * {
+  /* font-family: "Noto Kufi Arabic", sans-serif; */
+  font-family: "Beiruti", sans-serif;
+  font-weight: 900;
+  direction: rtl;
 }
 
 :root {
@@ -78,6 +89,10 @@ p {
 
 .tabStyle {
   @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex  items-center justify-center gap-3;
+}
+
+.miniTabStyle {
+  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-700 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-500 dark:bg-gray-500 text-theme md:w-[100px] xl:w-52 flex  items-center justify-center;
 }
 
 .tabStyleActive {

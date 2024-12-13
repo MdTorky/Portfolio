@@ -46,7 +46,7 @@
     {
       "id": 4,
       "name": "Custom Banners",
-      "description": " Design high-quality banners for events, advertising, or branding purposes in various sizes (digital or printable).",
+      "description": "Design high-quality banners for events, advertising, or branding purposes in various sizes (digital or printable).",
       "icon": "material-symbols:planner-banner-ad-pt",
       "price": "$50",
       "link": ""
@@ -70,7 +70,7 @@
     {
       "id": 7,
       "name": "Presentation Design",
-      "description": " Craft visually stunning and professional PowerPoint or Canva presentations for pitches, conferences, and seminars.",
+      "description": "Craft visually stunning and professional PowerPoint or Canva presentations for pitches, conferences, and seminars.",
       "icon": "icon-park-outline:slide",
       "price": "$100",
       "link": ""

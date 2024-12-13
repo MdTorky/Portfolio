@@ -5,6 +5,7 @@ import { button } from '@material-tailwind/react';
 import LogoDesign from '../components/LogoDesign';
 import servicesData from '../data/services.json'
 import Posters from '../components/Posters';
+import SquareSocialMedia from '../components/SquareSocialMedia';
 
 var graphic = servicesData.graphic
 
@@ -129,6 +130,18 @@ const Gallery = () => {
         )
     }
 
+
+    const MiniTabButton = (values, text, icon,) => {
+        return (
+            <motion.button
+                // variants={titleVariant2}
+                onClick={() => setGallery(values)} className={`${gallery === values ? "tabStyleActive" : ""} miniTabStyle relative`}>
+                <Icon icon={icon} />
+                <p className="xl:flex hidden">{text}</p>
+            </motion.button>
+        )
+    }
+
     return (
         <motion.div
             variants={mainVariant}
@@ -143,7 +156,7 @@ const Gallery = () => {
                     className='transitions xl:hidden dark:text-theme w-full p-5 dark:bg-gray-800 bg-gray-200 h-52 flex items-center justify-center mb-10'>
                     <motion.h1
                         variants={titleVariant2}
-                        className='text-4xl text-center md:text-6xl font-normal'>My Work </motion.h1>
+                        className='text-5xl text-center md:text-6xl font-semibold text-darktheme dark:text-theme'>My Work </motion.h1>
                 </div>
                 <h1 className=' hidden xl:flex text-6xl text-darktheme dark:text-theme font-normal mb-10 relative'>
                     <motion.div
@@ -151,11 +164,23 @@ const Gallery = () => {
                         className="title">
                     </motion.div>
                     My Work</h1>
-                <div className="flex xl:flex-col   justify-evenly xl:gap-4 text-xl xl:items-normal items-center">
+                <div className="flex xl:flex-col justify-around xl:gap-4 gap-3 text-xl xl:items-normal items-end flex-wrap">
 
-                    {graphic.map((service) => (
+                    {/* {graphic.map((service) => (
                         TabButton(service.id, service.name, service.icon)
-                    ))}
+                    ))} */}
+
+                    {TabButton(1, "Logo Design", "carbon:logo-react")}
+                    {TabButton(2, "Poster and Event Design", "fluent:image-border-28-regular")}
+                    {gallery !== 3.1 && gallery !== 3.2 && gallery !== 3.3 && TabButton(3, "Social Media Content Creation", "mdi:instagram")}
+
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.1, "Square Posters", "tabler:square")}
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.2, "Stories", "material-symbols:web-stories-outline")}
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.3, "Instagram Grid", "ri:grid-fill")}
+                    {TabButton(4, "Custom Banners", "material-symbols:planner-banner-ad-pt")}
+                    {TabButton(5, "Business Cards and Flyers", "radix-icons:id-card")}
+                    {TabButton(6, "T-Shirt Design", "mdi:tshirt-crew")}
+                    {TabButton(7, "Presentation Design", "icon-park-outline:slide")}
                 </div>
 
             </div>
@@ -184,6 +209,20 @@ const Gallery = () => {
                     <Posters />
 
                 </motion.div>
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 3.1 ? "visible" : "hidden"}
+                    className={`${gallery != 3.1 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>Square Social Media Posters</h1>
+                    <SquareSocialMedia />
+
+                </motion.div>
+
+
+
             </div>
         </motion.div>
     );

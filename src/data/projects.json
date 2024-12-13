@@ -2,7 +2,9 @@
   {
     "id": 1,
     "name": "ISS Egypt Gateway",
-    "description": "Developed a comprehensive student portal using the MERN stack, featuring academic and social resources tailored to enhance student life.\n\n•Achieved significant adoption, with over 2,700 users since launch, reflecting its practical value to students.",
+    "arabicName": "موقع الاتحاد المصري",
+    "description": "•Developed a comprehensive student portal using the MERN stack, featuring academic and social resources tailored to enhance student life.\n• Achieved significant adoption, with over 2,700 users since launch, reflecting its practical value to students.",
+    "arabicDescription": "• تم تطوير بوابة طلابية شاملة باستخدام مجموعة أدوات MERN، والذي يتميز بالموارد الأكاديمية والاجتماعية المصممة خصيصًا لتعزيز الحياة الطلابية.\n• حقق اعتمادًا كبيرًا، مع أكثر من 2700 مستخدم منذ الإطلاق، مما يعكس قيمتها العملية للطلاب.",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722882859/Portfolio/ISS_EGYPT_dxc40z.png",
     "technology": "MERN STACK",
     "liveDemo": "https://issegypt.vercel.app/",
@@ -12,7 +14,9 @@
   {
     "id": 2,
     "name": "Marketify",
-    "description": "A marketplace for students and faculty members inside the university's campus",
+    "arabicName": "ماركيتيفاي",
+    "description": "•Designed and built a marketplace website using the MERN stack to connect students and faculty within UTM’s campus and to foster engagement within the university community.\n•Implemented features such as multi-language support, secure payment methods, and personalized recommendations.",
+    "arabicDescription": "•تم تصميم وإنشاء موقع ويب للسوق باستخدام حزمة MERN لربط الطلاب وأعضاء هيئة التدريس داخل حرم جامعة UTM وتعزيز المشاركة داخل مجتمع الجامعة.\n•تم تنفيذ ميزات مثل الدعم متعدد اللغات وطرق الدفع الآمنة والتوصيات المخصصة.",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722883237/Portfolio/Marketify_er23tu.png",
     "technology": "MERN STACK",
     "liveDemo": "https://marketifyutm.vercel.app/",

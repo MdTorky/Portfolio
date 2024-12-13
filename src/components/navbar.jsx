@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { easeInOut, motion, MotionConfig } from "framer-motion";
 
-const Navbar = ({ toggleDarkMode, darkMode }) => {
+const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageText }) => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
@@ -75,8 +75,22 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
         hover: {
             scale: 1.2,
             boxShadow: darkMode
-                ? '0px 0px 08px 6px rgba(235,179,8,0.7)'
+                ? '0px 0px 08px 6px rgba(100 116 139,0.7)'
                 : '0px 0px 08px 6px rgba(82,92,235,0.7)',
+            transition: {
+                // type: "spring",
+                duration: 1,
+                delay: 0,
+            }
+        }
+    });
+
+    const languageVariant = (darkMode) => ({
+        hover: {
+            scale: 1.2,
+            boxShadow: darkMode
+                ? '0px 0px 08px 6px rgba(235,179,8,0.7)'
+                : '0px 0px 08px 6px rgba(226 232 240,0.7)',
             transition: {
                 // type: "spring",
                 duration: 1,
@@ -128,21 +142,31 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
                 }}
                 src={darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20 " /></Link>
             <div className="hidden md:flex text-2xl justify-between text-darktheme dark:text-theme gap-5 items-center">
-                <Link to="/projects" className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`}>PROJECTS</Link>
-                <Link to="/resume" className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`}>RESUME</Link>
-                <Link to="/services" className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`}>SERVICES</Link>
-                <Link to="/about" className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`}>ABOUT</Link>
+                <Link to="/projects" className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`}>{languageText.PROJECTS}</Link>
+                <Link to="/resume" className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`}>{languageText.RESUME}</Link>
+                <Link to="/services" className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`}>{languageText.SERVICES}</Link>
+                <Link to="/about" className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`}>{languageText.ABOUT}</Link>
                 <div className="bg-darktheme dark:bg-theme px-3 py-2 flex text-theme text-3xl items-center gap-1 rounded-md">
                     <Link to="https://github.com/MdTorky" className="navbar-hover-icons"><Icon icon="mdi:github" /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="navbar-hover-icons"><Icon icon="mdi:linkedin" /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="navbar-hover-icons"><Icon icon="mdi:instagram" /></Link>
                 </div>
 
-                <motion.button
-                    variants={darkVariant(darkMode)}
-                    whileHover="hover"
-                    className="bg-bluetheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 hover:text-darktheme"><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></motion.button>
 
+                <div className="flex gap-1">
+                    <motion.button
+                        variants={darkVariant(darkMode)}
+                        whileHover="hover"
+                        className="bg-bluetheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 hover:text-darktheme"><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} />
+                    </motion.button>
+
+                    <motion.button
+                        variants={languageVariant(darkMode)}
+                        whileHover="hover"
+                        // className="bg-darktheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 "><Icon icon={`${language == "en" ? "iconoir:ar-tag" : "icon-park-outline:english"}`} onClick={toggleLanguage} />
+                        className="bg-slate-500 dark:bg-slate-200 px-3 py-2 flex rounded-md dark:text-darktheme text-theme text-3xl items-center gap-1 "><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} />
+                    </motion.button>
+                </div>
             </div>
             {/* <div className="md:hidden flex items-center">
                 <button onClick={toggleMenu} className="focus:outline-none text-3xl text-darktheme dark:text-theme">
@@ -225,15 +249,16 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
                 <Link to="/" onClick={toggleMenu}><motion.img variants={itemVariants} src={!darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20" /></Link>
 
                 <Link to="/projects" onClick={toggleMenu}><motion.div className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`} variants={itemVariants}>
-                    PROJECTS</motion.div></Link>
-                <Link to="/resume" onClick={toggleMenu}><motion.div className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`} variants={itemVariants}>RESUME</motion.div></Link>
-                <Link to="/services" onClick={toggleMenu}><motion.div className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`} variants={itemVariants}>SERVICES</motion.div></Link>
-                <Link to="/about" onClick={toggleMenu}><motion.div className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`} variants={itemVariants}>ABOUT</motion.div></Link>
+                    {languageText.PROJECTS}</motion.div></Link>
+                <Link to="/resume" onClick={toggleMenu}><motion.div className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.RESUME}</motion.div></Link>
+                <Link to="/services" onClick={toggleMenu}><motion.div className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.SERVICES}</motion.div></Link>
+                <Link to="/about" onClick={toggleMenu}><motion.div className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.ABOUT}</motion.div></Link>
                 <motion.div variants={itemVariants} className="flex gap-3 py-2">
                     <Link to="https://github.com/MdTorky" className="text-2xl navbar-hover"><Icon icon="mdi:github" /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-2xl navbar-hover"><Icon icon="mdi:linkedin" /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-2xl navbar-hover"><Icon icon="mdi:instagram" /></Link>
                     <button className='text-2xl navbar-hover text-bluetheme dark:text-yellow-500 hover:text-theme dark:hover:text-darktheme'><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></button>
+                    <button className="dark:text-darktheme text-theme text-2xl hover:text-bluetheme"><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
                 </motion.div>
 
             </motion.div>

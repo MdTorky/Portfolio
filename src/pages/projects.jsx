@@ -4,7 +4,7 @@ import projectsData from '../data/projects.json'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom'
 
-const Projects = () => {
+const Projects = ({ languageText, language }) => {
 
 
 
@@ -115,8 +115,8 @@ const Projects = () => {
                         <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>
                     </div>
                 </div>
-                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions'>{project.name}</h2>
-                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions'>{project.description}</p>
+                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions'>{language == "ar" ? project.arabicName : project.name}</h2>
+                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions whitespace-pre-wrap'>{language == "ar" ? project.arabicDescription : project.description}</p>
 
                 <Link to={project.websiteLink} >
                     {/* <motion.div
@@ -163,7 +163,7 @@ const Projects = () => {
                 className='transitions dark:text-theme w-full p-5 md:p-20 md:px-52 dark:bg-gray-800 bg-gray-200 h-52 md:h-96 flex items-center justify-center md:justify-normal'>
                 <motion.h1
                     variants={childVariant}
-                    className='text-4xl text-center md:text-6xl font-normal'>Find All My Projects Here </motion.h1>
+                    className='text-4xl text-center md:text-6xl font-normal'>{languageText.FindProjects} </motion.h1>
             </div>
 
 
