@@ -10,7 +10,48 @@
     "Profile": "Results-oriented Software Engineer with a Bachelor’s degree in Computer Science and a strong front-end and full-stack development foundation. Proficient in MERN stack, Flutter, and modern web technologies, with hands-on experience crafting user-centric interfaces and innovative solutions. Skilled in Agile methodologies and proficient in Jira tools, seeking to leverage expertise in AI-driven web technologies to deliver scalable and impactful digital solutions.",
     "DownloadCV": "Download CV",
 
-    "FindProjects": "Find All My Projects Here"
+    "FindProjects": "Find All My Projects Here",
+
+    "MyResume": "My Resume",
+    "MyExperience": "My Experiences",
+    "MyEducation": "My Education",
+    "MyActivities": "My Activities",
+    "MyAwards": "My Awards",
+    "MySkills": "My Skills",
+    "MyLanguages": "My Languages",
+
+    "Experience": "Experience",
+    "Education": "Education",
+    "Activities": "Extra-Curricular Activities",
+    "Awards": "Awards",
+    "Skills": "Skills",
+    "Languages": "Languages",
+
+    "AwardLink": "Award Link",
+    "SocialLink": "Social Link",
+
+    "AllServices": "All of my Services",
+    "WebBased": "Web-Based Services",
+    "GraphicBased": "Graphic Design Services",
+    "Examples": "Examples",
+
+    "MyWork": "My Work",
+    "LogoDesign": "Logo Design",
+    "PosterDesign": "Poster and Event Design",
+    "SocialMedia": "Social Media Content Creation",
+    "CustomBanners": "Custom Banners",
+    "BusinessCard": "Business Cards and Flyers",
+    "TShirtDesign": "T-Shirt Design",
+    "PresentationDesign": "Presentation Design",
+    "SquarePosters": "Square Posters",
+    "Stories": "Stories",
+    "InstagramGrid": "Instagram Grid",
+    "Posters": "Posters",
+    "SquareSocialMediaPosters": "Square Posters For Social Media",
+
+    "About": "About",
+    "WhereStarted": "Where it all started",
+    "ContactMe": "Contact Me"
   },
 
   "ar": {
@@ -24,6 +65,47 @@
     "Profile": "مهندس برمجيات موجه نحو النتائج وحاصل على درجة البكالوريوس في علوم الكمبيوتر وأساس قوي في تطوير الواجهة الأمامية والبرمجيات الكاملة. متمكن من مجموعة MERN وFlutter وتقنيات الويب الحديثة، مع خبرة عملية في صياغة واجهات تركز على المستخدم وحلول مبتكرة. ماهر في منهجيات Agile ومتمكن في أدوات Jira، ويسعى إلى الاستفادة من الخبرة في تقنيات الويب التي تعتمد على الذكاء الاصطناعي لتقديم حلول رقمية قابلة للتطوير وفعالة.",
     "DownloadCV": "تنزيل السيرة الذاتية",
 
-    "FindProjects": "ابحث عن جميع مشاريعي هنا"
+    "FindProjects": "ابحث عن جميع مشاريعي هنا",
+
+    "MyResume": "سيرتي الذاتية",
+    "MyExperience": "خبراتي المهنية",
+    "MyEducation": "التعليم الخاص بي",
+    "MyActivities": "الأنشطة الخاصة بي",
+    "MyAwards": "الجوائز الخاصة بي",
+    "MySkills": "المهارات الخاصة بي",
+    "MyLanguages": "اللغات الخاصة بي",
+
+    "Experience": "الخبرة المهنية",
+    "Education": "التعليم",
+    "Activities": "الأنشطة اللامنهجية",
+    "Awards": "الجوائز",
+    "Skills": "المهارات",
+    "Languages": "اللغات",
+
+    "AwardLink": "رابط الجائزة",
+    "SocialLink": "الرابط الاجتماعي",
+
+    "AllServices": "جميع خدماتي",
+    "WebBased": "الخدمات المستندة إلى الويب",
+    "GraphicBased": "خدمات التصميم الجرافيكي",
+    "Examples": "أمثلة",
+
+    "MyWork": "أعمالي",
+    "LogoDesign": "تصميم شعار",
+    "PosterDesign": "تصميم الملصقات والفعاليات",
+    "SocialMedia": "إنشاء محتوى وسائل التواصل الاجتماعي",
+    "CustomBanners": "الرايات المخصصة",
+    "BusinessCard": "بطاقات العمل والنشرات",
+    "TShirtDesign": "تصميم تي شيرت",
+    "PresentationDesign": "تصميم العرض التقديمي",
+    "SquarePosters": "ملصقات مربعة",
+    "Stories": "ستوريز",
+    "InstagramGrid": "شكل مكمل انستغرام",
+    "Posters": "الملصقات",
+    "SquareSocialMediaPosters": "ملصقات مربعة لوسائل التواصل الاجتماعي",
+
+    "About": "نبذة عني",
+    "WhereStarted": "أين بدأ كل شيء",
+    "ContactMe": "تواصل معي"
   }
 }

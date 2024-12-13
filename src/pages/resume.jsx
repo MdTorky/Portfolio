@@ -9,7 +9,7 @@ import Awards from '../components/Awards';
 import Skills from '../components/Skills';
 import Languages from '../components/Languages';
 
-const Resume = () => {
+const Resume = ({ language, languageText }) => {
 
     const [value, setValue] = useState(() => {
         const savedValue = localStorage.getItem('resumeValue')
@@ -208,23 +208,23 @@ const Resume = () => {
                     className='transitions xl:hidden dark:text-theme w-full p-5 dark:bg-gray-800 bg-gray-200 h-52 flex items-center justify-center mb-10'>
                     <motion.h1
                         variants={titleVariant2}
-                        className='text-4xl text-center md:text-6xl font-normal'>My Resume </motion.h1>
+                        className='text-4xl text-center md:text-6xl font-normal'>{languageText.MyResume} </motion.h1>
                 </div>
                 <h1 className=' hidden xl:flex text-6xl text-darktheme dark:text-theme font-light mb-10 relative'>
                     <motion.div
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    My Resume</h1>
+                    {languageText.MyResume}</h1>
                 <div className="flex xl:flex-col   justify-evenly xl:gap-4 text-xl xl:items-normal items-center">
 
 
-                    {TabButton(1, "Experience", "ic:baseline-work")}
-                    {TabButton(2, "Education", "fluent:hat-graduation-16-filled")}
-                    {TabButton(3, "Extra-Curricular Activities", "mdi:charity")}
-                    {TabButton(4, "Awards", "flowbite:award-outline")}
-                    {TabButton(5, "Skills", "mage:star-fill")}
-                    {TabButton(6, "Languages", "hugeicons:language-skill")}
+                    {TabButton(1, languageText.Experience, "ic:baseline-work")}
+                    {TabButton(2, languageText.Education, "fluent:hat-graduation-16-filled")}
+                    {TabButton(3, languageText.Activities, "mdi:charity")}
+                    {TabButton(4, languageText.Awards, "flowbite:award-outline")}
+                    {TabButton(5, languageText.Skills, "mage:star-fill")}
+                    {TabButton(6, languageText.Languages, "hugeicons:language-skill")}
 
                 </div>
 
@@ -239,8 +239,8 @@ const Resume = () => {
                     animate={value === 1 ? "visible" : "hidden"}
                     className={`${value != 1 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Experience</h1>
-                    <Experience />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyExperience}</h1>
+                    <Experience languageText={languageText} language={language} />
 
                 </motion.div>
 
@@ -251,8 +251,8 @@ const Resume = () => {
                     className={`${value != 2 ? "hidden" : "resumeContainer"}`}
 
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Education</h1>
-                    <Education />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyEducation}</h1>
+                    <Education languageText={languageText} language={language} />
                 </motion.div>
 
                 <motion.div
@@ -261,8 +261,8 @@ const Resume = () => {
                     animate={value === 3 ? "visible" : "hidden"}
                     className={`${value != 3 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Activities</h1>
-                    <Activities />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyActivities}</h1>
+                    <Activities languageText={languageText} language={language} />
                 </motion.div>
 
                 <motion.div
@@ -271,8 +271,8 @@ const Resume = () => {
                     animate={value === 4 ? "visible" : "hidden"}
                     className={`${value != 4 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Awards</h1>
-                    <Awards />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyAwards}</h1>
+                    <Awards languageText={languageText} language={language} />
                 </motion.div>
 
                 <motion.div
@@ -281,8 +281,8 @@ const Resume = () => {
                     animate={value === 5 ? "visible" : "hidden"}
                     className={`${value != 5 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Skills</h1>
-                    <Skills />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MySkills}</h1>
+                    <Skills languageText={languageText} language={language} />
                 </motion.div>
 
                 <motion.div
@@ -291,8 +291,8 @@ const Resume = () => {
                     animate={value === 6 ? "visible" : "hidden"}
                     className={`${value != 6 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>My Languages</h1>
-                    <Languages />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyLanguages}</h1>
+                    <Languages languageText={languageText} language={language} />
                 </motion.div>
 
             </div>

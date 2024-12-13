@@ -3,13 +3,11 @@ import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
 import { button } from '@material-tailwind/react';
 import LogoDesign from '../components/LogoDesign';
-import servicesData from '../data/services.json'
 import Posters from '../components/Posters';
 import SquareSocialMedia from '../components/SquareSocialMedia';
 
-var graphic = servicesData.graphic
 
-const Gallery = () => {
+const Gallery = ({ language, languageText }) => {
 
     const [gallery, setGallery] = useState(() => {
         const savedValue = localStorage.getItem('galleryValue')
@@ -156,31 +154,31 @@ const Gallery = () => {
                     className='transitions xl:hidden dark:text-theme w-full p-5 dark:bg-gray-800 bg-gray-200 h-52 flex items-center justify-center mb-10'>
                     <motion.h1
                         variants={titleVariant2}
-                        className='text-5xl text-center md:text-6xl font-semibold text-darktheme dark:text-theme'>My Work </motion.h1>
+                        className='text-5xl text-center md:text-6xl font-semibold text-darktheme dark:text-theme'>{languageText.MyWork} </motion.h1>
                 </div>
                 <h1 className=' hidden xl:flex text-6xl text-darktheme dark:text-theme font-normal mb-10 relative'>
                     <motion.div
                         variants={titleVariant}
                         className="title">
                     </motion.div>
-                    My Work</h1>
+                    {languageText.MyWork}</h1>
                 <div className="flex xl:flex-col justify-around xl:gap-4 gap-3 text-xl xl:items-normal items-end flex-wrap">
 
                     {/* {graphic.map((service) => (
                         TabButton(service.id, service.name, service.icon)
                     ))} */}
 
-                    {TabButton(1, "Logo Design", "carbon:logo-react")}
-                    {TabButton(2, "Poster and Event Design", "fluent:image-border-28-regular")}
-                    {gallery !== 3.1 && gallery !== 3.2 && gallery !== 3.3 && TabButton(3, "Social Media Content Creation", "mdi:instagram")}
+                    {TabButton(1, languageText.LogoDesign, "carbon:logo-react")}
+                    {TabButton(2, languageText.PosterDesign, "fluent:image-border-28-regular")}
+                    {gallery !== 3.1 && gallery !== 3.2 && gallery !== 3.3 && TabButton(3, languageText.SocialMedia, "mdi:instagram")}
 
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.1, "Square Posters", "tabler:square")}
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.2, "Stories", "material-symbols:web-stories-outline")}
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.3, "Instagram Grid", "ri:grid-fill")}
-                    {TabButton(4, "Custom Banners", "material-symbols:planner-banner-ad-pt")}
-                    {TabButton(5, "Business Cards and Flyers", "radix-icons:id-card")}
-                    {TabButton(6, "T-Shirt Design", "mdi:tshirt-crew")}
-                    {TabButton(7, "Presentation Design", "icon-park-outline:slide")}
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.1, languageText.SquarePosters, "tabler:square")}
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.2, languageText.Stories, "material-symbols:web-stories-outline")}
+                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.3, languageText.InstagramGrid, "ri:grid-fill")}
+                    {TabButton(4, languageText.CustomBanners, "material-symbols:planner-banner-ad-pt")}
+                    {TabButton(5, languageText.BusinessCard, "radix-icons:id-card")}
+                    {TabButton(6, languageText.TShirtDesign, "mdi:tshirt-crew")}
+                    {TabButton(7, languageText.PresentationDesign, "icon-park-outline:slide")}
                 </div>
 
             </div>
@@ -194,8 +192,8 @@ const Gallery = () => {
                     animate={gallery === 1 ? "visible" : "hidden"}
                     className={`${gallery != 1 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>Logo Designs</h1>
-                    <LogoDesign />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.LogoDesign}</h1>
+                    <LogoDesign languageText={languageText} language={language} />
 
                 </motion.div>
                 <motion.div
@@ -205,8 +203,8 @@ const Gallery = () => {
                     animate={gallery === 2 ? "visible" : "hidden"}
                     className={`${gallery != 2 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>Posters</h1>
-                    <Posters />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.Posters}</h1>
+                    <Posters languageText={languageText} language={language} />
 
                 </motion.div>
                 <motion.div
@@ -216,8 +214,8 @@ const Gallery = () => {
                     animate={gallery === 3.1 ? "visible" : "hidden"}
                     className={`${gallery != 3.1 ? "hidden" : "resumeContainer"}`}
                 >
-                    <h1 className='transitions text-4xl dark:text-theme'>Square Social Media Posters</h1>
-                    <SquareSocialMedia />
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.SquareSocialMediaPosters}</h1>
+                    <SquareSocialMedia languageText={languageText} language={language} />
 
                 </motion.div>
 

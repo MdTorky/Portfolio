@@ -9,7 +9,7 @@ import timelineData from '../data/timeLineData.json'
 import { Link, useLocation } from 'react-router-dom';
 
 
-const About = () => {
+const About = ({ language, languageText }) => {
 
     const mainVariant = {
         hidden: {
@@ -163,10 +163,10 @@ const About = () => {
                             />
                         </div>
                         <div className='py-[20px] px-[30px] relative bg-bluetheme text-theme rounded-md text-xl'>
-                            <h2 className="text-2xl xl:text-3xl">{item.title}</h2>
-                            <small className="text-sm xl:text-md text-gray-300">{item.date}</small>
+                            <h2 className="text-2xl xl:text-3xl">{language === 'ar' ? item.arabicTitle : item.title}</h2>
+                            <small className="text-sm xl:text-md text-gray-300">{language === 'ar' ? item.arabicDate : item.date}</small>
                             {/* <p className="text-xs xl:text-sm text-justify ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, voluptas. Reprehenderit commodi ab non quaerat odio? Consequatur facilis ipsa quibusdam.</p> */}
-                            <p className="text-xs xl:text-sm text-justify ">{item.description}</p>
+                            <p className="text-xs xl:text-sm text-justify ">{language === 'ar' ? item.arabicDescription : item.description}</p>
                             {index % 2 === 0 ?
                                 <span className=' absolute top-[20px] xl:left-[377px] -left-[25px]  text-5xl text-bluetheme'><Icon icon="eva:arrow-right-fill" className='hidden xl:flex' /><Icon icon="eva:arrow-left-fill" className='xl:hidden flex' /></span>
                                 :
@@ -205,9 +205,9 @@ const About = () => {
                 <motion.div
                     variants={childVariant}
                     className="flex flex-col xl:m-0 m-auto">
-                    <h1 className='text-5xl  xl:text-start text-center md:text-8xl font-normal z-10'>About</h1>
-                    <p className='text-3xl md:text-5xl'>Where it all started</p>
-                    <p className='flex mt-5 justify-center text-2xl bg-bluetheme px-2 w-[225px] rounded-md text-theme uppercase '>Contact Me</p>
+                    <h1 className='text-5xl  xl:text-start text-center md:text-8xl font-normal z-10'>{languageText.About}</h1>
+                    <p className='text-3xl md:text-5xl'>{languageText.WhereStarted}</p>
+                    <p className='flex mt-5 justify-center text-2xl bg-bluetheme px-2 w-[225px] rounded-md text-theme uppercase '>{languageText.ContactMe}</p>
                     <div className='mt-2 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-start'>
                         <Link to="mailto:mohamed2003torky@gmail.com" target="_blank" className="text-5xl "><Icon icon="mdi:email" className='homeIcons' /></Link>
                         <Link to="http://wa.me/201554206775" target="_blank" className="text-5xl "><Icon icon="ph:phone-fill" className='homeIcons' /></Link>

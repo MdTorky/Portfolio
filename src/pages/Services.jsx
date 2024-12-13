@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 var web = servicesData.web
 var graphic = servicesData.graphic
-const Services = () => {
+const Services = ({ language, languageText }) => {
 
     const mainVariant = {
         hidden: {
@@ -84,8 +84,8 @@ const Services = () => {
                         <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>
                     </div>
                 </div> */}
-                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions mt-14 text-center uppercase'>{service.name}</h2>
-                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions mb-10 text-center'>{service.description}</p>
+                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions mt-14 text-center uppercase'>{language == "en" ? service.name : service.arabicName}</h2>
+                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions mb-10 text-center'>{language == "en" ? service.description : service.arabicDescription}</p>
 
                 <Link to={service.link} className=''>
                     <motion.div
@@ -111,7 +111,7 @@ const Services = () => {
                         }}
                         className=' p-2 px-4 font-normal uppercase transitions bg-darktheme dark:bg-theme text-xl text-theme dark:text-darktheme rounded-b-md text-center w-full -bottom-2 left-0 absolute m-auto'
                     >
-                        Examples
+                        {languageText.Examples}
 
                     </motion.div>
                 </Link>
@@ -133,13 +133,13 @@ const Services = () => {
                 className='transitions dark:text-theme w-full p-5 md:p-20 md:px-52 dark:bg-gray-800 bg-gray-200 h-52 md:h-96 flex items-center justify-center md:justify-normal'>
                 <motion.h1
                     variants={childVariant}
-                    className='text-4xl text-center md:text-6xl font-bold'>All of my Services</motion.h1>
+                    className='text-4xl text-center md:text-6xl font-bold'>{languageText.AllServices}</motion.h1>
             </div>
 
             <motion.h1
                 variants={projectVariant}
                 className='bg-darktheme dark:bg-theme text-theme dark:text-darktheme w-80 my-4 p-2 text-center text-3xl rounded-md'
-            >Web-Based Services
+            >{languageText.WebBased}
             </motion.h1>
             <motion.div
 
@@ -157,7 +157,7 @@ const Services = () => {
             <motion.h1
                 variants={projectVariant}
                 className='bg-bluetheme dark:bg-bluetheme text-theme w-80 my-4 p-2 text-center text-3xl rounded-md'
-            >Graphic Design Services
+            >{languageText.GraphicBased}
             </motion.h1>
             <motion.div
 

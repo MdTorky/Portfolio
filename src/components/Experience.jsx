@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
-const Experience = () => {
+const Experience = ({ language }) => {
 
 
     const [selected, setSelected] = useState(null);
@@ -17,19 +17,25 @@ const Experience = () => {
         {
             id: 1,
             date: 'Sep 2023 - Feb 2024',
+            arabicDate: 'سبتمبر 2023 - فبراير 2024',
             title: 'Software Engineer Internship',
+            arabicTitle: 'التدريب العملي لمهندس البرمجيات',
             company: 'Mirco Semiconductor Sdn Bhd.',
             icon: 'streamline:office-worker-solid',
-            description: 'As a tester for the "DialysisManager" project and a designer on the "OnlyCars" project, I ensured high performance and functionality met standards. Additionally, I developed a CV generator for GitMeHired using Laravel, focusing on security, testing, optimization, and documentation, showcasing proficiency in software engineering.',
+            description: '•Conducted functional and performance testing for the "DialysisManager" project, achieving a 30% reduction in load times through meticulous debugging and optimization.\n•Designed and implemented the front-end architecture for the "OnlyCars" project, ensuring high quality standards and smooth user experiences.\n•Developed a secure and efficient CV generator tool for GitMeHired using Laravel, integrating robust features such as testing, optimization, and comprehensive documentation.\n•Gained practical experience in full-stack development while adhering to Agile workflows and maintaining high performance in deliverables.',
+            arabicDescription: '•إجراء اختبارات وظيفية وأداء لمشروع "DialysisManager"، مما أدى إلى تقليل أوقات التحميل بنسبة 30% من خلال تصحيح الأخطاء والتحسين الدقيق.\n•تصميم وتنفيذ بنية الواجهة الأمامية لمشروع "OnlyCars"، مما يضمن معايير الجودة العالية و تجارب مستخدم سلسة.\n•تم تطوير أداة آمنة وفعالة لإنشاء السيرة الذاتية لـ GitMeHired باستخدام Laravel، ودمج الميزات القوية مثل الاختبار والتحسين والشاملة التوثيق.\n•اكتسبت خبرة عملية في التطوير الكامل مع الالتزام بسير العمل Agile والحفاظ على الأداء العالي في التسليمات.',
             img: "https://mymagic-central.s3.amazonaws.com/uploads/organization/thumbnail/dbdcfb1a61a2dd8ec146e17304251b5e2d5be796.adaptiveResize.320x320.png"
         },
         {
             id: 2,
             date: 'Jan 2023 - Sep 2023',
+            arabicDate: 'يناير 2023 - سبتمبر 2023',
             title: 'Front-End Developer',
+            arabicTitle: 'مطور الواجهة الأمامية',
             company: 'IntelliRent',
             icon: 'carbon:user-activity',
-            description: 'As a Front-End Developer, I worked with club members on a project for managing rental properties in Malaysia to improve and make the UI more user-friendly.',
+            description: '•Collaborated with team members to enhance the user interface of a rental property management system tailored for the Malaysian market.\n•Optimized UI/UX to ensure seamless navigation, increasing user satisfaction through intuitive design and responsiveness by 42%.\n•Utilized modern front-end technologies to deliver scalable and visually appealing web solutions.',
+            arabicDescription: '• تعاونت مع أعضاء الفريق لتحسين واجهة المستخدم لنظام إدارة العقارات الإيجارية المصمم خصيصًا للسوق الماليزية.\n• تحسين واجهة المستخدم وتجربة المستخدم لضمان التنقل السلس، وزيادة رضا المستخدم من خلال التصميم البديهي والاستجابة بنسبة 42٪.\n• استخدام تقنيات الواجهة الأمامية الحديثة لتقديم حلول ويب قابلة للتطوير وجذابة بصريًا.',
             img: "https://media.licdn.com/dms/image/D560BAQHa0PovtJRZKA/company-logo_200_200/0/1683204563613?e=2147483647&v=beta&t=9Qi09aalFBn8XPyhKMnfzzy0kQtVl-OFWUs-t3RCQGs"
 
         }
@@ -95,9 +101,9 @@ const Experience = () => {
                         <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
                             <Icon icon={exp.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
                         </div>
-                        <p className='text-bluetheme'>{exp.date}</p>
+                        <p className='text-bluetheme'>{language === 'ar' ? exp.arabicDate : exp.date}</p>
                     </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{exp.title}</h1>
+                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'ar' ? exp.arabicTitle : exp.title}</h1>
                     <div className='flex justify-end mt-5 items-center gap-2'>
                         <p className='text-bluetheme text-lg'>•</p>
                         <p className='text-gray-500 text-lg'>{exp.company}</p>
@@ -145,12 +151,12 @@ const Experience = () => {
                                 <img src={selected.img} alt="" className='rounded-md w-[200px]' />
                             </div>
                             <div className='flex justify-between -mb-2'>
-                                <h1 className='xl:text-2xl text-xl dark:text-theme'>{selected.title}</h1>
-                                <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{selected.date}</p>
+                                <h1 className='xl:text-2xl text-xl dark:text-theme'>{language === 'ar' ? selected.arabicTitle : selected.title}</h1>
+                                <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{language === 'ar' ? selected.arabicDate : selected.date}</p>
 
                             </div>
                             <p className='text-bluetheme text-start'>{selected.company}</p>
-                            <p className='mt-4 dark:text-theme text-justify '>{selected.description}</p>
+                            <p className='mt-4 dark:text-theme text-justify whitespace-pre-wrap'>{language === 'ar' ? selected.arabicDescription : selected.description}</p>
                         </motion.div>
                     </motion.div>
 

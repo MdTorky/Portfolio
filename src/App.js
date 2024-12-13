@@ -41,10 +41,10 @@ function App() {
         <Routes location={location} key={location.key}>
           <Route exact path="/" element={<Home language={language} languageText={languageText} />} />
           <Route path="/projects" element={<Projects languageText={languageText} language={language} />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/resume" element={<Resume languageText={languageText} language={language} />} />
+          <Route path="/about" element={<About languageText={languageText} language={language} />} />
+          <Route path="/services" element={<Services languageText={languageText} language={language} />} />
+          <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
         </Routes>
 
       </AnimatePresence>

@@ -258,7 +258,7 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-2xl navbar-hover"><Icon icon="mdi:linkedin" /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-2xl navbar-hover"><Icon icon="mdi:instagram" /></Link>
                     <button className='text-2xl navbar-hover text-bluetheme dark:text-yellow-500 hover:text-theme dark:hover:text-darktheme'><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></button>
-                    <button className="dark:text-darktheme text-theme text-2xl hover:text-bluetheme"><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
+                    <button className="text-darktheme p-2 bg-theme rounded-md dark:text-theme dark:bg-darktheme text-2xl hover:text-bluetheme"><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
                 </motion.div>
 
             </motion.div>

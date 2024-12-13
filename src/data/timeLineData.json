@@ -1,44 +1,62 @@
 [
   {
     "date": "Jan 2020",
+    "arabicDate": "يناير 2020",
     "title": "Passed the SAT Test",
+    "arabicTitle": "لقد نجحت في اختبار SAT",
     "location": "",
     "description": "In January 2020, I received my SAT results, which were 1580 out of 1600. I received 800 in math and 780 in English.",
+    "arabicDescription": "في يناير 2020، حصلت على نتائج اختبار SAT، والتي كانت 1580 من 1600. حصلت على 800 في الرياضيات و780 في اللغة الإنجليزية.",
     "icon": "healthicons:i-exam-multiple-choice"
   },
   {
     "date": "May 2020",
+    "arabicDate": "مايو 2020",
     "title": "Graduated High School",
+    "arabicTitle": "تخرجت من المدرسة الثانوية",
     "location": "",
     "description": "I completed high school with a GPA of 4 out of 4.",
+    "arabicDescription": "لقد أنهيت دراستي الثانوية بمعدل تراكمي 4 من 4",
     "icon": "lucide:school"
   },
   {
     "date": "Oct 2020",
+    "arabicDate": "أكتوبر 2020",
     "title": "Enrolled in College",
+    "arabicTitle": "التحقت بالكلية",
     "location": "",
-    "description": "In October 2020, I got admitted to study computer science focusing in Software Engineering at Universiti Teknologi Malaysia.",
+    "description": "In October 2020, I was admitted to study computer science focusing on Software Engineering at Universiti Teknologi Malaysia.",
+    "arabicDescription": "في أكتوبر 2020، تم قبولي لدراسة علوم الكمبيوتر مع التركيز على هندسة البرمجيات في جامعة تكنولوجيا ماليزيا.",
     "icon": "hugeicons:university"
   },
   {
-    "date": "Jun 2023",
+    "date": "June 2023",
+    "arabicDate": "يونيو 2023",
     "title": "Won my First Hackathon",
+    "arabicTitle": "لقد فزت بأول هاكاثون لي",
     "location": "",
     "description": "Participated in and won first place in the renowned Microsoft APAC AI Hackathon.",
+    "arabicDescription": "شاركت وحصلت على المركز الأول في مسابقة Microsoft APAC AI Hackathon الشهيرة.",
     "icon": "mdi:microsoft"
   },
   {
     "date": "Sept 2023",
+    "arabicDate": "سبتمبر 2023",
     "title": "Landed my First Internship",
+    "arabicTitle": "حصلت على أول تدريب عملي",
     "location": "",
     "description": "In September 2023, I entered the industrial field as an intern with Micro semiconductor Sdn Bhd., where I learned a lot about how the industries work.",
+    "arabicDescription": "في سبتمبر 2023، دخلت المجال الصناعي كمتدرب في شركة Micro Semiconductor Sdn Bhd.، حيث تعلمت الكثير عن كيفية عمل الصناعات.",
     "icon": "material-symbols:work"
   },
   {
-    "date": "Jul 2024",
+    "date": "Nov 2024",
+    "arabicDate": "نوفمبر 2024",
     "title": "Graduated University",
+    "arabicTitle": "تخرجت من الجامعة",
     "location": "",
-    "description": "In July 2024, I finally graduated from university with a GPA of 3.79 out of 4.",
+    "description": "In November 2024, I finally graduated from university with a GPA of 3.79 out of 4.",
+    "arabicDescription": "في نوفمبر 2024، تخرجت أخيرًا من الجامعة بمعدل تراكمي 3.79 من 4.",
     "icon": "ri:graduation-cap-fill"
   }
 ]

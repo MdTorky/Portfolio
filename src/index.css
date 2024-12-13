@@ -92,7 +92,7 @@ p {
 }
 
 .miniTabStyle {
-  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-700 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-500 dark:bg-gray-500 text-theme md:w-[100px] xl:w-52 flex  items-center justify-center;
+  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-700 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-500 dark:bg-gray-500 text-theme md:w-[100px] xl:w-52 flex  items-center justify-center gap-3;
 }
 
 .tabStyleActive {
