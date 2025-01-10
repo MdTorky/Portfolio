@@ -3,7 +3,7 @@
     "PROJECTS": "PROJECTS",
     "RESUME": "RESUME",
     "SERVICES": "SERVICES",
-    "ABOUT": "ABOUT",
+    "ABOUT": "About",
 
     "SoftwareEngineer": "Software Engineer",
     "MyName": "Mohamed Torky",
@@ -33,6 +33,7 @@
     "AllServices": "All of my Services",
     "WebBased": "Web-Based Services",
     "GraphicBased": "Graphic Design Services",
+    "ContentBased": "Content and Copywriting Services",
     "Examples": "Examples",
 
     "MyWork": "My Work",
@@ -49,7 +50,6 @@
     "Posters": "Posters",
     "SquareSocialMediaPosters": "Square Posters For Social Media",
 
-    "About": "About",
     "WhereStarted": "Where it all started",
     "ContactMe": "Contact Me"
   },
@@ -62,18 +62,18 @@
 
     "SoftwareEngineer": "مهندس برمجيات",
     "MyName": "محمد تركي",
-    "Profile": "مهندس برمجيات موجه نحو النتائج وحاصل على درجة البكالوريوس في علوم الكمبيوتر وأساس قوي في تطوير الواجهة الأمامية والبرمجيات الكاملة. متمكن من مجموعة MERN وFlutter وتقنيات الويب الحديثة، مع خبرة عملية في صياغة واجهات تركز على المستخدم وحلول مبتكرة. ماهر في منهجيات Agile ومتمكن في أدوات Jira، ويسعى إلى الاستفادة من الخبرة في تقنيات الويب التي تعتمد على الذكاء الاصطناعي لتقديم حلول رقمية قابلة للتطوير وفعالة.",
-    "DownloadCV": "تنزيل السيرة الذاتية",
+    "Profile": "أنا مهندس برمجيات طموح وحاصل على درجة البكالوريوس في علوم الحاسب، ولدي أساس قوي في تطوير الواجهات الأمامية والتطوير الكامل للمواقع. أتقن تقنيات MERN وFlutter وتقنيات الويب الحديثة، ولدي خبرة عملية في تصميم واجهات موجهة للمستخدم وحلول مبتكرة. أجيد العمل وفقًا لمنهجيات Agile وأمتلك خبرة في استخدام أدوات Jira. أسعى لاستغلال خبراتي في تقنيات الويب المدعومة بالذكاء الاصطناعي لتقديم حلول رقمية قابلة للتطوير وذات تأثير إيجابي.",
 
-    "FindProjects": "ابحث عن جميع مشاريعي هنا",
+    "DownloadCV": "تحميل السيرة الذاتية",
+    "FindProjects": "استعرض جميع مشاريعي هنا",
 
     "MyResume": "سيرتي الذاتية",
-    "MyExperience": "خبراتي المهنية",
-    "MyEducation": "التعليم الخاص بي",
-    "MyActivities": "الأنشطة الخاصة بي",
-    "MyAwards": "الجوائز الخاصة بي",
-    "MySkills": "المهارات الخاصة بي",
-    "MyLanguages": "اللغات الخاصة بي",
+    "MyExperience": "خبراتي",
+    "MyEducation": "تعليمي",
+    "MyActivities": "أنشطتي",
+    "MyAwards": "جوائزي",
+    "MySkills": "مهاراتي",
+    "MyLanguages": "لغاتي",
 
     "Experience": "الخبرة المهنية",
     "Education": "التعليم",
@@ -86,25 +86,25 @@
     "SocialLink": "الرابط الاجتماعي",
 
     "AllServices": "جميع خدماتي",
-    "WebBased": "الخدمات المستندة إلى الويب",
-    "GraphicBased": "خدمات التصميم الجرافيكي",
+    "WebBased": "الخدمات القائمة على الويب",
+    "GraphicBased": "خدمات تصميم الجرافيك",
+    "ContentBased": "خدمات الكتابة الإبداعية والمحتوى",
     "Examples": "أمثلة",
 
     "MyWork": "أعمالي",
-    "LogoDesign": "تصميم شعار",
+    "LogoDesign": "تصميم الشعارات",
     "PosterDesign": "تصميم الملصقات والفعاليات",
     "SocialMedia": "إنشاء محتوى وسائل التواصل الاجتماعي",
-    "CustomBanners": "الرايات المخصصة",
+    "CustomBanners": "بانرات مخصصة",
     "BusinessCard": "بطاقات العمل والنشرات",
-    "TShirtDesign": "تصميم تي شيرت",
-    "PresentationDesign": "تصميم العرض التقديمي",
+    "TShirtDesign": "تصميم التيشيرتات",
+    "PresentationDesign": "تصميم العروض التقديمية",
     "SquarePosters": "ملصقات مربعة",
     "Stories": "ستوريز",
     "InstagramGrid": "شكل مكمل انستغرام",
     "Posters": "الملصقات",
     "SquareSocialMediaPosters": "ملصقات مربعة لوسائل التواصل الاجتماعي",
 
-    "About": "نبذة عني",
     "WhereStarted": "أين بدأ كل شيء",
     "ContactMe": "تواصل معي"
   }

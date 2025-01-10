@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
-import { button } from '@material-tailwind/react';
 import LogoDesign from '../components/LogoDesign';
 import Posters from '../components/Posters';
 import SquareSocialMedia from '../components/SquareSocialMedia';
+import Stories from '../components/Stories';
 
 
 const Gallery = ({ language, languageText }) => {
@@ -172,9 +172,9 @@ const Gallery = ({ language, languageText }) => {
                     {TabButton(2, languageText.PosterDesign, "fluent:image-border-28-regular")}
                     {gallery !== 3.1 && gallery !== 3.2 && gallery !== 3.3 && TabButton(3, languageText.SocialMedia, "mdi:instagram")}
 
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.1, languageText.SquarePosters, "tabler:square")}
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.2, languageText.Stories, "material-symbols:web-stories-outline")}
-                    {(gallery == 3 || gallery == 3.1 || gallery == 3.2 || gallery == 3.3) && MiniTabButton(3.3, languageText.InstagramGrid, "ri:grid-fill")}
+                    {(gallery === 3 || gallery === 3.1 || gallery === 3.2 || gallery === 3.3) && MiniTabButton(3.1, languageText.SquarePosters, "tabler:square")}
+                    {(gallery === 3 || gallery === 3.1 || gallery === 3.2 || gallery === 3.3) && MiniTabButton(3.2, languageText.Stories, "material-symbols:web-stories-outline")}
+                    {(gallery === 3 || gallery === 3.1 || gallery === 3.2 || gallery === 3.3) && MiniTabButton(3.3, languageText.InstagramGrid, "ri:grid-fill")}
                     {TabButton(4, languageText.CustomBanners, "material-symbols:planner-banner-ad-pt")}
                     {TabButton(5, languageText.BusinessCard, "radix-icons:id-card")}
                     {TabButton(6, languageText.TShirtDesign, "mdi:tshirt-crew")}
@@ -190,7 +190,7 @@ const Gallery = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={gallery === 1 ? "visible" : "hidden"}
-                    className={`${gallery != 1 ? "hidden" : "resumeContainer"}`}
+                    className={`${gallery !== 1 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.LogoDesign}</h1>
                     <LogoDesign languageText={languageText} language={language} />
@@ -201,7 +201,7 @@ const Gallery = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={gallery === 2 ? "visible" : "hidden"}
-                    className={`${gallery != 2 ? "hidden" : "resumeContainer"}`}
+                    className={`${gallery !== 2 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.Posters}</h1>
                     <Posters languageText={languageText} language={language} />
@@ -212,10 +212,22 @@ const Gallery = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={gallery === 3.1 ? "visible" : "hidden"}
-                    className={`${gallery != 3.1 ? "hidden" : "resumeContainer"}`}
+                    className={`${gallery !== 3.1 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.SquareSocialMediaPosters}</h1>
                     <SquareSocialMedia languageText={languageText} language={language} />
+
+                </motion.div>
+
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 3.2 ? "visible" : "hidden"}
+                    className={`${gallery !== 3.2 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.Stories}</h1>
+                    <Stories languageText={languageText} language={language} />
 
                 </motion.div>
 

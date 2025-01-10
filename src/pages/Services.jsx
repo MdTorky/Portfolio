@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 var web = servicesData.web
 var graphic = servicesData.graphic
+var writing = servicesData.writing
 const Services = ({ language, languageText }) => {
 
     const mainVariant = {
@@ -84,8 +85,8 @@ const Services = ({ language, languageText }) => {
                         <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>
                     </div>
                 </div> */}
-                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions mt-14 text-center uppercase'>{language == "en" ? service.name : service.arabicName}</h2>
-                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions mb-10 text-center'>{language == "en" ? service.description : service.arabicDescription}</p>
+                <h2 className='text-2xl font-semibold text-bluetheme  transitions mt-14 text-center uppercase'>{language == "en" ? service.name : service.arabicName}</h2>
+                <p className='box-border text-md my-3 text-darktheme dark:text-theme transitions mb-10 text-center whitespace-pre-wrap'>{language == "en" ? service.description : service.arabicDescription}</p>
 
                 <Link to={service.link} className=''>
                     <motion.div
@@ -165,6 +166,21 @@ const Services = ({ language, languageText }) => {
                 // ref={ref}
                 className='my-10 flex flex-wrap justify-center gap-14 md:gap-20 md:p-0 w-[80%]'>
                 {graphic.map((service) => (
+                    (serviceCard(service))
+                ))}
+            </motion.div>
+
+            <motion.h1
+                variants={projectVariant}
+                className='bg-bluetheme dark:bg-bluetheme text-theme w-100 my-4 p-2 text-center text-3xl rounded-md'
+            >{languageText.ContentBased}
+            </motion.h1>
+            <motion.div
+
+                variants={projectVariant}
+                // ref={ref}
+                className='my-10 flex flex-wrap justify-center gap-14 md:gap-20 md:p-0 w-[80%]'>
+                {writing.map((service) => (
                     (serviceCard(service))
                 ))}
             </motion.div>

@@ -8,7 +8,7 @@
       "price": "$500",
       "link": "https://mohamedtorky.vercel.app/projects",
       "arabicName": "موقع ويب كامل",
-      "arabicDescription": "تطوير موقع ويب قوي ومتكامل باستخدام مجموعة MERN، بما في ذلك مصادقة المستخدم، وتكامل قاعدة البيانات، والوظائف المتقدمة، ونشر المضيف."
+      "arabicDescription": "تطوير تطبيقات شاملة قوية باستخدام تقنية MERN، بما في ذلك مصادقة المستخدم، تكامل قواعد البيانات، الوظائف المتقدمة، واستضافة التطبيق."
     },
     {
       "id": 2,
@@ -19,6 +19,15 @@
       "link": "https://mohamedtorky.vercel.app/projects",
       "arabicName": "الواجهة الأمامية",
       "arabicDescription": "إنشاء مواقع ويب سريعة الاستجابة وجذابة بصريًا ومصممة خصيصًا لتلبية احتياجات عملك، بما في ذلك صفحات الهبوط والمحافظ ومواقع التجارة الإلكترونية."
+    },
+    {
+      "id": 3,
+      "name": "Enhance Your Business Performance on Both Google Business and Maps",
+      "description": "If you’re looking to boost your digital presence and improve the performance of your business account on Google Maps, we offer you a professional service that guarantees excellence and helps you reach your target customers quickly and efficiently.",
+      "icon": "logos:google-maps",
+      "price": "$300",
+      "arabicName": "تحسين أداء الأعمال التجارية على جوجل بيزنس وجوجل ماب",
+      "arabicDescription": "إذا كنت تسعى لتعزيز وجودك الرقمي وتحسين أداء حسابك التجاري على جوجل ماب، فنحن نقدم لك خدمة احترافية تضمن لك التميز والوصول السريع إلى عملائك المستهدفين."
     }
   ],
 
@@ -41,7 +50,7 @@
       "price": "$30",
       "link": "",
       "arabicName": "تصميم الملصقات والفعاليات",
-      "arabicDescription": "إنشاء ملصقات ولافتات ومواد فعاليات جذابة للعروض الترويجية أو المناسبات الخاصة."
+      "arabicDescription": "إنشاء ملصقات، بانرات، ومواد فعالية لغايات الترويج أو المناسبات الخاصة."
     },
     {
       "id": 3,
@@ -92,6 +101,19 @@
       "link": "",
       "arabicName": "تصميم العرض التقديمي",
       "arabicDescription": "إنشاء عروض تقديمية احترافية ومذهلة بصريًا باستخدام PowerPoint أو Canva للعروض التقديمية والمؤتمرات والندوات."
+    }
+  ],
+
+  "writing": [
+    {
+      "id": 1,
+      "name": "Professional SEO-Friendly Article Writing Service",
+      "description": "We offer a professional article-writing service fully compliant with SEO guidelines and Google AdSense policies.",
+      "icon": "ri:seo-fill",
+      "price": "$100",
+      "link": "",
+      "arabicName": "خدمة كتابة المقالات الاحترافية المتوافقة مع السيو",
+      "arabicDescription": "نقدم لك خدمة كتابة المقالات الاحترافية المتوافقة مع شروط السيو وسياسة جوجل أدسنس"
     }
   ]
 }

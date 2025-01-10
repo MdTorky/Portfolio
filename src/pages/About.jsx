@@ -2,11 +2,11 @@ import React from 'react'
 import fullImage from '../img/Full-Image.jpg'
 import { motion, AnimatePresence } from "framer-motion"
 import Stairs from '../components/Stairs';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+// import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { Icon } from '@iconify/react';
 import timelineData from '../data/timeLineData.json'
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const About = ({ language, languageText }) => {
@@ -153,7 +153,7 @@ const About = ({ language, languageText }) => {
                 className="relative max-w-[1200px] xl:m-auto after:content-[''] after:absolute after:w-[6px] after:h-[100%] after:bg-bluetheme after:top-0 xl:left-0 left-10 xl:after:left-[50%] xl:after:ml-[-5px] after:z-10 after:rounded-full">
                 {timelineData.map((item, index) => (
                     <motion.div
-                        variants={index % 2 == 0 ? timeLineChild : timeLineChildRight}
+                        variants={index % 2 === 0 ? timeLineChild : timeLineChildRight}
                         key={index} className={`py-[10px] px-[50px] relative xl:w-[500px] left-0 ${index % 2 === 0 ? 'xl:-left-[50%]' : 'xl:left-[50%]'}`}>
 
                         <div className={`absolute text-4xl rounded-full top-[30px] z-30 text-bluetheme bg-bluetheme p-2  ${index % 2 === 0 ? 'xl:left-[472px] left-[-23px] ' : 'xl:left-[-28px] left-[-23px]'}`}>
@@ -205,7 +205,7 @@ const About = ({ language, languageText }) => {
                 <motion.div
                     variants={childVariant}
                     className="flex flex-col xl:m-0 m-auto">
-                    <h1 className='text-5xl  xl:text-start text-center md:text-8xl font-normal z-10'>{languageText.About}</h1>
+                    <h1 className='text-5xl  xl:text-start text-center md:text-8xl font-normal z-10'>{languageText.ABOUT}</h1>
                     <p className='text-3xl md:text-5xl'>{languageText.WhereStarted}</p>
                     <p className='flex mt-5 justify-center text-2xl bg-bluetheme px-2 w-[225px] rounded-md text-theme uppercase '>{languageText.ContactMe}</p>
                     <div className='mt-2 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-start'>

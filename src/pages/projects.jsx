@@ -112,7 +112,7 @@ const Projects = ({ languageText, language }) => {
                         <Link to={project.liveDemo} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="carbon:demo" /></Link>
                         {/* <Link to={project.liveDemo} className='homeIcons p-1 flex items-center gap-2'>Live Demo<Icon icon="carbon:demo" /></Link> */}
                         {/* <Link to={project.githubFrontEnd} className='homeIcons p-1 flex items-center gap-2'>GitHub<Icon icon="jam:github" /></Link> */}
-                        <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>
+                        {project.github && <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>}
                     </div>
                 </div>
                 <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions'>{language == "ar" ? project.arabicName : project.name}</h2>
@@ -178,6 +178,8 @@ const Projects = ({ languageText, language }) => {
             </motion.div>
 
 
+
+
         </motion.div>
     )
 }
@@ -185,23 +187,3 @@ const Projects = ({ languageText, language }) => {
 export default Projects
 
 
-
-{/* <motion.div
-                className='flex items-center justify-between bg-theme p-10 rounded-xl w-[70%] border-gray-300 border-2 mt-5'
-            >
-                <div className="w-[498px] rounded-md  ">
-                    <img src={test} alt="" className="rounded-md" />
-                </div>
-                <div className='h-full w-[50%] flex flex-col gap-6'>
-                    <h1 className="uppercase text-darktheme font-semibold text-4xl">Project Title</h1>
-                    <p className='text-darktheme'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui repellat necessitatibus aliquam libero vitae animi harum molestiae dolore aspernatur delectus!</p>
-                    <div>CSS JAVASCRIPT</div>
-                    <hr />
-                    <div>
-                        <button>GITHUB</button>
-                        <button>LIVE DEMO</button>
-                    </div>
-                </div>
-            </motion.div>
-            <button>next</button>
-            <button>previous</button> */}

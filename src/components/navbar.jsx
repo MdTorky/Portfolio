@@ -3,7 +3,7 @@ import lightLogo from '../img/Light logo.png';
 import darkLogo from '../img/Dark Logo.png';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { easeInOut, motion, MotionConfig } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 
 const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageText }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -100,20 +100,20 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
     });
 
 
-    const pathVariant = {
-        hidden: {
-            opacity: 0,
-            pathLength: 0
-        },
-        visible: {
-            opacity: 1,
-            pathLength: 1,
-            transition: {
-                duration: 1,
-                ease: "easeInOut"
-            }
-        }
-    }
+    // const pathVariant = {
+    //     hidden: {
+    //         opacity: 0,
+    //         pathLength: 0
+    //     },
+    //     visible: {
+    //         opacity: 1,
+    //         pathLength: 1,
+    //         transition: {
+    //             duration: 1,
+    //             ease: "easeInOut"
+    //         }
+    //     }
+    // }
 
     return (
         <motion.nav
@@ -141,7 +141,7 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                     }
                 }}
                 src={darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20 " /></Link>
-            <div className="hidden md:flex text-2xl justify-between text-darktheme dark:text-theme gap-5 items-center">
+            <div className="hidden md:flex text-2xl justify-between text-darktheme uppercase dark:text-theme gap-5 items-center">
                 <Link to="/projects" className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`}>{languageText.PROJECTS}</Link>
                 <Link to="/resume" className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`}>{languageText.RESUME}</Link>
                 <Link to="/services" className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`}>{languageText.SERVICES}</Link>
@@ -164,7 +164,7 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                         variants={languageVariant(darkMode)}
                         whileHover="hover"
                         // className="bg-darktheme dark:bg-yellow-500 px-3 py-2 flex rounded-md dark:text-theme text-theme text-3xl items-center gap-1 "><Icon icon={`${language == "en" ? "iconoir:ar-tag" : "icon-park-outline:english"}`} onClick={toggleLanguage} />
-                        className="bg-slate-500 dark:bg-slate-200 px-3 py-2 flex rounded-md dark:text-darktheme text-theme text-3xl items-center gap-1 "><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} />
+                        className="bg-slate-500 dark:bg-slate-200 px-3 py-2 flex rounded-md dark:text-darktheme text-theme text-3xl items-center gap-1 "><Icon icon={`${language === "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} />
                     </motion.button>
                 </div>
             </div>
@@ -241,14 +241,14 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                 }}
                 initial={false}
                 animate={isOpen ? "open" : "closed"}
-                className="absolute top-20 left-0 right-0 w-full mx-auto dark:bg-theme bg-darktheme flex flex-col items-center gap-3 text-theme dark:text-darktheme z-50"
+                className="absolute top-20 left-0 right-0 w-full mx-auto dark:bg-theme bg-darktheme uppercase flex flex-col items-center gap-3 text-theme dark:text-darktheme z-50"
             >
 
 
 
                 <Link to="/" onClick={toggleMenu}><motion.img variants={itemVariants} src={!darkMode ? darkLogo : lightLogo} alt="" className="w-auto h-20" /></Link>
 
-                <Link to="/projects" onClick={toggleMenu}><motion.div className={`${location.pathname === "/projects" ? "active" : "navbar-hover"}`} variants={itemVariants}>
+                <Link to="/projects" onClick={toggleMenu}><motion.div className={`${location.pathname === "/projects" ? "active " : "navbar-hover"}`} variants={itemVariants}>
                     {languageText.PROJECTS}</motion.div></Link>
                 <Link to="/resume" onClick={toggleMenu}><motion.div className={`${location.pathname === "/resume" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.RESUME}</motion.div></Link>
                 <Link to="/services" onClick={toggleMenu}><motion.div className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.SERVICES}</motion.div></Link>
@@ -258,7 +258,7 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-2xl navbar-hover"><Icon icon="mdi:linkedin" /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-2xl navbar-hover"><Icon icon="mdi:instagram" /></Link>
                     <button className='text-2xl navbar-hover text-bluetheme dark:text-yellow-500 hover:text-theme dark:hover:text-darktheme'><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></button>
-                    <button className="text-darktheme p-2 bg-theme rounded-md dark:text-theme dark:bg-darktheme text-2xl hover:text-bluetheme"><Icon icon={`${language == "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
+                    <button className="text-darktheme p-2 bg-theme rounded-md dark:text-theme dark:bg-darktheme text-2xl hover:text-bluetheme"><Icon icon={`${language === "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
                 </motion.div>
 
             </motion.div>
