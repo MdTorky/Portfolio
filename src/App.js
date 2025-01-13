@@ -10,6 +10,7 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import { useLanguage } from './contexts/languageContext';
 import languageData from './data/language.json';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -45,7 +46,9 @@ function App() {
           <Route path="/about" element={<About languageText={languageText} language={language} />} />
           <Route path="/services" element={<Services languageText={languageText} language={language} />} />
           <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
+          {/* <Route path="/terms" element={<Terms/>} /> */}
         </Routes>
+        <Footer language={language} languageText={languageText} />
 
       </AnimatePresence>
     </div>

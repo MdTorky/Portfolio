@@ -65,34 +65,36 @@ p {
 .navbar-hover {
   @apply transition duration-300 ease-linear hover:text-bluetheme p-2 md:p-0;
 }
+
 .navbar-hover-icons {
   @apply transition duration-300 ease-linear hover:text-bluetheme dark:text-darktheme p-2 md:p-0;
 }
+
 .active {
   @apply text-darktheme dark:text-theme md:text-theme md:dark:text-darktheme rounded-md bg-bluetheme p-2 my-1 md:my-0;
 }
 
 .homeIcons {
-  @apply transition-all ease-in-out duration-700 text-bluetheme  border-bluetheme border-2 rounded-xl hover:scale-125 hover:text-darktheme hover:border-darktheme dark:hover:text-theme dark:hover:border-theme;
+  @apply transition-all ease-in-out duration-700 text-bluetheme border-bluetheme border-2 rounded-xl hover:scale-125 hover:text-darktheme hover:border-darktheme dark:hover:text-theme dark:hover:border-theme;
 }
 
 .title {
   @apply absolute bottom-0 left-0 right-0 top-0 z-10 bg-darktheme dark:bg-theme;
 }
 
-/* .tabStyle {
-  @apply transitions !font-oswald !text-xl !rounded-md !font-normal !px-4 !py-2 !my-2 !bg-gray-300 !w-96;
+.footerIcon {
+  @apply transition duration-300 ease-linear hover:text-bluetheme p-2 md:p-0 text-theme dark:text-darktheme text-4xl;
 }
-.tabStyleActive {
-  @apply !bg-darktheme !text-theme;
-} */
+.footerPage {
+  @apply transition duration-300 ease-linear hover:text-bluetheme p-2 md:p-0 text-theme dark:text-darktheme text-xl;
+}
 
 .tabStyle {
-  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex  items-center justify-center gap-3;
+  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-400 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-300 dark:bg-gray-800 dark:text-theme md:w-[100px] xl:w-72 flex items-center justify-center gap-3;
 }
 
 .miniTabStyle {
-  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-700 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-500 dark:bg-gray-500 text-theme md:w-[100px] xl:w-52 flex  items-center justify-center gap-3;
+  @apply shadows transitions duration-200 ease-linear hover:shadow-lg hover:bg-gray-700 dark:hover:bg-gray-900 rounded-md font-normal px-4 py-2 bg-gray-500 dark:bg-gray-500 text-theme md:w-[100px] xl:w-52 flex items-center justify-center gap-3;
 }
 
 .tabStyleActive {
@@ -124,6 +126,7 @@ p {
   0% {
     height: 0;
   }
+
   100% {
     height: 100%;
   }

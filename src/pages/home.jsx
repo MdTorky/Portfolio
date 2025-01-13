@@ -64,7 +64,7 @@ const Home = ({ language, languageText }) => {
         <motion.div
             variants={mainVariant}
             exit="exit"
-            className=" md:p-10 md:px-20 flex md:flex-row flex-wrap flex-col items-center justify-center w-full">
+            className=" md:p-10 md:px-20 flex md:flex-row flex-wrap flex-col items-center justify-center w-full mb-10 md:mb-0 ">
             <motion.div
                 variants={homeContainer}
                 initial="hidden"
@@ -92,6 +92,7 @@ const Home = ({ language, languageText }) => {
                     </motion.div>
                     {languageText.Profile}</p>
                 <div className='mt-5 flex gap-x-10 gap-y-5 md:gap-10 flex-wrap justify-center 2xl:justify-normal'>
+                    <Link to="mailto:mohamed2003torky@gmail.com" className="text-5xl "><Icon icon="mdi:gmail" className='homeIcons' /></Link>
                     <Link to="https://github.com/MdTorky" className="text-5xl "><Icon icon="mdi:github" className='homeIcons' /></Link>
                     <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-5xl "><Icon icon="mdi:linkedin" className='homeIcons' /></Link>
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-5xl "><Icon icon="mdi:instagram" className='homeIcons' /></Link>

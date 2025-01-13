@@ -147,9 +147,10 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                 <Link to="/services" className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`}>{languageText.SERVICES}</Link>
                 <Link to="/about" className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`}>{languageText.ABOUT}</Link>
                 <div className="bg-darktheme dark:bg-theme px-3 py-2 flex text-theme text-3xl items-center gap-1 rounded-md">
-                    <Link to="https://github.com/MdTorky" className="navbar-hover-icons"><Icon icon="mdi:github" /></Link>
-                    <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="navbar-hover-icons"><Icon icon="mdi:linkedin" /></Link>
-                    <Link to="https://www.instagram.com/mohdtorky/" className="navbar-hover-icons"><Icon icon="mdi:instagram" /></Link>
+                    <Link to="http://wa.me/201554206775" className="navbar-hover-icons flex items-center gap-2 text-xl"><Icon icon="ic:baseline-whatsapp" /> {languageText.ContactMe}</Link>
+                    {/* <Link to="https://github.com/MdTorky" className="navbar-hover-icons"><Icon icon="mdi:github" /></Link> */}
+                    {/* <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="navbar-hover-icons"><Icon icon="mdi:linkedin" /></Link> */}
+                    {/* <Link to="https://www.instagram.com/mohdtorky/" className="navbar-hover-icons"><Icon icon="mdi:instagram" /></Link> */}
                 </div>
 
 
@@ -254,8 +255,11 @@ const Navbar = ({ toggleDarkMode, darkMode, toggleLanguage, language, languageTe
                 <Link to="/services" onClick={toggleMenu}><motion.div className={`${location.pathname === "/services" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.SERVICES}</motion.div></Link>
                 <Link to="/about" onClick={toggleMenu}><motion.div className={`${location.pathname === "/about" ? "active" : "navbar-hover"}`} variants={itemVariants}>{languageText.ABOUT}</motion.div></Link>
                 <motion.div variants={itemVariants} className="flex gap-3 py-2">
-                    <Link to="https://github.com/MdTorky" className="text-2xl navbar-hover"><Icon icon="mdi:github" /></Link>
-                    <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-2xl navbar-hover"><Icon icon="mdi:linkedin" /></Link>
+                    <Link to="http://wa.me/201554206775" className="text-2xl navbar-hover"><Icon icon="ic:baseline-whatsapp" /></Link>
+                    <Link to="mailto:mohamed2003torky@gmail.com" className="text-2xl navbar-hover"><Icon icon="mdi:gmail" /></Link>
+
+                    {/* <Link to="https://github.com/MdTorky" className="text-2xl navbar-hover"><Icon icon="mdi:github" /></Link> */}
+                    {/* <Link to="https://www.linkedin.com/in/mohamed-torky-243196221/" className="text-2xl navbar-hover"><Icon icon="mdi:linkedin" /></Link> */}
                     <Link to="https://www.instagram.com/mohdtorky/" className="text-2xl navbar-hover"><Icon icon="mdi:instagram" /></Link>
                     <button className='text-2xl navbar-hover text-bluetheme dark:text-yellow-500 hover:text-theme dark:hover:text-darktheme'><Icon icon={`${darkMode ? "bx:sun" : "akar-icons:moon-fill"}`} onClick={toggleDarkMode} /></button>
                     <button className="text-darktheme p-2 bg-theme rounded-md dark:text-theme dark:bg-darktheme text-2xl hover:text-bluetheme"><Icon icon={`${language === "en" ? "uil:letter-english-a" : "ri:english-input"}`} onClick={toggleLanguage} /></button>
