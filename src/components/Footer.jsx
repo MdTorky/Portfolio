@@ -14,11 +14,11 @@ const Footer = ({ languageText }) => {
                 <Link to="https://www.instagram.com/mohdtorky/" className="footerIcon"><Icon icon="mdi:instagram" /></Link>
             </div>
             <div className='flex gap-3 mt-4'>
-                <Link to="/" className="footerPage ">Home</Link>
-                <Link to="/projects" className="footerPage ">Projects</Link>
-                <Link to="/resume" className="footerPage ">Resume</Link>
-                <Link to="/services" className="footerPage ">Services</Link>
-                <Link to="/about" className="footerPage ">About</Link>
+                <Link to="/" className="footerPage ">{languageText.HOME}</Link>
+                <Link to="/projects" className="footerPage ">{languageText.PROJECTS}</Link>
+                <Link to="/resume" className="footerPage ">{languageText.RESUME}</Link>
+                <Link to="/services" className="footerPage ">{languageText.SERVICES}</Link>
+                <Link to="/about" className="footerPage ">{languageText.ABOUT}</Link>
             </div>
 
             <Link to='/terms' className="footerPage font-bold !text-lg mt-2">Terms & Conditions</Link>

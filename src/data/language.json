@@ -1,9 +1,10 @@
 {
   "en": {
-    "PROJECTS": "PROJECTS",
-    "RESUME": "RESUME",
-    "SERVICES": "SERVICES",
+    "PROJECTS": "Projects",
+    "RESUME": "Resume",
+    "SERVICES": "Services",
     "ABOUT": "About",
+    "HOME": "Home",
 
     "SoftwareEngineer": "Software Engineer",
     "MyName": "Mohamed Torky",
@@ -59,6 +60,7 @@
     "RESUME": "السيرة الذاتية",
     "SERVICES": "الخدمات",
     "ABOUT": "نبذة عني",
+    "HOME": "الصفحة الرئيسية",
 
     "SoftwareEngineer": "مهندس برمجيات",
     "MyName": "محمد تركي",
