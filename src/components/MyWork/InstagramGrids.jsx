@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
 import { gapi } from "gapi-script";
 
-const FOLDER_ID = "1EKNjMI4vH6mUGmtqOwN1Xtz3h6dYqLXc";
-const LogoDesign = () => {
+const FOLDER_ID = "13qxJoUhFu6I_EytoCxjwJMGxEkzW5tF0";
+const Grids = () => {
     const [images, setImages] = useState([]);
 
     const childVariant = {
@@ -62,7 +62,8 @@ const LogoDesign = () => {
     };
 
     return (
-        <div className='mt-10 flex justify-center gap-10 flex-wrap w-[80%]'>
+        // <div className='mt-10 flex justify-center gap-10 flex-wrap flex-1'>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center ">
 
             {images.map((file) => (
                 <motion.div
@@ -81,21 +82,9 @@ const LogoDesign = () => {
                             duration: 1
                         }
                     }}
-                    className='gradient-color rounded-md p-3 flex flex-col cursor-pointer shadows'
+                    className='gradient-color rounded-md p-3 flex flex-col cursor-pointer shadows w-60 justify-center'
                 // onClick={() => setSelected(exp)}
                 >
-                    {/* <motion.div
-                    className='flex items-center justify-between'>
-                    <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                        <Icon icon={exp.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
-                    </div>
-                    <p className='text-bluetheme'>{exp.date}</p>
-                </motion.div>
-                <h1 className='transitions mt-2 text-xl dark:text-theme'>{exp.title}</h1>
-                <div className='flex justify-end mt-5 items-center gap-2'>
-                    <p className='text-bluetheme text-lg'>•</p>
-                    <p className='text-gray-500 text-lg'>{exp.company}</p>
-                </div> */}
                     <img
                         src={file.thumbnailLink}
                         alt={file.name}
@@ -109,4 +98,4 @@ const LogoDesign = () => {
     )
 }
 
-export default LogoDesign
+export default Grids

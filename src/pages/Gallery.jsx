@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
-import LogoDesign from '../components/LogoDesign';
-import Posters from '../components/Posters';
-import SquareSocialMedia from '../components/SquareSocialMedia';
-import Stories from '../components/Stories';
+import LogoDesign from '../components/MyWork/LogoDesign';
+import Posters from '../components/MyWork/Posters';
+import SquareSocialMedia from '../components/MyWork/SquareSocialMedia';
+import Stories from '../components/MyWork/Stories';
+import Grids from '../components/MyWork/InstagramGrids';
+import Banners from '../components/MyWork/Banners';
 
 
 const Gallery = ({ language, languageText }) => {
@@ -230,7 +232,28 @@ const Gallery = ({ language, languageText }) => {
                     <Stories languageText={languageText} language={language} />
 
                 </motion.div>
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 3.3 ? "visible" : "hidden"}
+                    className={`${gallery !== 3.3 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.InstagramGrid}</h1>
+                    <Grids languageText={languageText} language={language} />
 
+                </motion.div>
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 4 ? "visible" : "hidden"}
+                    className={`${gallery !== 4 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.Banners}</h1>
+                    <Banners languageText={languageText} language={language} />
+
+                </motion.div>
 
 
             </div>
