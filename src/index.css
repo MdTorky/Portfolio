@@ -58,6 +58,10 @@ p {
   transition: 0.8s ease all;
 }
 
+.serviceButton {
+  @apply p-2 px-4 font-normal uppercase transitions bg-darktheme dark:bg-theme text-xl text-theme dark:text-darktheme text-center font-bold -bottom-2  absolute m-auto w-[50%];
+}
+
 .transitions {
   @apply transition duration-200 ease-linear;
 }

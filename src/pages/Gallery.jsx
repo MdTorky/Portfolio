@@ -7,6 +7,8 @@ import SquareSocialMedia from '../components/MyWork/SquareSocialMedia';
 import Stories from '../components/MyWork/Stories';
 import Grids from '../components/MyWork/InstagramGrids';
 import Banners from '../components/MyWork/Banners';
+import Cards from '../components/MyWork/Cards&Flyers';
+import Tshirt from '../components/MyWork/Tshirt';
 
 
 const Gallery = ({ language, languageText }) => {
@@ -255,6 +257,30 @@ const Gallery = ({ language, languageText }) => {
 
                 </motion.div>
 
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 5 ? "visible" : "hidden"}
+                    className={`${gallery !== 5 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.BusinessCard}</h1>
+                    <Cards languageText={languageText} language={language} />
+
+                </motion.div>
+
+
+                <motion.div
+                    // variants={getMotionVariants()}
+                    variants={ExperienceVariant}
+                    initial="hidden"
+                    animate={gallery === 6 ? "visible" : "hidden"}
+                    className={`${gallery !== 6 ? "hidden" : "resumeContainer"}`}
+                >
+                    <h1 className='transitions text-4xl dark:text-theme'>{languageText.TShirtDesign}</h1>
+                    <Tshirt languageText={languageText} language={language} />
+
+                </motion.div>
 
             </div>
         </motion.div>

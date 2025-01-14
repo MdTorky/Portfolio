@@ -5,11 +5,10 @@ import { gapi } from "gapi-script";
 
 
 const FOLDER_IDS = {
-    Events: "1KTPSwY4Rop8c4qUDGUGvgoskgPpzvfKY",
-    Sessions: "1Un5X_EtmFRSkGZMZ_XW-n009jftXcoU1",
-    Academic: "1dl_t30z1_UcGZHedrz4mhaWrtKOj6282",
+    Cards: "1ZyBJj4y9nabrWEC4UOw4yVaP-ftGrvsk",
+    Flyers: "1i_wZKzXyyAZsTSLEzJnjvPd2AcgJn0jz",
 };
-const Posters = () => {
+const Cards = () => {
     const [images, setImages] = useState([]);
 
     const childVariant = {
@@ -49,25 +48,6 @@ const Posters = () => {
 
         gapi.load("client:auth2", start);
     }, []);
-
-    // useEffect(() => {
-    //     function start() {
-    //         gapi.client
-    //             .init({
-    //                 apiKey: process.env.REACT_APP_API_KEY,
-    //                 clientId: process.env.REACT_CLIENT_ID,
-    //                 scope: process.env.REACT_APP_SCOPES,
-    //                 discoveryDocs: [
-    //                     "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
-    //                 ],
-    //             })
-    //             .then(() => {
-    //                 listImagesInFolder();
-    //             });
-    //     }
-
-    //     gapi.load("client:auth2", start);
-    // }, []);
 
 
     const listImagesFromFolder = async (folderId) => {
@@ -117,20 +97,7 @@ const Posters = () => {
                                 }
                             }}
                             className='gradient-color rounded-md p-3 flex flex-col cursor-pointer shadows'
-                        // onClick={() => setSelected(exp)}
                         >
-                            {/* <motion.div
-                    className='flex items-center justify-between'>
-                    <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                        <Icon icon={exp.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
-                    </div>
-                    <p className='text-bluetheme'>{exp.date}</p>
-                </motion.div>
-                <h1 className='transitions mt-2 text-xl dark:text-theme'>{exp.title}</h1>
-                <div className='flex justify-end mt-5 items-center gap-2'>
-                    <p className='text-bluetheme text-lg'>•</p>
-                    <p className='text-gray-500 text-lg'>{exp.company}</p>
-                </div> */}
                             <img
                                 src={file.thumbnailLink}
                                 alt={file.name}
@@ -145,4 +112,4 @@ const Posters = () => {
     )
 }
 
-export default Posters
+export default Cards

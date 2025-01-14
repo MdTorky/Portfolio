@@ -36,6 +36,8 @@
     "GraphicBased": "Graphic Design Services",
     "ContentBased": "Content and Copywriting Services",
     "Examples": "Examples",
+    "MoreInfo": "More Info",
+    "Purchase": "Purchase",
 
     "MyWork": "My Work",
     "LogoDesign": "Logo Design",
@@ -92,6 +94,8 @@
     "GraphicBased": "خدمات تصميم الجرافيك",
     "ContentBased": "خدمات الكتابة الإبداعية والمحتوى",
     "Examples": "أمثلة",
+    "MoreInfo": "المزيد",
+    "Purchase": "شراء",
 
     "MyWork": "أعمالي",
     "LogoDesign": "تصميم الشعارات",

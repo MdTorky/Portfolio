@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react'
-import { motion, useInView, useAnimation } from "framer-motion"
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from "framer-motion"
 import servicesData from '../data/services.json'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom'
@@ -8,6 +8,22 @@ var web = servicesData.web
 var graphic = servicesData.graphic
 var writing = servicesData.writing
 const Services = ({ language, languageText }) => {
+
+    const [selected, setSelected] = useState(null);
+
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setSelected(null)
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
     const mainVariant = {
         hidden: {
@@ -88,7 +104,12 @@ const Services = ({ language, languageText }) => {
                 <h2 className='text-2xl font-semibold text-bluetheme  transitions mt-14 text-center uppercase'>{language == "en" ? service.name : service.arabicName}</h2>
                 <p className='box-border text-md my-3 text-darktheme dark:text-theme transitions mb-10 text-center whitespace-pre-wrap'>{language == "en" ? service.description : service.arabicDescription}</p>
 
-                <Link to={service.link} className=''>
+                <Link
+                    onClick={(e) => {
+                        e.preventDefault(); // Prevent the default behavior
+                        setSelected(service); // Update the selected service
+                    }}
+                >
                     <motion.div
                         initial={{
                             y: 0,
@@ -110,9 +131,38 @@ const Services = ({ language, languageText }) => {
                                 ease: "linear",
                             },
                         }}
-                        className=' p-2 px-4 font-normal uppercase transitions bg-darktheme dark:bg-theme text-xl text-theme dark:text-darktheme rounded-b-md text-center w-full -bottom-2 left-0 absolute m-auto'
+                        className=' serviceButton left-0 rounded-bl-md !bg-red-700 dark:text-theme'
                     >
-                        {languageText.Examples}
+                        {languageText.MoreInfo}
+
+                    </motion.div>
+                </Link>
+
+                <Link to={service.link}>
+                    <motion.div
+                        initial={{
+                            y: 0,
+                            letterSpacing: '0px'
+                        }}
+                        whileHover={{
+                            y: 10,
+                            letterSpacing: '1px',
+                            transition: {
+                                duration: 0.5,
+                                ease: "easeInOut",
+                            },
+                        }}
+                        animate={{
+                            y: 0,
+                            letterSpacing: '0px',
+                            transition: {
+                                duration: 0.3,
+                                ease: "linear",
+                            },
+                        }}
+                        className=' serviceButton  right-0 rounded-br-md'
+                    >
+                        {languageText.Purchase}
 
                     </motion.div>
                 </Link>
@@ -183,9 +233,60 @@ const Services = ({ language, languageText }) => {
                 {writing.map((service) => (
                     (serviceCard(service))
                 ))}
+
+                <AnimatePresence>
+                    {selected && (
+                        <motion.div
+                            onClick={() => setSelected(null)}
+
+                            className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{
+                                    opacity: 1, scale: 1,
+                                    transition: {
+                                        duration: 1,
+                                        type: 'spring',
+                                        stiffness: 80,
+                                    }
+                                }}
+                                exit={{
+                                    opacity: 0, scale: 0, transition: {
+                                        duration: 0.5,
+                                    }
+                                }}
+                                onClick={(e) => e.stopPropagation()}
+                                className="bg-theme dark:bg-darktheme p-4 w-[800px] rounded-md relative">
+                                <button
+                                    className={`${language === 'en' ? 'right-6' : 'left-6'} absolute top-6  text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions z-50`}
+                                    onClick={() => setSelected(null)}
+                                >
+                                    <Icon icon="zondicons:close-outline" />
+                                </button>
+                                <div className="bg-gray-400 relative w-full rounded-md gradient-color border-gray-300 dark:border-gray-700 border-2">
+                                    <div className="px-2 xl:px-6 py-3 flex items-center gap-2">
+                                        <div className='flex flex-col gap-1 justify-center items-center'>
+                                            <div className='px-4 py-3 rounded-lg bg-darktheme dark:bg-theme w-fit text-xl text-theme dark:text-darktheme'><Icon icon={selected.icon} /></div>
+                                            <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-md whitespace-nowrap w-fit'>{selected.price}</p>
+                                        </div>
+                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl w-[80%]">{language === 'en' ? selected.name : selected.arabicName}</h1>
+                                    </div>
+                                    <p className="p-4 whitespace-pre-wrap">{selected.moreinfo}</p>
+                                </div>
+
+                            </motion.div>
+
+                        </motion.div>
+                    )
+
+                    }
+                </AnimatePresence>
             </motion.div>
 
         </motion.div>
+
+
     )
 }
 
