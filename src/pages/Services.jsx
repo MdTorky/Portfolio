@@ -239,7 +239,7 @@ const Services = ({ language, languageText }) => {
                         <motion.div
                             onClick={() => setSelected(null)}
 
-                            className="fixed top-36 md:top-0 inset-0 z-40 md:bg-black/70 p-5 flex h-auto md:h-auto md:items-center justify-center ">
+                            className="fixed top-36 md:top-0 inset-0 z-40 md:bg-black/70 p-5 flex md:items-center justify-center ">
 
                             <motion.div
                                 initial={{ opacity: 0, scale: 0 }}
@@ -259,7 +259,7 @@ const Services = ({ language, languageText }) => {
                                 onClick={(e) => e.stopPropagation()}
                                 className="bg-theme dark:bg-darktheme p-4 w-[800px] rounded-md relative md:overflow-none overflow-y-auto">
                                 <button
-                                    className={`${language === 'en' ? 'right-6' : 'left-6'} absolute top-6  text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions z-50`}
+                                    className={`${language === 'en' ? 'right-6' : 'left-6'} absolute top-6  text-3xl text-red-800 hover:text-bluetheme transitions z-50`}
                                     onClick={() => setSelected(null)}
                                 >
                                     <Icon icon="zondicons:close-outline" />
@@ -270,7 +270,7 @@ const Services = ({ language, languageText }) => {
                                             <div className='px-4 py-3 rounded-lg bg-darktheme dark:bg-theme w-fit text-xl text-theme dark:text-darktheme'><Icon icon={selected.icon} /></div>
                                             <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-md whitespace-nowrap w-fit'>{selected.price}</p>
                                         </div>
-                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl w-[80%]">{language === 'en' ? selected.name : selected.arabicName}</h1>
+                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl w-[70%]">{language === 'en' ? selected.name : selected.arabicName}</h1>
                                     </div>
                                     <p className="p-4 whitespace-pre-wrap text-darktheme dark:text-theme">{language === 'en' ? selected.moreinfo : selected.arabicMoreinfo}</p>
                                 </div>
