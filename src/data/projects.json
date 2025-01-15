@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "ISS Egypt Gateway",
-    "arabicName": "موقع الاتحاد المصري",
+    "name": "ISS Egypt Gateway at UTM",
+    "arabicName": "موقع الاتحاد المصري في جامعة UTM",
     "description": "•Developed a comprehensive student portal using the MERN stack, featuring academic and social resources tailored to enhance student life.\n• Achieved significant adoption, with over 2,700 users since launch, reflecting its practical value to students.",
     "arabicDescription": "• طورت بوابة طلابية شاملة باستخدام تقنية MERN، تتضمن موارد أكاديمية واجتماعية مصممة لتحسين حياة الطلاب.\n• حققت البوابة نسبة استخدام عالية، حيث تجاوز عدد المستخدمين 2,700 مستخدم منذ الإطلاق، مما يعكس قيمتها العملية للطلاب.",
 
@@ -29,8 +29,8 @@
     "id": 3,
     "name": "My Graphic Designs",
     "arabicName": "تصاميمي الجرافيكية",
-    "description": "A gallery to view all of my graphic designs from posters and flyers to t-shirts and presentations",
-    "arabicDescription": "معرض لعرض جميع تصاميمي الجرافيكية من الملصقات والنشرات إلى التيشيرتات والعروض التقديمية",
+    "description": "A gallery to view all of my graphic designs: \n•Designed and managed engaging social media campaigns for Instagram, including posts, stories, and account management, significantly boosting audience interaction and brand visibility.\n•Created professional-quality posters, banners, and flyers for events and promotional campaigns, ensuring cohesive branding and effective communication of key messages.\n•Developed logos, T-shirt designs, and certificates tailored to client and organizational needs, enhancing brand identity and event appeal.\n•Designed business cards and promotional materials that effectively communicated professionalism and brand value to target audiences.\n•Successfully delivered over 120 graphic assets, contributing to the success of organizational events and campaigns while ensuring high-quality visual standards.",
+    "arabicDescription": "معرض لعرض جميع تصاميمي الجرافيكية: \n• صممت وأدرت حملات تواصل اجتماعي جذابة على إنستغرام، بما في ذلك المنشورات والقصص وإدارة الحساب، مما أدى إلى زيادة ملحوظة في تفاعل الجمهور ورؤية العلامة التجارية.\n• أنشأت ملصقات، لافتات، ونشرات ذات جودة احترافية للفعاليات والحملات الترويجية، مع ضمان العلامة التجارية المتسقة والتواصل الفعال للرسائل الرئيسية.\n• طورت شعارات، تصاميم تيشيرتات، وشهادات مخصصة لتلبية احتياجات العملاء والمنظمات، مما عزز هوية العلامة التجارية وجاذبية الفعاليات.\n• صممت بطاقات عمل ومواد ترويجية تواصلت بفعالية مع الاحترافية وقيمة العلامة التجارية لجمهور مستهدف.\n• سلمت بنجاح أكثر من 120 عنصرًا تصميميًا، مما ساهم في نجاح فعاليات وحملات المنظمات مع ضمان معايير بصرية عالية الجودة.",
     "technology": "Graphic Design",
     "liveDemo": "/gallery",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1736515814/Portfolio/My_Work_umluar.png"
