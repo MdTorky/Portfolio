@@ -9,13 +9,16 @@ import { Icon } from '@iconify/react';
 
 const RequestForm = ({ languageText, language }) => {
     const [quantity, setQuantity] = useState(1);
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
+    const [phone, setPhone] = useState()
 
     const { id } = useParams();
     const serviceId = parseInt(id, 10);
     const service = Object.values(services)
 
         .flat()
-        .find((item) => item.id === serviceId); // Find the service by ID
+        .find((item) => item.id === serviceId);
 
     if (!service) {
         return <p>Service not found!</p>;
@@ -24,8 +27,8 @@ const RequestForm = ({ languageText, language }) => {
 
     const handleChange = (e) => {
         let value = parseInt(e.target.value, 10);
-        if (value < 1) value = 1; // Ensure the value doesn't go below 1
-        if (value > 5) value = 5; // Ensure the value doesn't exceed 5
+        if (value < 1) value = 1;
+        if (value > 5) value = 5;
         setQuantity(value);
     };
 
@@ -85,7 +88,7 @@ const RequestForm = ({ languageText, language }) => {
             className="md:py-10 flex flex-col items-center justify-center w-full">
 
             <div
-                className='transitions text-theme bg-bluetheme p-10 rounded-md flex items-center justify-center mt-10 md:mt-0'>
+                className='transitions text-theme bg-bluetheme px-10 py-5 rounded-md flex items-center justify-center mt-10 md:mt-0'>
                 <motion.h1
                     variants={childVariant}
                     className='text-4xl text-center font-bold'>Request Form</motion.h1>
@@ -93,14 +96,14 @@ const RequestForm = ({ languageText, language }) => {
             <div className='bg-gray-800 dark:bg-gray-200 rounded-md p-2 my-5'>
                 <form action="#" className="bg-darktheme dark:bg-theme rounded-md shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] px-8 py-5 flex flex-col">
                     <div class="flex items-center p-3 h-28 bg-white dark:bg-gradient-to-r from-darktheme to-gray-700 rounded-md shadow-lg">
-                        <section class="flex justify-center items-center w-14 h-14 rounded-lg shadow-md bg-gradient-to-r from-gray-700 to-darktheme dark:from-gray-200 dark:to-theme hover:from-darktheme hover:to-gray-700 hover:cursor-pointer hover:scale-110 duration-300 text-theme text-2xl">
+                        <section class="flex justify-center items-center w-14 h-14 rounded-lg shadow-md bg-gradient-to-r from-gray-700 to-darktheme dark:from-gray-200 dark:to-theme hover:from-darktheme hover:to-gray-700 hover:cursor-pointer hover:scale-110 duration-300 text-theme dark:text-darktheme text-2xl">
                             <Icon icon={service.icon} />
                         </section>
 
                         <section class="block border-l border-gray-300 m-3">
                             <div class="pl-3">
-                                <h3 class="text-gray-600 font-semibold text-sm">{service.price}</h3>
-                                <h3 class="bg-clip-text text-transparent bg-gradient-to-l from-bluetheme to-[#27272A] text-sm md:text-lg font-bold w-32 md:w-52">{language == "en" ? service.name : service.arabicName}</h3>
+                                <h3 class="text-gray-600 dark:text-gray-50 font-semibold text-sm">{service.price}</h3>
+                                <h3 class="bg-clip-text text-transparent bg-gradient-to-l from-bluetheme dark:from-theme to-[#27272A] dark:to-gray-300 text-sm md:text-lg font-bold w-32 md:w-52">{language == "en" ? service.name : service.arabicName}</h3>
                             </div>
                             {/* <div class="flex gap-3 pt-2 pl-3">
                                 <svg stroke="currentColor" viewBox="0 0 24 24" class="w-4 hover:scale-125 duration-200 hover:cursor-pointer fill-white stroke-2">
@@ -134,6 +137,8 @@ const RequestForm = ({ languageText, language }) => {
                             placeholder="Name here..."
                             name="input"
                             className="requestInput"
+                            onChange={(e) => setName(e.target.value)}
+
                         />
                     </div>
                     <div className="input flex flex-col w-full static">
@@ -148,6 +153,8 @@ const RequestForm = ({ languageText, language }) => {
                             placeholder="Email here..."
                             name="input"
                             className="requestInput"
+                            onChange={(e) => setEmail(e.target.value)}
+
                         />
                     </div>
                     <div className="input flex flex-col w-full static">
@@ -162,6 +169,7 @@ const RequestForm = ({ languageText, language }) => {
                             placeholder="Phone Number here..."
                             name="input"
                             className="requestInput"
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
                     <div className="input flex flex-col w-full static">
