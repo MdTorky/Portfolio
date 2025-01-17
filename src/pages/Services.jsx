@@ -138,7 +138,7 @@ const Services = ({ language, languageText }) => {
                     </motion.div>
                 </Link>
 
-                <Link to={service.link}>
+                <Link to={`/requestform/${service.id}`}>
                     <motion.div
                         initial={{
                             y: 0,
@@ -162,7 +162,7 @@ const Services = ({ language, languageText }) => {
                         }}
                         className=' serviceButton  right-0 rounded-br-md'
                     >
-                        {languageText.Purchase}
+                        {languageText.Request}
 
                     </motion.div>
                 </Link>

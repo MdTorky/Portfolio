@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import Projects from './pages/projects';
@@ -11,6 +11,7 @@ import Gallery from './pages/Gallery';
 import { useLanguage } from './contexts/languageContext';
 import languageData from './data/language.json';
 import Footer from './components/Footer';
+import RequestForm from './pages/RequestForm';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/about" element={<About languageText={languageText} language={language} />} />
           <Route path="/services" element={<Services languageText={languageText} language={language} />} />
           <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
+          <Route path="/requestform/:id" element={<RequestForm languageText={languageText} language={language} />} />
           {/* <Route path="/terms" element={<Terms/>} /> */}
         </Routes>
         <Footer language={language} languageText={languageText} />

@@ -33,7 +33,7 @@
 
   "graphic": [
     {
-      "id": 1,
+      "id": 4,
       "name": "Logo Design",
       "description": "Create unique, professional logos that reflect your brand identity.",
       "icon": "carbon:logo-react",
@@ -43,7 +43,7 @@
       "arabicDescription": "إنشاء شعارات فريدة واحترافية تعكس هوية علامتك التجارية."
     },
     {
-      "id": 2,
+      "id": 5,
       "name": "Poster and Event Design",
       "description": "Create eye-catching posters, banners, and event materials for promotions or special occasions.",
       "icon": "fluent:image-border-28-regular",
@@ -53,7 +53,7 @@
       "arabicDescription": "إنشاء ملصقات، بانرات، ومواد فعالية لغايات الترويج أو المناسبات الخاصة."
     },
     {
-      "id": 3,
+      "id": 6,
       "name": "Social Media Content Creation",
       "description": "Design engaging posts, stories, and advertisements tailored for platforms like Instagram, Facebook, and LinkedIn.",
       "icon": "mdi:instagram",
@@ -63,7 +63,7 @@
       "arabicDescription": "تصميم منشورات وقصص وإعلانات جذابة مخصصة للمنصات مثل Instagram وFacebook وLinkedIn."
     },
     {
-      "id": 4,
+      "id": 7,
       "name": "Custom Banners",
       "description": "Design high-quality banners for events, advertising, or branding purposes in various sizes (digital or printable).",
       "icon": "material-symbols:planner-banner-ad-pt",
@@ -73,7 +73,7 @@
       "arabicDescription": "تصميم لافتات عالية الجودة للمناسبات أو الإعلانات أو أغراض العلامات التجارية بأحجام مختلفة (رقمية أو قابلة للطباعة)."
     },
     {
-      "id": 5,
+      "id": 8,
       "name": "Business Cards and Flyers",
       "description": "Design sleek and modern business cards, brochures, and promotional flyers.",
       "icon": "radix-icons:id-card",
@@ -83,7 +83,7 @@
       "arabicDescription": "تصميم بطاقات أعمال وكتيبات ومنشورات ترويجية أنيقة وحديثة."
     },
     {
-      "id": 6,
+      "id": 9,
       "name": "T-Shirt Design",
       "description": "Create custom T-shirt designs for teams, events, or branding, tailored to your specifications. Includes digital mock-ups ready for printing.",
       "icon": "mdi:tshirt-crew",
@@ -93,7 +93,7 @@
       "arabicDescription": "إنشاء تصميمات قمصان مخصصة للفرق أو الأحداث أو العلامات التجارية، بما يتناسب مع مواصفاتك. تتضمن نماذج رقمية جاهزة للطباعة."
     },
     {
-      "id": 7,
+      "id": 10,
       "name": "Presentation Design",
       "description": "Craft visually stunning and professional PowerPoint or Canva presentations for pitches, conferences, and seminars.",
       "icon": "icon-park-outline:slide",
@@ -106,7 +106,7 @@
 
   "writing": [
     {
-      "id": 1,
+      "id": 11,
       "name": "Professional SEO-Friendly Article Writing Service",
       "description": "We offer a professional article-writing service fully compliant with SEO guidelines and Google AdSense policies.",
       "icon": "ri:seo-fill",
