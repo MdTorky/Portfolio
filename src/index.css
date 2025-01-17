@@ -70,12 +70,28 @@ p {
   @apply transition duration-200 ease-linear;
 }
 
+.requestGroup {
+  @apply relative flex flex-col w-full;
+}
+
 .requestInput {
-  @apply border-theme dark:border-darktheme px-[10px] py-[11px] text-xs bg-darktheme dark:bg-theme border-2 rounded-[5px] w-full focus:outline-none placeholder:text-gray-50 text-theme dark:placeholder:text-gray-900 dark:text-darktheme;
+  @apply border-theme dark:border-darktheme px-[10px] py-[11px] text-xs bg-darktheme dark:bg-theme border-2 rounded-[5px] w-full focus:outline-none placeholder:text-gray-50 text-theme dark:placeholder:text-gray-900 dark:text-darktheme  focus-visible:border-bluetheme focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#71717a2e] dark:focus-visible:ring-[#14b8a61a];
 }
 
 .requestLabel {
   @apply text-theme dark:text-darktheme font-semibold relative top-2 ml-[7px] px-[3px] bg-darktheme dark:bg-theme w-fit;
+}
+
+.requestIcon {
+  @apply w-[40px] absolute top-6 bottom-0 flex items-center justify-center text-theme text-lg;
+}
+
+.requestGroup:focus-within .requestLabel {
+  @apply text-bluetheme;
+}
+
+.requestGroup:focus-within .requestIcon {
+  @apply text-bluetheme;
 }
 
 .navbar-hover {

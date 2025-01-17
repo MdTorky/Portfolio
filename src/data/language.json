@@ -59,14 +59,18 @@
     "Privacy": "Privacy Policy",
 
     "RequestForm": "Request Form",
+    "Required": "Required",
     "Name": "Name",
     "NameHere": "Name here",
     "Email": "Email",
     "EmailHere": "Email here",
-    "Phone": "Phone",
-    "PhoneHere": "Phone Number here",
-    "Quantity": "Quantity ",
-    "QuantityHere": "Quantity here"
+    "Quantity": "Quantity",
+    "QuantityHere": "Quantity here",
+    "WhatsappNo": "Whatsapp Number",
+    "WhatsappHere": "Whatsapp number here",
+    "AdditionalNotes": "Additional Notes",
+    "AdditionalNotesHere": "Additional Notes here",
+    "Submit": "Submit"
   },
 
   "ar": {
@@ -129,13 +133,17 @@
     "Privacy": "سياسة الخصوصية",
 
     "RequestForm": "نموذج الطلب",
+    "Required": "مطلوب",
     "Name": "الاسم",
     "NameHere": "اكتب الاسم هنا",
     "Email": "البريد الإلكتروني",
     "EmailHere": "اكتب البريد الإلكتروني هنا",
-    "Phone": "رقم الهاتف",
-    "PhoneHere": "اكتب رقم الهاتف هنا",
     "Quantity": "الكمية",
-    "QuantityHere": "اكتب الكمية هنا"
+    "QuantityHere": "اكتب الكمية هنا",
+    "WhatsappNo": "رقم الواتساب",
+    "WhatsappHere": "اكتب رقم الواتساب هنا",
+    "AdditionalNotes": "ملاحظات إضافية",
+    "AdditionalNotesHere": "اكتب الملاحظات الإضافية هنا",
+    "Submit": "إرسال"
   }
 }
