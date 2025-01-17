@@ -83,7 +83,7 @@ p {
 }
 
 .requestIcon {
-  @apply w-[40px] absolute top-6 bottom-0 flex items-center justify-center text-theme text-lg;
+  @apply w-[40px] absolute top-6 bottom-0 flex items-center justify-center text-theme dark:text-darktheme text-lg;
 }
 
 .requestGroup:focus-within .requestLabel {
