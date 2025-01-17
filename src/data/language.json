@@ -54,7 +54,19 @@
     "SquareSocialMediaPosters": "Square Posters For Social Media",
 
     "WhereStarted": "Where it all started",
-    "ContactMe": "Contact Me"
+    "ContactMe": "Contact Me",
+    "Terms": "Terms & Conditions",
+    "Privacy": "Privacy Policy",
+
+    "RequestForm": "Request Form",
+    "Name": "Name",
+    "NameHere": "Name here",
+    "Email": "Email",
+    "EmailHere": "Email here",
+    "Phone": "Phone",
+    "PhoneHere": "Phone Number here",
+    "Quantity": "Quantity ",
+    "QuantityHere": "Quantity here"
   },
 
   "ar": {
@@ -112,6 +124,18 @@
     "SquareSocialMediaPosters": "ملصقات مربعة لوسائل التواصل الاجتماعي",
 
     "WhereStarted": "أين بدأ كل شيء",
-    "ContactMe": "تواصل معي"
+    "ContactMe": "تواصل معي",
+    "Terms": "الشروط والأحكام",
+    "Privacy": "سياسة الخصوصية",
+
+    "RequestForm": "نموذج الطلب",
+    "Name": "الاسم",
+    "NameHere": "اكتب الاسم هنا",
+    "Email": "البريد الإلكتروني",
+    "EmailHere": "اكتب البريد الإلكتروني هنا",
+    "Phone": "رقم الهاتف",
+    "PhoneHere": "اكتب رقم الهاتف هنا",
+    "Quantity": "الكمية",
+    "QuantityHere": "اكتب الكمية هنا"
   }
 }

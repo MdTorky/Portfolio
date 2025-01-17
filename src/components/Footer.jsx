@@ -21,7 +21,10 @@ const Footer = ({ languageText }) => {
                 <Link to="/about" className="footerPage ">{languageText.ABOUT}</Link>
             </div>
 
-            <Link to='/terms' className="footerPage font-bold !text-lg mt-2">Terms & Conditions</Link>
+            <div className='flex gap-4'>
+                <Link to='/terms' className="footerPage font-bold !text-lg mt-2">{languageText.Terms}</Link>
+                <Link to='/privacy' className="footerPage font-bold !text-lg mt-2">{languageText.Privacy}</Link>
+            </div>
         </div>
     )
 }

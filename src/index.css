@@ -18,6 +18,10 @@
   direction: rtl;
 }
 
+.directions {
+  direction: ltr !important;
+}
+
 :root {
   --bluetheme: #525ceb;
   --darktheme: #2e3944;

@@ -8,7 +8,7 @@ import { Icon } from '@iconify/react';
 
 
 const RequestForm = ({ languageText, language }) => {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState();
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [phone, setPhone] = useState()
@@ -91,7 +91,7 @@ const RequestForm = ({ languageText, language }) => {
                 className='transitions text-theme bg-bluetheme px-10 py-5 rounded-md flex items-center justify-center mt-10 md:mt-0'>
                 <motion.h1
                     variants={childVariant}
-                    className='text-4xl text-center font-bold'>Request Form</motion.h1>
+                    className='text-4xl text-center font-bold'>{languageText.RequestForm}</motion.h1>
             </div>
             <div className='bg-gray-800 dark:bg-gray-200 rounded-md p-2 my-5'>
                 <form action="#" className="bg-darktheme dark:bg-theme rounded-md shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] px-8 py-5 flex flex-col">
@@ -129,12 +129,12 @@ const RequestForm = ({ languageText, language }) => {
                         <label
                             for="input"
                             className="requestLabel"
-                        >Name:</label
+                        >{languageText.Name}:</label
                         >
                         <input
                             id="name"
                             type="text"
-                            placeholder="Name here..."
+                            placeholder={`${languageText.NameHere}...`}
                             name="input"
                             className="requestInput"
                             onChange={(e) => setName(e.target.value)}
@@ -145,12 +145,12 @@ const RequestForm = ({ languageText, language }) => {
                         <label
                             for="input"
                             className="requestLabel"
-                        >Email:</label
+                        >{languageText.Email}:</label
                         >
                         <input
                             id="email"
                             type="email"
-                            placeholder="Email here..."
+                            placeholder={`${languageText.EmailHere}...`}
                             name="input"
                             className="requestInput"
                             onChange={(e) => setEmail(e.target.value)}
@@ -161,12 +161,13 @@ const RequestForm = ({ languageText, language }) => {
                         <label
                             for="input"
                             className="requestLabel"
-                        >Phone:</label
+                        >{languageText.Phone}:</label
                         >
                         <input
                             id="number"
                             type="number"
-                            placeholder="Phone Number here..."
+                            placeholder={`${languageText.PhoneHere}...`}
+
                             name="input"
                             className="requestInput"
                             onChange={(e) => setPhone(e.target.value)}
@@ -176,12 +177,13 @@ const RequestForm = ({ languageText, language }) => {
                         <label
                             for="input"
                             className="requestLabel"
-                        >Quantity:</label
+                        >{languageText.Quantity}:</label
                         >
                         <input
                             id="quantity"
                             type="number"
-                            placeholder="Quantity here..."
+                            placeholder={`${languageText.QuantityHere}...`}
+
                             name="input"
                             className="requestInput"
                             min="1"

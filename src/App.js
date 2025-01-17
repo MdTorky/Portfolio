@@ -12,6 +12,8 @@ import { useLanguage } from './contexts/languageContext';
 import languageData from './data/language.json';
 import Footer from './components/Footer';
 import RequestForm from './pages/RequestForm';
+import { Terms } from './pages/Terms';
+import { Privacy } from './pages/Privacy';
 
 
 function App() {
@@ -48,7 +50,8 @@ function App() {
           <Route path="/services" element={<Services languageText={languageText} language={language} />} />
           <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
           <Route path="/requestform/:id" element={<RequestForm languageText={languageText} language={language} />} />
-          {/* <Route path="/terms" element={<Terms/>} /> */}
+          <Route path="/terms" element={<Terms language={language} />} />
+          <Route path="/privacy" element={<Privacy language={language} />} />
         </Routes>
         <Footer language={language} languageText={languageText} />
 
