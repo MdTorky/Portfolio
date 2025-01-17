@@ -20,6 +20,7 @@ function App() {
   const location = useLocation()
   const { language, changeLanguage } = useLanguage();
   const languageText = languageData[language];
+  const api = process.env.REACT_APP_KEY;
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');
@@ -49,7 +50,7 @@ function App() {
           <Route path="/about" element={<About languageText={languageText} language={language} />} />
           <Route path="/services" element={<Services languageText={languageText} language={language} />} />
           <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
-          <Route path="/requestform/:id" element={<RequestForm languageText={languageText} language={language} />} />
+          <Route path="/requestform/:id" element={<RequestForm languageText={languageText} language={language} api={api} />} />
           <Route path="/terms" element={<Terms language={language} />} />
           <Route path="/privacy" element={<Privacy language={language} />} />
         </Routes>

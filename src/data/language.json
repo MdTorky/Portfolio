@@ -70,7 +70,10 @@
     "WhatsappHere": "Whatsapp number here",
     "AdditionalNotes": "Additional Notes",
     "AdditionalNotesHere": "Additional Notes here",
-    "Submit": "Submit"
+    "Submit": "Submit",
+    "Submitting": "Submitting",
+    "SubmittedSuccessfully": "Submitted Successfully",
+    "RequestSubmit": "Your Request was Submitted Successfully"
   },
 
   "ar": {
@@ -144,6 +147,10 @@
     "WhatsappHere": "اكتب رقم الواتساب هنا",
     "AdditionalNotes": "ملاحظات إضافية",
     "AdditionalNotesHere": "اكتب الملاحظات الإضافية هنا",
-    "Submit": "إرسال"
+    "Submit": "إرسال",
+
+    "Submitting": "جارٍ الإرسال",
+    "SubmittedSuccessfully": "تم الإرسال بنجاح",
+    "RequestSubmit": "تم إرسال طلبك بنجاح"
   }
 }

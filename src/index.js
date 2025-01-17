@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { LanguageProvider } from './contexts/languageContext';
+import { ItemsContextProvider } from './contexts/itemContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
+      <ItemsContextProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </ItemsContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
