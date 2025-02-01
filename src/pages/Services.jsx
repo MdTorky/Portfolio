@@ -166,7 +166,7 @@ const Services = ({ language, languageText }) => {
 
                     </motion.div>
                 </Link>
-                <div className="absolute top-0 left-0 rounded-tl-md  bg-darktheme dark:bg-theme text-sm text-theme dark:text-darktheme px-2 py-2">{service.price}</div>
+                <Link onClick={() => window.open(service.link, "_blank")} className="absolute top-0 left-0 rounded-tl-md  bg-darktheme dark:bg-theme text-sm text-theme dark:text-darktheme px-2 py-2 hover:scale-110 transition duration-300">{service.price}</Link>
                 <Link to="/about" className="absolute top-0 right-0 rounded-tr-md  bg-bluetheme  text-xl text-theme  px-2 py-2 hover:scale-110 transition duration-300 "><Icon icon="ic:baseline-contact-phone" /></Link>
             </motion.div>
         )
@@ -181,10 +181,12 @@ const Services = ({ language, languageText }) => {
             className="md:py-10 flex flex-col items-center justify-center w-full">
 
             <div
-                className='transitions dark:text-theme w-full p-5 md:p-20 md:px-52 dark:bg-gray-800 bg-gray-200 h-52 md:h-96 flex items-center justify-center md:justify-normal'>
+                className='transitions dark:text-theme w-full p-5 md:p-20 md:px-52 dark:bg-gray-800 bg-gray-200 h-52 md:h-96 flex flex-col items-center md:items-start justify-center md:justify-center'>
                 <motion.h1
                     variants={childVariant}
                     className='text-4xl text-center md:text-6xl font-bold'>{languageText.AllServices}</motion.h1>
+
+                <motion.button onClick={() => window.open("https://www.paypal.com/ncp/payment/D9JBJEVR2K28A", "_blank")} variants={childVariant} className='bg-bluetheme px-4 py-2 w-52 flex justify-center text-theme rounded-md mt-3 hover:scale-105 transition duration-150'>{languageText.ChooseService}</motion.button>
             </div>
 
             <motion.h1

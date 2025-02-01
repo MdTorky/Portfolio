@@ -73,7 +73,8 @@
     "Submit": "Submit",
     "Submitting": "Submitting",
     "SubmittedSuccessfully": "Submitted Successfully",
-    "RequestSubmit": "Your Request was Submitted Successfully"
+    "RequestSubmit": "Your Request was Submitted Successfully",
+    "ChooseService": "Choose the Service"
   },
 
   "ar": {
@@ -151,6 +152,7 @@
 
     "Submitting": "جارٍ الإرسال",
     "SubmittedSuccessfully": "تم الإرسال بنجاح",
-    "RequestSubmit": "تم إرسال طلبك بنجاح"
+    "RequestSubmit": "تم إرسال طلبك بنجاح",
+    "ChooseService": "اختر الخدمة"
   }
 }

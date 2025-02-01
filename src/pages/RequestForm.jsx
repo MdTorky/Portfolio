@@ -4,7 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
 import { useItemsContext } from '../hooks/useItemsContext'
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 
 
@@ -14,6 +15,7 @@ const RequestForm = ({ languageText, language, api }) => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [phone, setPhone] = useState()
+    const [countryCode, setCountryCode] = useState('+1');
     const [notes, setNotes] = useState()
     const [submitting, setSubmitting] = useState(false)
     const [error, setError] = useState(null);
@@ -227,6 +229,30 @@ const RequestForm = ({ languageText, language, api }) => {
                             <Icon icon="clarity:exclamation-circle-line" />
                         </div>
                     </div>
+                    {/* <div className="requestGroup">
+                        <label htmlFor="number" className="requestLabel  z-50">
+                            {languageText.WhatsappNo}:
+                        </label>
+                        <PhoneInput
+                            className="!border-darktheme"
+                            id="number"
+                            country={"my"}
+                            enableSearch={true}
+                            onChange={(phone) => setPhone(phone)}
+                            inputProps={{
+                                name: "number",
+                                required: true,
+                                autoFocus: true,
+                                placeholder: `${languageText.WhatsappHere}...`,
+                            }}
+                            inputClass="py-[20px] text-xs bg-darktheme dark:bg-theme border-2 rounded-[5px] w-full focus:outline-none placeholder:text-gray-50 text-theme dark:placeholder:text-gray-900 dark:text-darktheme  focus-visible:border-bluetheme focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#71717a2e] dark:focus-visible:ring-[#14b8a61a] !w-full" // Applying your custom styles
+                            containerClass="requestGroupContainer" // Optional container class for fine-tuning
+                        />
+                        <div className={`requestIcon ${language === "ar" ? "!left-0" : "!right-0"}`}>
+                            <Icon icon="clarity:exclamation-circle-line" />
+                        </div>
+                    </div> */}
+
                     <div className="requestGroup">
                         <label
                             for="input"
