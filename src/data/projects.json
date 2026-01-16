@@ -3,10 +3,9 @@
     "id": 1,
     "name": "ISS Egypt Gateway at UTM",
     "arabicName": "موقع الاتحاد المصري في جامعة UTM",
-    "description": "•Developed a comprehensive student portal using the MERN stack, featuring academic and social resources tailored to enhance student life.\n• Achieved significant adoption, with over 2,700 users since launch, reflecting its practical value to students.",
-    "arabicDescription": "• طورت بوابة طلابية شاملة باستخدام تقنية MERN، تتضمن موارد أكاديمية واجتماعية مصممة لتحسين حياة الطلاب.\n• حققت البوابة نسبة استخدام عالية، حيث تجاوز عدد المستخدمين 2,700 مستخدم منذ الإطلاق، مما يعكس قيمتها العملية للطلاب.",
-
-    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722882859/Portfolio/ISS_EGYPT_dxc40z.png",
+    "description": "• Architected and delivered a full-stack student portal serving 3,000+ active users, supporting academic, social, and administrative workflows.\n• Built role-based admin dashboards, committee management modules, advanced form builders, and interactive quiz/game systems.\n• Implemented secure authentication, RESTful APIs, and optimized MongoDB queries to support high concurrency and data integrity\n• Trained and curated a knowledge base with 100+ domain-specific questions, enabling accurate, context-aware responses\n •Integrated latest-generation LLMs (OpenAI ChatGPT & Google Gemini), delivering multi-model, highquality conversational responses with fallback handling",
+    "arabicDescription": "• قمت بتصميم وتقديم بوابة طلابية كاملة المزايا تخدم أكثر من 3000 مستخدم نشط، وتدعم العمليات الأكاديمية والاجتماعية والإدارية.\n• قمت ببناء لوحات تحكم إدارية تعتمد على الأدوار، ووحدات لإدارة اللجان، وأدوات بناء نماذج متقدمة، وأنظمة محادثات/ألعاب تفاعلية.\n• طورت نظام مصادقة آمن، وواجهات برمجية RESTful، وحسنت استعلامات MongoDB لدعم التزامن العالي وسلامة البيانات.\n• دربت وقمت بإنشاء قاعدة معرفية تحتوي على أكثر من 100 سؤال محدد المجال، مما يتيح تقديم إجابات دقيقة وحساسة للسياق.\n• دمجت أحدث نماذج اللغات الكبيرة (OpenAI ChatGPT وGoogle Gemini)، مما يوفر ردودًا محادثية عالية الجودة متعددة النماذج مع نظام احتياطي للتعامل مع الأخطاء.",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/New_ISS_zi4ab5.png",
     "technology": "MERN STACK",
     "liveDemo": "https://issegypt.vercel.app/",
     "github": "https://github.com/MdTorky/IssEgypt-frontend",
@@ -14,6 +13,19 @@
   },
   {
     "id": 2,
+    "name": "Nexus4D",
+    "arabicName": "نكسس 4D",
+    "description": "• Engineered a high-performance drag-and-drop Course Editor supporting 5+ media types, reducing course creation time by ~40%\n• I Developed a real-time Gamification Engine (XP, Levels, Leaderboards), designed to increase student retention and daily active usage by ~35%.\n• Built an Admin Analytics Dashboard processing 10,000+ data points to visualize revenue, user growth, and engagement metrics.\n• Optimized backend performance, reducing API response times to <100ms through MongoDB indexing and aggregation pipelines.",
+    "arabicDescription": "• قمت بتصميم محرر دروس عالي الأداء يدعم 5 أنواع متعددة من الوسائط باستخدام وظيفة السحب والإفلات، مما قلل من وقت إنشاء الدورات بنسبة ~40%.\n• طورت محرك تعزيز تفاعلي (XP، المستويات، اللوحات التنافسية) يعمل في الزمن الفعلي، والذي صُمم لزيادة استبقاء الطلاب واستخدامهم اليومي بنسبة ~35%.\n• قمت ببناء لوحة تحكم للتحليلات الإدارية تعالج أكثر من 10,000 نقطة بيانات لتصور الإيرادات، نمو المستخدمين، ومؤشرات التفاعل.\n• قمت بتحسين أداء الواجهة الخلفية، وتقليل أوقات استجابة API إلى أقل من 100 مللي ثانية من خلال فهرسة MongoDB وخطوط الأنابيب التجميعية.",
+
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/Nexus4D_ag8hhb.png",
+    "technology": "MERN STACK",
+    "liveDemo": "https://nexus-4d.vercel.app/",
+    "github": "https://github.com/MdTorky/Nexus4d-Client",
+    "websiteLink": "/nexus4d"
+  },
+  {
+    "id": 3,
     "name": "Marketify",
     "arabicName": "ماركيتيفاي",
     "description": "•Designed and built a marketplace website using the MERN stack to connect students and faculty within UTM’s campus and to foster engagement within the university community.\n•Implemented features such as multi-language support, secure payment methods, and personalized recommendations.",

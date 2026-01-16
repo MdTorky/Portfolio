@@ -171,7 +171,7 @@ const Projects = ({ languageText, language }) => {
 
                 variants={projectVariant}
                 // ref={ref}
-                className='my-10 flex flex-wrap justify-center gap-5 md:gap-20 md:p-0'>
+                className='my-10 flex flex-wrap justify-center gap-5 md:gap-20 md:p-0 md:w-[1500px]'>
                 {projectsData.map((project) => (
                     (projectCard(project))
                 ))}
