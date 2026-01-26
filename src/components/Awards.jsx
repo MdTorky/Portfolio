@@ -96,12 +96,12 @@ const Awards = ({ language }) => {
                         <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
                             <Icon icon={award.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
                         </div>
-                        <p className='text-bluetheme'>{language == 'ar' ? award.arabicDate : award.date}</p>
+                        <p className='text-bluetheme'>{language === 'ar' ? award.arabicDate : award.date}</p>
                     </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language == 'ar' ? award.arabicName : award.name}</h1>
+                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'ar' ? award.arabicName : award.name}</h1>
 
                     <div className='flex mt-5 items-center gap-2'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language == 'ar' ? award.arabicCompany : award.company}</p>
+                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language === 'ar' ? award.arabicCompany : award.company}</p>
 
                     </div>
                 </motion.div>
@@ -151,8 +151,8 @@ const Awards = ({ language }) => {
                                     <div className="flex justify-end my-2">
                                         <div className="flex items-center justify-between text-bluetheme w-full">
                                             {/* <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.company}</p> */}
-                                            <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-lg whitespace-nowrap'>{language == 'ar' ? selected.arabicCompany : selected.company}</p>
-                                            <p className='text-lg'>{language == 'ar' ? selected.arabicDate : selected.date}</p>
+                                            <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-lg whitespace-nowrap'>{language === 'ar' ? selected.arabicCompany : selected.company}</p>
+                                            <p className='text-lg'>{language === 'ar' ? selected.arabicDate : selected.date}</p>
                                         </div>
                                     </div>
                                 </div>

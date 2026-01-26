@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
-import { Icon } from '@iconify/react';
+import { motion } from "framer-motion"
 import { gapi } from "gapi-script";
 
 const FOLDER_ID = "1Jz94ffqHkXhSfkqYcDuwxHpNOLs567iw";

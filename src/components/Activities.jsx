@@ -218,16 +218,16 @@ const Activities = ({ language, languageText }) => {
                             <Icon icon={activ.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
                         </div>
                         <div>
-                            <p className='text-bluetheme text-lg'>{language == 'en' ? activ.date : activ.arabicDate}</p>
+                            <p className='text-bluetheme text-lg'>{language === 'en' ? activ.date : activ.arabicDate}</p>
                         </div>
                     </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language == 'en' ? activ.name : activ.arabicName}</h1>
+                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'en' ? activ.name : activ.arabicName}</h1>
                     {/* <h2 className='transitions text-md dark:text-gray-300 text-gray-500'>{activ.description}</h2> */}
                     <div className='flex justify-between mt-5 items-center'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{language == 'en' ? activ.organizers : activ.arabicOrganizers}</p>
+                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{language === 'en' ? activ.organizers : activ.arabicOrganizers}</p>
                         <div className='flex justify-end  items-center gap-2'>
                             <p className='text-bluetheme text-lg'>•</p>
-                            <p className='text-gray-500 text-lg'>{language == 'en' ? activ.role : activ.arabicRole}</p>
+                            <p className='text-gray-500 text-lg'>{language === 'en' ? activ.role : activ.arabicRole}</p>
                         </div>
                     </div>
                 </motion.div>
@@ -268,11 +268,11 @@ const Activities = ({ language, languageText }) => {
                                 <img src={selected.img} alt="" className='rounded-md w-[200px]' />
                             </div>
                             <div className='flex justify-between -mb-2'>
-                                <h1 className='xl:text-2xl text-start text-xl dark:text-theme'>{language == 'en' ? selected.name : selected.arabicName}</h1>
-                                <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{language == 'en' ? selected.date : selected.arabicDate}</p>
+                                <h1 className='xl:text-2xl text-start text-xl dark:text-theme'>{language === 'en' ? selected.name : selected.arabicName}</h1>
+                                <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{language === 'en' ? selected.date : selected.arabicDate}</p>
 
                             </div>
-                            <p className='text-bluetheme text-start'>{language == 'en' ? selected.organizers : selected.arabicOrganizers} - <span className="bg-bluetheme px-1 rounded-sm text-theme font-medium">{language == 'en' ? selected.role : selected.arabicRole}</span></p>
+                            <p className='text-bluetheme text-start'>{language === 'en' ? selected.organizers : selected.arabicOrganizers} - <span className="bg-bluetheme px-1 rounded-sm text-theme font-medium">{language === 'en' ? selected.role : selected.arabicRole}</span></p>
                             <p className='mt-4 dark:text-theme text-justify '>{language == 'en' ? selected.description : selected.arabicDescription}</p>
 
                             <div className='flex  gap-4 flex-wrap justify-center 2xl:justify-end'>

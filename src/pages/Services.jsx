@@ -101,8 +101,8 @@ const Services = ({ language, languageText }) => {
                         <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>
                     </div>
                 </div> */}
-                <h2 className='text-2xl font-semibold text-bluetheme  transitions mt-14 text-center uppercase'>{language == "en" ? service.name : service.arabicName}</h2>
-                <p className='box-border text-md my-3 text-darktheme dark:text-theme transitions mb-10 text-center whitespace-pre-wrap'>{language == "en" ? service.description : service.arabicDescription}</p>
+                <h2 className='text-2xl font-semibold text-bluetheme  transitions mt-14 text-center uppercase'>{language === "en" ? service.name : service.arabicName}</h2>
+                <p className='box-border text-md my-3 text-darktheme dark:text-theme transitions mb-10 text-center whitespace-pre-wrap'>{language === "en" ? service.description : service.arabicDescription}</p>
 
                 <Link
                     onClick={(e) => {

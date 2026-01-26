@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
 
 const Languages = ({ language }) => {
@@ -90,10 +90,10 @@ const Languages = ({ language }) => {
                             <Icon icon={lang.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
                         </div>
                         {/* <p className='text-bluetheme'>{lang.level}</p> */}
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language == 'en' ? lang.level : lang.arabicLevel}</p>
+                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language === 'en' ? lang.level : lang.arabicLevel}</p>
 
                     </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language == 'en' ? lang.name : lang.arabicName}</h1>
+                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'en' ? lang.name : lang.arabicName}</h1>
 
                 </motion.div>
             ))}

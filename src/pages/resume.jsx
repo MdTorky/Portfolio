@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
-import { button } from '@material-tailwind/react';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Activities from '../components/Activities';
@@ -100,35 +99,35 @@ const Resume = ({ language, languageText }) => {
 
 
 
-    const getMotionVariants = () => ({
-        open: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                type: "spring",
-                bounce: 0,
-                duration: 1,
-                delayChildren: 0.3,
-                when: "beforeChildren",
-                staggerChildren: 0.05,
+    // const getMotionVariants = () => ({
+    //     open: {
+    //         opacity: 1,
+    //         scale: 1,
+    //         transition: {
+    //             type: "spring",
+    //             bounce: 0,
+    //             duration: 1,
+    //             delayChildren: 0.3,
+    //             when: "beforeChildren",
+    //             staggerChildren: 0.05,
 
-            }
-        },
-        closed: {
-            opacity: 0,
-            scale: 0,
-            transition: {
-                type: "spring",
-                bounce: 0,
-                duration: 0.3,
-            }
-        },
-        hidden: {
-            false: false
-        }
+    //         }
+    //     },
+    //     closed: {
+    //         opacity: 0,
+    //         scale: 0,
+    //         transition: {
+    //             type: "spring",
+    //             bounce: 0,
+    //             duration: 0.3,
+    //         }
+    //     },
+    //     hidden: {
+    //         false: false
+    //     }
 
 
-    });
+    // });
 
 
 
@@ -237,7 +236,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 1 ? "visible" : "hidden"}
-                    className={`${value != 1 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 1 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyExperience}</h1>
                     <Experience languageText={languageText} language={language} />
@@ -248,7 +247,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 2 ? "visible" : "hidden"}
-                    className={`${value != 2 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 2 ? "hidden" : "resumeContainer"}`}
 
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyEducation}</h1>
@@ -259,7 +258,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 3 ? "visible" : "hidden"}
-                    className={`${value != 3 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 3 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyActivities}</h1>
                     <Activities languageText={languageText} language={language} />
@@ -269,7 +268,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 4 ? "visible" : "hidden"}
-                    className={`${value != 4 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 4 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyAwards}</h1>
                     <Awards languageText={languageText} language={language} />
@@ -279,7 +278,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 5 ? "visible" : "hidden"}
-                    className={`${value != 5 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 5 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MySkills}</h1>
                     <Skills languageText={languageText} language={language} />
@@ -289,7 +288,7 @@ const Resume = ({ language, languageText }) => {
                     variants={ExperienceVariant}
                     initial="hidden"
                     animate={value === 6 ? "visible" : "hidden"}
-                    className={`${value != 6 ? "hidden" : "resumeContainer"}`}
+                    className={`${value !== 6 ? "hidden" : "resumeContainer"}`}
                 >
                     <h1 className='transitions text-4xl dark:text-theme'>{languageText.MyLanguages}</h1>
                     <Languages languageText={languageText} language={language} />

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react'
-import { motion, useInView, useAnimation } from "framer-motion"
+import React from 'react'
+import { motion } from "framer-motion"
 import projectsData from '../data/projects.json'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom'
@@ -115,8 +115,8 @@ const Projects = ({ languageText, language }) => {
                         {project.github && <Link to={project.github} className='homeIcons !rounded-md p-1 flex items-center gap-2'><Icon icon="jam:github" /></Link>}
                     </div>
                 </div>
-                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions'>{language == "ar" ? project.arabicName : project.name}</h2>
-                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions whitespace-pre-wrap'>{language == "ar" ? project.arabicDescription : project.description}</p>
+                <h2 className='text-2xl font-semibold text-darktheme dark:text-theme transitions'>{language === "ar" ? project.arabicName : project.name}</h2>
+                <p className='box-border text-lg my-3 text-darktheme dark:text-theme transitions whitespace-pre-wrap'>{language === "ar" ? project.arabicDescription : project.description}</p>
 
                 <Link to={project.websiteLink} >
                     {/* <motion.div

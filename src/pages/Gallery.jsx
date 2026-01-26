@@ -23,9 +23,9 @@ const Gallery = ({ language, languageText }) => {
         localStorage.setItem('galleryValue', JSON.stringify(gallery))
     }, [gallery])
 
-    const handleChange = (event, newValue) => {
-        setGallery(newValue);
-    };
+    // const handleChange = (event, newValue) => {
+    //     setGallery(newValue);
+    // };
 
 
 

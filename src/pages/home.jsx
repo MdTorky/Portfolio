@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Me from '../img/Torky.png'
-import { motion, useAnimation } from "framer-motion"
+import { motion } from "framer-motion"
 import pdf from '../data/resume.pdf'
 
 const Home = ({ language, languageText }) => {

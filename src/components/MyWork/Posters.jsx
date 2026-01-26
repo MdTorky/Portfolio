@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { gapi } from "gapi-script";
 
 
@@ -48,7 +48,7 @@ const Posters = () => {
         }
 
         gapi.load("client:auth2", start);
-    }, []);
+    }, [listImagesFromAllFolders]);
 
     // useEffect(() => {
     //     function start() {

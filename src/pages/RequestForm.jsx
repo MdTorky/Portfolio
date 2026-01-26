@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
 import { useItemsContext } from '../hooks/useItemsContext'
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 
@@ -14,12 +13,11 @@ const RequestForm = ({ languageText, language, api }) => {
     const { dispatch } = useItemsContext()
     const [name, setName] = useState()
     const [email, setEmail] = useState()
-    const [phone, setPhone] = useState()
-    const [countryCode, setCountryCode] = useState('+1');
-    const [notes, setNotes] = useState()
+    const [phone, setPhone] = useState();
+    const [notes, setNotes] = useState();
     const [submitting, setSubmitting] = useState(false)
-    const [error, setError] = useState(null);
     const [submission, setSubmission] = useState(false)
+    const [error, setError] = useState(null)
     const navigate = useNavigate();
 
     const { id } = useParams();
