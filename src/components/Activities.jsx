@@ -273,7 +273,7 @@ const Activities = ({ language, languageText }) => {
 
                             </div>
                             <p className='text-bluetheme text-start'>{language === 'en' ? selected.organizers : selected.arabicOrganizers} - <span className="bg-bluetheme px-1 rounded-sm text-theme font-medium">{language === 'en' ? selected.role : selected.arabicRole}</span></p>
-                            <p className='mt-4 dark:text-theme text-justify '>{language == 'en' ? selected.description : selected.arabicDescription}</p>
+                            <p className='mt-4 dark:text-theme text-justify '>{language === 'en' ? selected.description : selected.arabicDescription}</p>
 
                             <div className='flex  gap-4 flex-wrap justify-center 2xl:justify-end'>
                                 {selected.link && <Link to={selected.link} className="homeIcons flex items-center px-2 !rounded-lg"><Icon icon="hugeicons:award-02" className='text-xl' />{languageText.AwardLink}</Link>}

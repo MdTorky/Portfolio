@@ -168,27 +168,3 @@ const Experience = ({ language }) => {
 };
 
 export default Experience
-
-
-
-
-
-
-{/* <button
-                                className='absolute top-2 right-2 text-3xl text-theme hover:text-bluetheme transitions'
-                                onClick={() => setSelected(null)}
-                            >
-                                <Icon icon="zondicons:close-outline" />
-                            </button>
-                            <img src={selected.img} alt="" className='bg-white rounded-md w-[200px] h-[200px] xl:w-[100px] xl:h-[100px]' />
-                            <div className='flex  flex-col justify-between'>
-                                <div className='flex items-center justify-between xl:w-[90%]'>
-                                    <h1 className='xl:text-2xl dark:text-theme'>{selected.title}</h1>
-                                    <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{selected.date}</p>
-
-                                </div>
-
-                                <p className='text-bluetheme text-start'>{selected.company}</p>
-                                <p className='mt-4 dark:text-theme text-justify'>{selected.description}</p>
-                            </div>
-                        </motion.div> */}

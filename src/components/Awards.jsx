@@ -144,10 +144,10 @@ const Awards = ({ language }) => {
                                 </div>}
                                 <div className={`px-2 xl:px-6 ${!selected.img ? "mt-14" : ""}`}>
                                     <div className=" mt-5 flex items-center justify-between">
-                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{language == 'ar' ? selected.arabicName : selected.name}</h1>
+                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{language === 'ar' ? selected.arabicName : selected.name}</h1>
                                         <Link to={selected.link} className="homeIcons flex items-center p-2 !rounded-lg"><Icon icon="fa-solid:link" /></Link>
                                     </div>
-                                    <p className='dark:text-gray-400 text-gray-600 xl:text-justify mt-1'>{language == 'ar' ? selected.arabicDescription : selected.description}</p>
+                                    <p className='dark:text-gray-400 text-gray-600 xl:text-justify mt-1'>{language === 'ar' ? selected.arabicDescription : selected.description}</p>
                                     <div className="flex justify-end my-2">
                                         <div className="flex items-center justify-between text-bluetheme w-full">
                                             {/* <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.company}</p> */}
