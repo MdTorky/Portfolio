@@ -6,7 +6,7 @@
     "description": "• Architected and delivered a full-stack student portal serving 3,000+ active users, supporting academic, social, and administrative workflows.\n• Built role-based admin dashboards, committee management modules, advanced form builders, and interactive quiz/game systems.\n• Implemented secure authentication, RESTful APIs, and optimized MongoDB queries to support high concurrency and data integrity\n• Trained and curated a knowledge base with 100+ domain-specific questions, enabling accurate, context-aware responses\n •Integrated latest-generation LLMs (OpenAI ChatGPT & Google Gemini), delivering multi-model, highquality conversational responses with fallback handling",
     "arabicDescription": "• قمت بتصميم وتقديم بوابة طلابية كاملة المزايا تخدم أكثر من 3000 مستخدم نشط، وتدعم العمليات الأكاديمية والاجتماعية والإدارية.\n• قمت ببناء لوحات تحكم إدارية تعتمد على الأدوار، ووحدات لإدارة اللجان، وأدوات بناء نماذج متقدمة، وأنظمة محادثات/ألعاب تفاعلية.\n• طورت نظام مصادقة آمن، وواجهات برمجية RESTful، وحسنت استعلامات MongoDB لدعم التزامن العالي وسلامة البيانات.\n• دربت وقمت بإنشاء قاعدة معرفية تحتوي على أكثر من 100 سؤال محدد المجال، مما يتيح تقديم إجابات دقيقة وحساسة للسياق.\n• دمجت أحدث نماذج اللغات الكبيرة (OpenAI ChatGPT وGoogle Gemini)، مما يوفر ردودًا محادثية عالية الجودة متعددة النماذج مع نظام احتياطي للتعامل مع الأخطاء.",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/New_ISS_zi4ab5.png",
-    "technology": "MERN STACK",
+    "technology": "MERN STACK & Vite",
     "liveDemo": "https://issegypt.vercel.app/",
     "github": "https://github.com/MdTorky/IssEgypt-frontend",
     "websiteLink": "/issEgypt"
@@ -19,13 +19,59 @@
     "arabicDescription": "• قمت بتصميم محرر دروس عالي الأداء يدعم 5 أنواع متعددة من الوسائط باستخدام وظيفة السحب والإفلات، مما قلل من وقت إنشاء الدورات بنسبة ~40%.\n• طورت محرك تعزيز تفاعلي (XP، المستويات، اللوحات التنافسية) يعمل في الزمن الفعلي، والذي صُمم لزيادة استبقاء الطلاب واستخدامهم اليومي بنسبة ~35%.\n• قمت ببناء لوحة تحكم للتحليلات الإدارية تعالج أكثر من 10,000 نقطة بيانات لتصور الإيرادات، نمو المستخدمين، ومؤشرات التفاعل.\n• قمت بتحسين أداء الواجهة الخلفية، وتقليل أوقات استجابة API إلى أقل من 100 مللي ثانية من خلال فهرسة MongoDB وخطوط الأنابيب التجميعية.",
 
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/Nexus4D_ag8hhb.png",
-    "technology": "MERN STACK",
+    "technology": "MERN STACK & Vite",
     "liveDemo": "https://nexus-4d.vercel.app/",
-    "github": "https://github.com/MdTorky/Nexus4d-Client",
     "websiteLink": "/nexus4d"
   },
   {
     "id": 3,
+    "name": "Qayyim Store",
+    "arabicName": "متجر قيم",
+    "description": "• Designed and developed a modern e-commerce storefront for a clothing brand, focusing on clean UI and seamless user experience.\n• Built responsive product listings, product detail pages, and cart flows optimized for mobile and desktop users.\n• Implemented performance-optimized React components to ensure fast load times and smooth navigation.\n• Deployed on Vercel, ensuring high availability, scalability, and fast global delivery.",
+    "arabicDescription": "• صممت وطورت واجهة متجر إلكتروني عصري لعلامة تجارية للأزياء، مع التركيز على واجهة مستخدم نظيفة وتجربة مستخدم سلسة.\n• قمت ببناء قوائم منتجات وصفحات تفاصيل المنتج وسير عمل عربة التسوق بشكل سريع ومتجاوب مع الهواتف المحمولة وأجهزة الكمبيوتر.\n• طبقت مكونات React محسنة الأداء لضمان أوقات تحميل سريعة وتنقل سلس.\n• قمت بالنشر على منصة Vercel، مما يضمن توفرًا عاليًا، قابلية التوسع، وتوصيل سريع على مستوى العالم.",
+
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1769450301/Portfolio/Qayyim_j1eoln.png",
+    "technology": "MERN STACK & Vite",
+    "liveDemo": "https://qayyim-store.vercel.app/",
+    "github": "https://github.com/MdTorky/Qayyim",
+    "websiteLink": "/qayyim"
+  },
+  {
+    "id": 4,
+    "name": "Shawarma Fahman",
+    "arabicName": "شاورما فاهمان",
+    "description": "• Developed a business website for a local shawarma restaurant to establish online presence and brand visibility.\n• Created menu sections, business information pages, and call-to-action flows to improve customer engagement.\n• Ensured mobile-first responsiveness, supporting customers browsing on smartphones.\n• Delivered a clean, fast, and user-friendly interface suitable for small business needs.",
+    "arabicDescription": "• قمت بتطوير موقع إلكتروني لنشاط تجاري لمطعم شاورما محلي لتأسيس وجود رقمي وزيادة ظهور العلامة التجارية.\n• أنشأ أقسام القائمة، صفحات معلومات العمل، وسير عمل تحفيزية للتفاعل لتحسين تفاعل العملاء.\n• ضمان التصميم المتجاوب مع الأجهزة المحمولة أولاً، لدعم العملاء الذين يتصفحون باستخدام الهواتف الذكية.\n• قدم واجهة نظيفة، سريعة، وسهلة الاستخدام تتناسب مع احتياجات الأعمال الصغيرة.",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1769450316/Portfolio/Fahman_j45fwy.png",
+    "technology": "MERN STACK & Vite",
+    "liveDemo": "https://shawarma-fahman.vercel.app/",
+    "github": "https://github.com/MdTorky/AboGamalShawarmaFrontend",
+    "websiteLink": "/shawarmaFahman"
+  },
+  {
+    "id": 5,
+    "name": "Personal Portfolio",
+    "arabicName": "موقع شخصي",
+    "description": "• Built a personal portfolio website to showcase projects, skills, and professional experience to recruiters and clients.\n• Designed a responsive, performance-focused UI with clear project structure and intuitive navigation.\n• Optimized the site for SEO and fast load times, improving visibility and recruiter reach.\n• Integrated external project links and GitHub repositories for easy technical validation.",
+    "arabicDescription": "• قمت ببناء موقع شخصي لحفظ الأعمال لعرض مشاريعي ومهاراتي وخبراتي المهنية للمديرين التنفيذيين والعملاء.\n• صممت واجهة مستخدم متجاوبة وموجهة للأداء مع هيكلية واضحة للمشاريع وتنقل سهل وبديهي.\n• قمت بتحسين الموقع لمحركات البحث وأوقات تحميل سريعة، مما يحسن من ظهوره ووصول المجندين إليه.\n• قمت بدمج روابط مشاريع خارجية ومستودعات GitHub لتسهيل التحقق الفني.",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1769450572/Portfolio/Portfolio_cg1p7t.png",
+    "technology": "ReactJs",
+    "liveDemo": "https://www.mohamedtorky.online",
+    "github": "https://github.com/MdTorky/Portfolio",
+    "websiteLink": "/portfolio"
+  },
+  {
+    "id": 6,
+    "name": "StellarTel",
+    "arabicName": "موقع ستاريلتل",
+    "description": "• Developed a corporate website for a Malaysian systems integrator operating across ASEAN and Gulf countries.\n• Translated complex business offerings into clear, structured digital content, improving service clarity and credibility.\n• Designed and implemented sections covering:\n - Tech Vendor Packaging & Deployment\n - Venue, Infrastructure & Smart City Integration\n - Identity, Access & Secure Credentialing Systems\n - Digital Engagement Systems (Ticketing, Retail, Loyalty)\n - Commercial Structuring & Market Entry Advisory\n• Built a scalable, professional UI aligned with enterprise branding and international clients.\n• Optimized layout and content for clarity, responsiveness, and performance across devices.",
+    "arabicDescription": "• قمت بتطوير موقع إلكتروني لشركة ماليزية تعمل في مجال تكامل الأنظمة عبر دول مجلس التعاون الخليجي ورابطة أمم جنوب شرق آسيا (ASEAN).\n• قمت بتحويل العروض التجارية المعقدة إلى محتوى رقمي واضح ومنظم، مما يحسن من وضوح الخدمات ومصداقيتها.\n• صممت ونفذت أقساماً تغطي:\n - تعبئة ونشر موردي التقنيات\n - دمج المواقع والبنية التحتية والمدن الذكية\n - أنظمة الهوية والوصول والاعتماد الآمن\n - أنظمة المشاركة الرقمية (التذاكر، البيع بالتجزئة، الولاء)\n - الهيكلة التجارية والاستشارات الخاصة بدخول الأسواق\n• قمت ببناء واجهة مستخدم احترافية وقابلة للتوسع تتماشى مع هوية الشركة وعملائها الدوليين.\n• قمت بتحسين التصميم والمحتوى من حيث الوضوح، الاستجابة للأجهزة المختلفة، والأداء.",
+    "technology": "ReactJs & Vite",
+    "liveDemo": "https://stellartel-newui.vercel.app",
+    "websiteLink": "/stellartel"
+  },
+  {
+    "id": 7,
     "name": "Marketify",
     "arabicName": "ماركيتيفاي",
     "description": "•Designed and built a marketplace website using the MERN stack to connect students and faculty within UTM’s campus and to foster engagement within the university community.\n•Implemented features such as multi-language support, secure payment methods, and personalized recommendations.",
@@ -38,7 +84,17 @@
     "websiteLink": "/marketify"
   },
   {
-    "id": 3,
+    "id": 8,
+    "name": "Old ISS Egypt Gateway at UTM",
+    "arabicName": "موقع الاتحاد المصري في جامعة UTM القديم",
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1722882859/Portfolio/ISS_EGYPT_dxc40z.png",
+    "technology": "MERN STACK",
+    "liveDemo": "https://issegyptold.vercel.app/",
+    "github": "https://github.com/MdTorky/IssEgypt-frontend",
+    "websiteLink": "/issEgyptOld"
+  },
+  {
+    "id": 9,
     "name": "My Graphic Designs",
     "arabicName": "تصاميمي الجرافيكية",
     "description": "A gallery to view all of my graphic designs: \n•Designed and managed engaging social media campaigns for Instagram, including posts, stories, and account management, significantly boosting audience interaction and brand visibility.\n•Created professional-quality posters, banners, and flyers for events and promotional campaigns, ensuring cohesive branding and effective communication of key messages.\n•Designed logos, T-shirt designs, and certificates tailored to client and organizational needs, enhancing brand identity and event appeal.\n•Designed business cards and promotional materials that effectively communicated professionalism and brand value to target audiences.\n•Successfully delivered over 120 graphic assets, contributing to the success of organizational events and campaigns while ensuring high-quality visual standards.",
