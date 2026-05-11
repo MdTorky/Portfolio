@@ -30,6 +30,9 @@
 
     "AwardLink": "Award Link",
     "SocialLink": "Social Link",
+    "CertificateLink": "Certificate Link",
+    "Certificates": "Certificates",
+    "MyCertificates": "My Certificates",
 
     "AllServices": "All of my Services",
     "WebBased": "Web-Based Services",
@@ -108,6 +111,9 @@
 
     "AwardLink": "رابط الجائزة",
     "SocialLink": "الرابط الاجتماعي",
+    "CertificateLink": "رابط الشهادة",
+    "Certificates": "الشهادات",
+    "MyCertificates": "شهاداتي",
 
     "AllServices": "جميع خدماتي",
     "WebBased": "الخدمات القائمة على الويب",

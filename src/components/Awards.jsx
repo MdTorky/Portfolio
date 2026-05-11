@@ -1,41 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom'
-
 
 const Awards = ({ language }) => {
-
     const [selected, setSelected] = useState(null);
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setSelected(null)
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
-    const childVariant = {
-        hidden: {
-            opacity: 0,
-            y: -100,
-            // scale: 0,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            // scale: 1,
-            transition: {
-                duration: 1,
-                type: "spring",
-                stiffness: 120,
-            }
-        }
-    }
 
     const awards = [
         {
@@ -51,7 +19,6 @@ const Awards = ({ language }) => {
             icon: "mdi:microsoft",
             img: "https://media.licdn.com/dms/image/v2/D5622AQESAChR8CRJMQ/feedshare-shrink_800/feedshare-shrink_800/0/1689043468706?e=1726099200&v=beta&t=wVt-ukKZbzvCe4HS2Lqiy4nelIvUZLiMf8duoz5qKXI",
             link: "https://www.linkedin.com/feed/update/urn:li:activity:7084361783041277953/?utm_source=share&utm_medium=member_desktop"
-
         },
         {
             id: 2,
@@ -66,107 +33,119 @@ const Awards = ({ language }) => {
             icon: "ci:car-auto",
             img: "",
             link: "https://www.instagram.com/p/CtMVQfsBp23/"
-
         }
-    ]
+    ];
+
+    useEffect(() => {
+        const handleKeyDown = (e) => e.key === 'Escape' && setSelected(null);
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    const cardVariant = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+    };
 
     return (
-        <div className='mt-10 flex justify-center gap-10 flex-wrap'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {awards.map((award) => (
                 <motion.div
                     key={award.id}
-                    variants={childVariant}
-                    whileHover={{
-                        scale: 1.05,
-                        transition: {
-                            duration: 0.5,
-                        }
-                    }}
-                    whileTap={{
-                        scale: 0,
-                        transition: {
-                            duration: 1
-                        }
-                    }}
-                    className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
+                    variants={cardVariant}
+                    whileHover={{ y: -5 }}
+                    className='glass-morphism rounded-2xl p-6 cursor-pointer premium-shadow group transitions'
                     onClick={() => setSelected(award)}
                 >
-                    <motion.div
-                        className='flex items-center justify-between'>
-                        <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                            <Icon icon={award.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
+                    <div className='flex items-start justify-between mb-4'>
+                        <div className='p-3 rounded-xl bg-bluetheme/10 text-bluetheme group-hover:bg-bluetheme group-hover:text-white transitions'>
+                            <Icon icon={award.icon} className="text-2xl" />
                         </div>
-                        <p className='text-bluetheme'>{language === 'ar' ? award.arabicDate : award.date}</p>
-                    </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'ar' ? award.arabicName : award.name}</h1>
-
-                    <div className='flex mt-5 items-center gap-2'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language === 'ar' ? award.arabicCompany : award.company}</p>
-
+                        <span className='text-sm font-semibold text-bluetheme px-3 py-1 bg-bluetheme/10 rounded-full'>
+                            {language === 'ar' ? award.arabicDate : award.date}
+                        </span>
+                    </div>
+                    <h3 className='text-xl font-bold mb-1 text-darktheme dark:text-theme group-hover:text-bluetheme transitions'>
+                        {language === 'ar' ? award.arabicName : award.name}
+                    </h3>
+                    <div className='flex items-center gap-2 text-gray-500 dark:text-gray-400'>
+                        <span className='w-1.5 h-1.5 rounded-full bg-bluetheme' />
+                        <p className='font-medium'>{language === 'ar' ? award.arabicCompany : award.company}</p>
                     </div>
                 </motion.div>
             ))}
 
-
             <AnimatePresence>
                 {selected && (
                     <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         onClick={() => setSelected(null)}
-
-                        className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-
+                        className='fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4'
+                    >
                         <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{
-                                opacity: 1, scale: 1,
-                                transition: {
-                                    duration: 1,
-                                    type: 'spring',
-                                    stiffness: 80,
-                                }
-                            }}
-                            exit={{
-                                opacity: 0, scale: 0, transition: {
-                                    duration: 0.5,
-                                }
-                            }}
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-theme dark:bg-darktheme p-4 w-[600px] rounded-md relative">
+                            className='relative w-full max-w-2xl bg-theme dark:bg-darktheme rounded-3xl overflow-hidden premium-shadow'
+                        >
                             <button
-                                className='absolute top-6 right-6 text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions z-50'
+                                className='absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transitions'
                                 onClick={() => setSelected(null)}
                             >
-                                <Icon icon="zondicons:close-outline" />
+                                <Icon icon="mdi:close" className="text-2xl" />
                             </button>
-                            <div className="bg-gray-400 relative w-full rounded-md gradient-color border-gray-300 dark:border-gray-700 border-2 ">
-                                {selected.img && <div className=' relative w-full h-[150px] xl:h-[250px] rounded-t-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-end'>
-                                    <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-t-md w-full  object-center transform hover:scale-125 mix-blend-overlay" />
-                                </div>}
-                                <div className={`px-2 xl:px-6 ${!selected.img ? "mt-14" : ""}`}>
-                                    <div className=" mt-5 flex items-center justify-between">
-                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{language === 'ar' ? selected.arabicName : selected.name}</h1>
-                                        <Link to={selected.link} className="homeIcons flex items-center p-2 !rounded-lg"><Icon icon="fa-solid:link" /></Link>
+
+                            <div className='flex flex-col'>
+                                {selected.img && (
+                                    <div className='h-64 w-full relative overflow-hidden'>
+                                        <img src={selected.img} alt={selected.name} className='w-full h-full object-cover' />
+                                        <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
                                     </div>
-                                    <p className='dark:text-gray-400 text-gray-600 xl:text-justify mt-1'>{language === 'ar' ? selected.arabicDescription : selected.description}</p>
-                                    <div className="flex justify-end my-2">
-                                        <div className="flex items-center justify-between text-bluetheme w-full">
-                                            {/* <p className='dark:text-gray-400 text-gray-600 mt-1'>{selected.company}</p> */}
-                                            <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-lg whitespace-nowrap'>{language === 'ar' ? selected.arabicCompany : selected.company}</p>
-                                            <p className='text-lg'>{language === 'ar' ? selected.arabicDate : selected.date}</p>
+                                )}
+                                <div className='p-8 md:p-10'>
+                                    <div className='flex flex-wrap items-center justify-between gap-4 mb-6'>
+                                        <div>
+                                            <div className='flex items-center gap-2 mb-1'>
+                                                <Icon icon={selected.icon} className="text-bluetheme text-xl" />
+                                                <span className='text-bluetheme font-bold uppercase tracking-wider text-sm'>
+                                                    {language === 'ar' ? selected.arabicCompany : selected.company}
+                                                </span>
+                                            </div>
+                                            <h2 className='text-2xl md:text-3xl font-bold text-darktheme dark:text-theme'>
+                                                {language === 'ar' ? selected.arabicName : selected.name}
+                                            </h2>
                                         </div>
+                                        <span className='px-4 py-2 bg-bluetheme text-white rounded-xl font-bold text-sm'>
+                                            {language === 'ar' ? selected.arabicDate : selected.date}
+                                        </span>
                                     </div>
+                                    <div className='mb-8'>
+                                        <p className='text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify'>
+                                            {language === 'ar' ? selected.arabicDescription : selected.description}
+                                        </p>
+                                    </div>
+                                    {selected.link && (
+                                        <a 
+                                            href={selected.link} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className='flex items-center gap-2 px-6 py-3 bg-bluetheme text-white rounded-2xl font-bold transitions hover:scale-105 active:scale-95 inline-flex'
+                                        >
+                                            <Icon icon="mdi:link" className='text-xl' />
+                                            {language === 'ar' ? "رابط الجائزة" : "Award Link"}
+                                        </a>
+                                    )}
                                 </div>
                             </div>
-
                         </motion.div>
-
                     </motion.div>
-                )
-
-                }
+                )}
             </AnimatePresence>
         </div>
-    )
-}
+    );
+};
 
 export default Awards

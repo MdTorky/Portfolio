@@ -6,39 +6,6 @@ import { Link } from 'react-router-dom'
 const Activities = ({ language, languageText }) => {
     const [selected, setSelected] = useState(null)
 
-    const childVariant = {
-        hidden: {
-            opacity: 0,
-            y: -100,
-            // scale: 0,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            // scale: 1,
-            transition: {
-                duration: 1,
-                type: "spring",
-                stiffness: 120,
-            }
-        }
-    }
-
-
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setSelected(null)
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
-
-
     const activities = [
         {
             id: 1,
@@ -103,7 +70,6 @@ const Activities = ({ language, languageText }) => {
             arabicOrganizers: "نادي Global Buddies",
             arabicDate: "يناير 2023 - يناير 2024",
             arabicDescription: 'لقد خططت لأحداث وأنشطة تبادل ثقافي لتعزيز التعاون وبناء المجتمع. بالإضافة إلى ذلك، قمت بتصميم وتنفيذ برامج الخدمة المجتمعية لتعزيز المسؤولية الاجتماعية والتحول الجيد'
-
         },
         {
             id: 5,
@@ -120,7 +86,6 @@ const Activities = ({ language, languageText }) => {
             arabicOrganizers: "AIESEC في ماليزيا",
             arabicDate: "فبراير 2023 - مارس 2023",
             arabicDescription: 'قمت بتدريس العلوم واللغة الإنجليزية والفنون للأطفال، وتعزيز مهارات التدريس والتكيف مع احتياجات التعلم المتنوعة.'
-
         },
         {
             id: 6,
@@ -185,106 +150,118 @@ const Activities = ({ language, languageText }) => {
             arabicOrganizers: "AIESEC في ماليزيا",
             arabicDate: "يونيو 2023",
             arabicDescription: 'تعزيز تجارب الحضور من خلال التخطيط الإبداعي للحدث واستراتيجيات المشاركة المبتكرة.'
-
         },
-
-
     ]
+
+    useEffect(() => {
+        const handleKeyDown = (e) => e.key === 'Escape' && setSelected(null);
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    const cardVariant = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+    };
+
     return (
-        <div className='mt-10 flex justify-center xl:w-[850px] h-[380px] overflow-y-auto xl:py-5 gap-10 flex-wrap '>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {activities.map((activ) => (
                 <motion.div
                     key={activ.id}
-
-                    variants={childVariant}
-                    whileHover={{
-                        scale: 1.05,
-                        transition: {
-                            duration: 0.5,
-                        }
-                    }}
-                    whileTap={{
-                        scale: 0,
-                        transition: {
-                            duration: 1
-                        }
-                    }}
-                    className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
+                    variants={cardVariant}
+                    whileHover={{ y: -5 }}
+                    className='glass-morphism rounded-2xl p-6 cursor-pointer premium-shadow group transitions'
                     onClick={() => setSelected(activ)}
                 >
-                    <motion.div
-                        className='flex items-center justify-between'>
-                        <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                            <Icon icon={activ.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
+                    <div className='flex items-start justify-between mb-4'>
+                        <div className='p-3 rounded-xl bg-bluetheme/10 text-bluetheme group-hover:bg-bluetheme group-hover:text-white transitions'>
+                            <Icon icon={activ.icon} className="text-2xl" />
                         </div>
-                        <div>
-                            <p className='text-bluetheme text-lg'>{language === 'en' ? activ.date : activ.arabicDate}</p>
-                        </div>
-                    </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'en' ? activ.name : activ.arabicName}</h1>
-                    {/* <h2 className='transitions text-md dark:text-gray-300 text-gray-500'>{activ.description}</h2> */}
-                    <div className='flex justify-between mt-5 items-center'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{language === 'en' ? activ.organizers : activ.arabicOrganizers}</p>
-                        <div className='flex justify-end  items-center gap-2'>
-                            <p className='text-bluetheme text-lg'>•</p>
-                            <p className='text-gray-500 text-lg'>{language === 'en' ? activ.role : activ.arabicRole}</p>
-                        </div>
+                        <span className='text-sm font-semibold text-bluetheme px-3 py-1 bg-bluetheme/10 rounded-full'>
+                            {language === 'en' ? activ.date : activ.arabicDate}
+                        </span>
+                    </div>
+                    <h3 className='text-xl font-bold mb-1 text-darktheme dark:text-theme group-hover:text-bluetheme transitions'>
+                        {language === 'en' ? activ.name : activ.arabicName}
+                    </h3>
+                    <div className='flex items-center gap-2 text-gray-500 dark:text-gray-400'>
+                        <span className='w-1.5 h-1.5 rounded-full bg-bluetheme' />
+                        <p className='font-medium'>{language === 'en' ? activ.role : activ.arabicRole}</p>
                     </div>
                 </motion.div>
             ))}
 
-
             <AnimatePresence>
                 {selected && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         onClick={() => setSelected(null)}
-                        className='fixed inset-0 bg-black/70 flex items-center justify-center z-50'
+                        className='fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4'
                     >
                         <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{
-                                opacity: 1, scale: 1,
-                                transition: {
-                                    duration: 1,
-                                    type: 'spring',
-                                    stiffness: 80,
-                                }
-                            }}
-                            exit={{
-                                opacity: 0, scale: 0, transition: {
-                                    duration: 0.5,
-                                }
-                            }}
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className='gradient-color rounded-md p-3 flex  flex-col w-[600px] cursor-pointer relative gap-2'
+                            className='relative w-full max-w-2xl bg-theme dark:bg-darktheme rounded-3xl overflow-hidden premium-shadow'
                         >
                             <button
-                                className='absolute top-2 right-2 text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions'
+                                className='absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transitions'
                                 onClick={() => setSelected(null)}
                             >
-                                <Icon icon="zondicons:close-outline" />
+                                <Icon icon="mdi:close" className="text-2xl" />
                             </button>
-                            <div className='rounded-md m-auto mb-5  bg-white '>
-                                <img src={selected.img} alt="" className='rounded-md w-[200px]' />
-                            </div>
-                            <div className='flex justify-between -mb-2'>
-                                <h1 className='xl:text-2xl text-start text-xl dark:text-theme'>{language === 'en' ? selected.name : selected.arabicName}</h1>
-                                <p className='text-theme bg-bluetheme px-1 flex items-center rounded-sm'>{language === 'en' ? selected.date : selected.arabicDate}</p>
 
-                            </div>
-                            <p className='text-bluetheme text-start'>{language === 'en' ? selected.organizers : selected.arabicOrganizers} - <span className="bg-bluetheme px-1 rounded-sm text-theme font-medium">{language === 'en' ? selected.role : selected.arabicRole}</span></p>
-                            <p className='mt-4 dark:text-theme text-justify '>{language === 'en' ? selected.description : selected.arabicDescription}</p>
+                            <div className='p-8 md:p-10'>
+                                <div className='flex flex-wrap items-center justify-between gap-4 mb-6'>
+                                    <div className='flex-1'>
+                                        <div className='flex items-center gap-3 mb-2'>
+                                            <div className='p-2 rounded-lg bg-bluetheme text-white'>
+                                                <Icon icon={selected.icon} className="text-xl" />
+                                            </div>
+                                            <span className='text-bluetheme font-bold uppercase tracking-wider text-sm'>
+                                                {language === 'en' ? selected.organizers : selected.arabicOrganizers}
+                                            </span>
+                                        </div>
+                                        <h2 className='text-2xl md:text-3xl font-bold text-darktheme dark:text-theme'>
+                                            {language === 'en' ? selected.name : selected.arabicName}
+                                        </h2>
+                                    </div>
+                                    <span className='px-4 py-2 bg-bluetheme text-white rounded-xl font-bold text-sm'>
+                                        {language === 'en' ? selected.date : selected.arabicDate}
+                                    </span>
+                                </div>
 
-                            <div className='flex  gap-4 flex-wrap justify-center 2xl:justify-end'>
-                                {selected.link && <Link to={selected.link} className="homeIcons flex items-center px-2 !rounded-lg"><Icon icon="hugeicons:award-02" className='text-xl' />{languageText.AwardLink}</Link>}
-                                {selected.webLink && <Link to={selected.webLink} className="homeIcons flex items-center px-2 !rounded-lg"><Icon icon="mdi:web" className='text-xl' />{languageText.SocialLink}</Link>}
+                                <div className='mb-8'>
+                                    <p className='text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify'>
+                                        {language === 'en' ? selected.description : selected.arabicDescription}
+                                    </p>
+                                </div>
+
+                                <div className='flex flex-wrap gap-4'>
+                                    {selected.link && (
+                                        <a href={selected.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-bluetheme text-white rounded-2xl font-bold transitions hover:scale-105 active:scale-95">
+                                            <Icon icon="hugeicons:award-02" className='text-xl' />
+                                            {languageText.AwardLink}
+                                        </a>
+                                    )}
+                                    {selected.webLink && (
+                                        <a href={selected.webLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 border-2 border-bluetheme text-bluetheme dark:text-theme rounded-2xl font-bold transitions hover:bg-bluetheme hover:text-white">
+                                            <Icon icon="mdi:web" className='text-xl' />
+                                            {languageText.SocialLink}
+                                        </a>
+                                    )}
+                                </div>
                             </div>
                         </motion.div>
-                    </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </div>
-    )
-}
+    );
+};
 
 export default Activities

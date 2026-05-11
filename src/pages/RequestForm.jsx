@@ -21,11 +21,9 @@ const RequestForm = ({ languageText, language, api }) => {
     const navigate = useNavigate();
 
     const { id } = useParams();
-    const serviceId = parseInt(id, 10);
     const service = Object.values(services)
-
         .flat()
-        .find((item) => item.id === serviceId);
+        .find((item) => item.id.toString() === id.toString());
 
     if (!service) {
         return <p>Service not found!</p>;

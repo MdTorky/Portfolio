@@ -58,5 +58,15 @@
     "description": "In November 2024, I finally graduated from university with a GPA of 3.79 out of 4.",
     "arabicDescription": "في نوفمبر 2024، تخرجت أخيرًا من الجامعة بمعدل تراكمي 3.79 من 4.",
     "icon": "ri:graduation-cap-fill"
+  },
+  {
+    "date": "Aug 2026",
+    "arabicDate": "أغسطس 2026",
+    "title": "Recieved my Masters Degree",
+    "arabicTitle": "حصلت على درجة الماجستير",
+    "location": "",
+    "description": "In August 2026, I finished my Master's degree in Data Science with a GPA of 3.82 out of 4.",
+    "arabicDescription": "في أغسطس 2026، أنهيت درجة الماجستير في علم البيانات بمعدل تراكمي 3.82 من 4.",
+    "icon": "ri:brain-fill"
   }
 ]

@@ -1,6 +1,113 @@
 {
   "web": [
     {
+      "id": "web-landing",
+      "name": "Landing Page",
+      "arabicName": "صفحة هبوط (Landing Page)",
+      "description": "Perfect for ads, campaigns, or showcasing a single product/service.",
+      "arabicDescription": "مثالية للإعلانات، الحملات، أو عرض منتج/خدمة واحدة.",
+      "icon": "fluent-mdl2:website",
+      "price": "$50 - $80",
+      "features": [
+        "1 Single-page web application",
+        "Fully responsive (Mobile friendly)",
+        "Clean & modern UI design",
+        "Clean interactivity (Animations)",
+        "Fast performance optimization",
+        "Fast delivery (1-day to 3 days)"
+      ],
+      "arabicFeatures": [
+        "تطبيق ويب من صفحة واحدة",
+        "متجاوب تماماً (صديق للجوال)",
+        "تصميم واجهة مستخدم نظيف وحديث",
+        "تفاعلية نظيفة (رسوم متحركة)",
+        "تحسين أداء سريع",
+        "تسليم سريع (من يوم إلى 3 أيام)"
+      ],
+      "color": "from-purple-600 to-indigo-600"
+    },
+    {
+      "id": "web-starter",
+      "name": "Starter Package",
+      "arabicName": "الباقة الأساسية (Starter)",
+      "description": "Perfect for individuals or small businesses starting their online presence.",
+      "arabicDescription": "مثالية للأفراد أو الشركات الصغيرة التي تبدأ تواجدها عبر الإنترنت.",
+      "icon": "ph:rocket-launch-fill",
+      "price": "$90 - $150",
+      "features": [
+        "2-3 Pages website",
+        "Responsive design (Mobile friendly)",
+        "Clean & modern UI design",
+        "Basic navigation setup",
+        "Clean interactivity (Animations)",
+        "Fast performance optimization",
+        "Fast delivery (2-days to 5 days)"
+      ],
+      "arabicFeatures": [
+        "موقع ويب من 2-3 صفحات",
+        "تصميم متجاوب (صديق للجوال)",
+        "تصميم واجهة مستخدم نظيف وحديث",
+        "إعداد تنقل أساسي",
+        "تفاعلية نظيفة (رسوم متحركة)",
+        "تحسين أداء سريع",
+        "تسليم سريع (من يومين إلى 5 أيام)"
+      ],
+      "color": "from-blue-600 to-cyan-600"
+    },
+    {
+      "id": "web-professional",
+      "name": "Professional Package",
+      "arabicName": "الباقة الاحترافية (Professional)",
+      "description": "For growing businesses that need a strong and professional online presence.",
+      "arabicDescription": "للشركات المتنامية التي تحتاج إلى تواجد قوي واحترافي عبر الإنترنت.",
+      "icon": "mdi:briefcase-outline",
+      "price": "$160 - $300",
+      "popular": true,
+      "features": [
+        "4-8 Pages website",
+        "Advanced UI/UX design",
+        "Basic Admin Dashboard",
+        "Contact Form (Optional)",
+        "Cloud Storage (Optional)",
+        "Database Integration (Optional)"
+      ],
+      "arabicFeatures": [
+        "موقع ويب من 4-8 صفحات",
+        "تصميم واجهة وتجربة مستخدم متقدم",
+        "لوحة تحكم أدمن أساسية",
+        "نموذج اتصال (اختياري)",
+        "تخزين سحابي (اختياري)",
+        "تكامل قاعدة البيانات (اختياري)"
+      ],
+      "color": "from-teal-500 to-emerald-500"
+    },
+    {
+      "id": "web-premium",
+      "name": "Premium Package",
+      "arabicName": "الباقة المميزة (Premium)",
+      "description": "Full custom solution for businesses, platforms, and startups.",
+      "arabicDescription": "حل مخصص بالكامل للشركات والمنصات والشركات الناشئة.",
+      "icon": "mdi:diamond-stone",
+      "price": "$400+",
+      "features": [
+        "Full web application",
+        "Authentication system (Login/Register)",
+        "Advanced Admin Dashboard",
+        "API development & integration",
+        "Custom features based on requirements",
+        "Full custom solution"
+      ],
+      "arabicFeatures": [
+        "تطبيق ويب كامل",
+        "نظام مصادقة (تسجيل دخول/حساب جديد)",
+        "لوحة تحكم أدمن متقدمة",
+        "تطوير وتكامل API",
+        "ميزات مخصصة حسب المتطلبات",
+        "حل مخصص بالكامل"
+      ],
+      "color": "from-orange-500 to-yellow-500"
+    },
+    {
       "id": 1,
       "name": "Full Stack Website",
       "description": "Develop robust full-stack applications using the MERN stack, including user authentication, database integration, advanced functionalities, and host deployment.",
@@ -31,7 +138,6 @@
       "arabicDescription": "إذا كنت تسعى لتعزيز وجودك الرقمي وتحسين أداء حسابك التجاري على جوجل ماب، فنحن نقدم لك خدمة احترافية تضمن لك التميز والوصول السريع إلى عملائك المستهدفين."
     }
   ],
-
   "graphic": [
     {
       "id": 4,
@@ -104,7 +210,6 @@
       "arabicDescription": "إنشاء عروض تقديمية احترافية ومذهلة بصريًا باستخدام PowerPoint أو Canva للعروض التقديمية والمؤتمرات والندوات."
     }
   ],
-
   "writing": [
     {
       "id": 11,

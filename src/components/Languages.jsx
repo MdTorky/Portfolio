@@ -1,42 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from "framer-motion"
 import { Icon } from '@iconify/react';
 
 const Languages = ({ language }) => {
-
-    const [selected, setSelected] = useState(null);
-    const childVariant = {
-        hidden: {
-            opacity: 0,
-            y: -100,
-            // scale: 0,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            // scale: 1,
-            transition: {
-                duration: 1,
-                type: "spring",
-                stiffness: 120,
-            }
-        }
-    }
-
-
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setSelected(null)
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
-
     const languages = [
         {
             id: 1,
@@ -62,44 +28,37 @@ const Languages = ({ language }) => {
             arabicLevel: "مبتدئ",
             icon: "emojione:flag-for-france",
         }
-    ]
+    ];
+
+    const cardVariant = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
     return (
-        <div className='mt-10 flex justify-center gap-10 flex-wrap'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             {languages.map((lang) => (
                 <motion.div
                     key={lang.id}
-                    variants={childVariant}
-                    whileHover={{
-                        scale: 1.05,
-                        transition: {
-                            duration: 0.5,
-                        }
-                    }}
-                    whileTap={{
-                        scale: 0,
-                        transition: {
-                            duration: 1
-                        }
-                    }}
-                    className='gradient-color rounded-md p-3 flex flex-col w-52 cursor-pointer shadows'
-                    onClick={() => setSelected(lang)}
+                    variants={cardVariant}
+                    whileHover={{ y: -5 }}
+                    className='glass-morphism rounded-2xl p-6 flex items-center gap-6 premium-shadow group transitions'
                 >
-                    <motion.div
-                        className='flex items-center justify-between'>
-                        <div className='transitions  p-2 rounded-md'>
-                            <Icon icon={lang.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
-                        </div>
-                        {/* <p className='text-bluetheme'>{lang.level}</p> */}
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-lg'>{language === 'en' ? lang.level : lang.arabicLevel}</p>
-
-                    </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'en' ? lang.name : lang.arabicName}</h1>
-
+                    <div className='w-16 h-16 rounded-full overflow-hidden border-4 border-white/10 premium-shadow group-hover:scale-110 transitions flex-shrink-0'>
+                        <Icon icon={lang.icon} className="w-full h-full object-cover" />
+                    </div>
+                    <div className='flex flex-col'>
+                        <h3 className='text-xl font-bold text-darktheme dark:text-theme'>
+                            {language === 'en' ? lang.name : lang.arabicName}
+                        </h3>
+                        <span className='text-sm font-bold text-bluetheme uppercase tracking-wider mt-1'>
+                            {language === 'en' ? lang.level : lang.arabicLevel}
+                        </span>
+                    </div>
                 </motion.div>
             ))}
-
         </div>
-    )
-}
+    );
+};
 
 export default Languages

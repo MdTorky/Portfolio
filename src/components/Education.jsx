@@ -3,41 +3,27 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
 
 const Education = ({ language }) => {
-
     const [selected, setSelected] = useState(null);
-    const childVariant = {
-        hidden: {
-            opacity: 0,
-            y: -100,
-            // scale: 0,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            // scale: 1,
-            transition: {
-                duration: 1,
-                type: "spring",
-                stiffness: 120,
-            }
-        }
-    }
-
-
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                setSelected(null)
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
 
     const education = [
+        {
+            id: 3,
+            name: "Universiti Teknologi Malaysia (UTM)",
+            arabicName: "جامعة التكنولوجيا الماليزية (UTM)",
+            degree: "Master's in Data Science",
+            arabicDegree: "ماجستير في علم البيانات",
+            major: "Specialization in Machine Learning, NLP, and BI analytics",
+            arabicMajor: "تخصص في تعلم الآلة، ومعالجة اللغات الطبيعية، وتحليلات ذكاء الأعمال",
+            date: "Mar 2025 - Feb 2026",
+            arabicDate: "مارس 2025 - فبراير 2026",
+            country: "Malaysia",
+            arabicCountry: "ماليزيا",
+            city: "Johor Bahru",
+            arabicCity: "جوهر بهرو",
+            gpa: "3.82",
+            icon: "lucide:graduation-cap",
+            img: "https://www.studymalaysiainfo.com/wp-content/uploads/2016/11/UTM-image.jpg",
+        },
         {
             id: 1,
             name: "Universiti Teknologi Malaysia",
@@ -75,112 +61,121 @@ const Education = ({ language }) => {
         }
     ]
 
+    useEffect(() => {
+        const handleKeyDown = (e) => e.key === 'Escape' && setSelected(null);
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    const cardVariant = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+    };
+
     return (
-        <div className='mt-10 flex justify-center gap-10 flex-wrap'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {education.map((ed) => (
-
-
                 <motion.div
                     key={ed.id}
-                    // layoutId={`card-${exp.id}`}
-
-                    variants={childVariant}
-                    whileHover={{
-                        scale: 1.05,
-                        transition: {
-                            duration: 0.5,
-                        }
-                    }}
-                    whileTap={{
-                        scale: 0,
-                        transition: {
-                            duration: 1
-                        }
-                    }}
-                    className='gradient-color rounded-md p-3 flex flex-col w-96 cursor-pointer shadows'
+                    variants={cardVariant}
+                    whileHover={{ y: -5 }}
+                    className='glass-morphism rounded-2xl p-6 cursor-pointer premium-shadow group transitions'
                     onClick={() => setSelected(ed)}
                 >
-                    <motion.div
-                        className='flex items-center justify-between'>
-                        <div className='transitions bg-gray-300 dark:bg-gray-900 p-2 rounded-md'>
-                            <Icon icon={ed.icon} className="transitions dark:text-theme text-darktheme text-2xl" />
+                    <div className='flex items-start justify-between mb-4'>
+                        <div className='p-3 rounded-xl bg-bluetheme/10 text-bluetheme group-hover:bg-bluetheme group-hover:text-white transitions'>
+                            <Icon icon={ed.icon} className="text-2xl" />
                         </div>
-                        <div>
-                            <p className='text-bluetheme text-lg'>{language === 'en' ? ed.date : ed.arabicDate}</p>
-                        </div>
-                    </motion.div>
-                    <h1 className='transitions mt-2 text-xl dark:text-theme'>{language === 'en' ? ed.name : ed.arabicName}</h1>
-                    <h2 className='transitions text-md dark:text-gray-400 text-gray-500'>{language === 'en' ? ed.degree : ed.arabicDegree} {language === 'en' ? ed.major : ed.arabicMajor}</h2>
-                    <div className='flex justify-between mt-5 items-center'>
-                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-md'>{language === 'en' ? ed.country : ed.arabicCountry} - {language === 'en' ? ed.city : ed.arabicCity}</p>
-                        <div className='flex justify-end  items-center gap-2'>
-                            <p className='text-bluetheme text-lg'>•</p>
-                            <p className='text-gray-500 text-lg'>GPA {ed.gpa} / 4</p>
-                        </div>
+                        <span className='text-sm font-semibold text-bluetheme px-3 py-1 bg-bluetheme/10 rounded-full'>
+                            {language === 'en' ? ed.date : ed.arabicDate}
+                        </span>
+                    </div>
+                    <h3 className='text-xl font-bold mb-1 text-darktheme dark:text-theme group-hover:text-bluetheme transitions'>
+                        {language === 'en' ? ed.name : ed.arabicName}
+                    </h3>
+                    <p className='text-gray-500 dark:text-gray-400 font-medium mb-4'>
+                        {language === 'en' ? ed.degree : ed.arabicDegree} {language === 'en' ? ed.major : ed.arabicMajor}
+                    </p>
+                    <div className='flex items-center justify-between mt-auto pt-4 border-t border-gray-200 dark:border-gray-800'>
+                        <span className='text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1'>
+                            <Icon icon="mdi:location" />
+                            {language === 'en' ? ed.city : ed.arabicCity}, {language === 'en' ? ed.country : ed.arabicCountry}
+                        </span>
+                        <span className='text-sm font-bold text-bluetheme'>
+                            GPA {ed.gpa} / 4
+                        </span>
                     </div>
                 </motion.div>
             ))}
+
             <AnimatePresence>
                 {selected && (
                     <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         onClick={() => setSelected(null)}
-
-                        className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-
+                        className='fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4'
+                    >
                         <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{
-                                opacity: 1, scale: 1,
-                                transition: {
-                                    duration: 1,
-                                    type: 'spring',
-                                    stiffness: 80,
-                                }
-                            }}
-                            exit={{
-                                opacity: 0, scale: 0, transition: {
-                                    duration: 0.5,
-                                }
-                            }}
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-theme dark:bg-darktheme p-4 w-[600px] rounded-md relative">
+                            className='relative w-full max-w-2xl bg-theme dark:bg-darktheme rounded-3xl overflow-hidden premium-shadow'
+                        >
                             <button
-                                className='absolute top-6 right-6 text-3xl text-darktheme dark:text-theme hover:text-bluetheme transitions z-50'
+                                className='absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transitions'
                                 onClick={() => setSelected(null)}
                             >
-                                <Icon icon="zondicons:close-outline" />
+                                <Icon icon="mdi:close" className="text-2xl" />
                             </button>
-                            <div className="bg-gray-400 relative w-full  rounded-md gradient-color border-gray-300 dark:border-gray-700 border-2">
-                                <p className="absolute text-xl xl:text-2xl text-darktheme bg-theme dark:bg-darktheme dark:text-theme z-50  rounded-br-md p-2 border-darktheme dark:border-theme border-r-2 border-b-2 top-0 left-0">{selected.gpa} / 4</p>
-                                <div className=' relative w-full h-[150px] xl:h-[250px] dark:border-theme border-2 border-darktheme rounded-sm overflow-hidden bg-gradient-to-tr from-[#69696949] to-[#5555557b] flex items-center'>
-                                    <img src={selected.img} alt="" className=" transition duration-500 ease-linear cursor-pointer rounded-md w-full bg-cover  transform hover:scale-125 mix-blend-overlay" />
-                                </div>
-                                <div className="px-2 xl:px-6">
-                                    <div className=" mt-5 flex items-center justify-between">
-                                        <h1 className="dark:text-theme text-darktheme text-lg xl:text-2xl">{language === 'en' ? selected.name : selected.arabicName}</h1>
-                                        <p className='text-theme bg-bluetheme px-2 rounded-sm text-sm xl:text-md whitespace-nowrap'>{language === 'en' ? selected.country : selected.arabicCountry} - {language === 'en' ? selected.city : selected.arabicCity}</p>
-                                    </div>
-                                    <p className='dark:text-gray-400 text-gray-600 mt-1'>{language === 'en' ? selected.degree : selected.arabicDegree} {language === 'en' ? selected.major : selected.arabicMajor}</p>
-                                    <div className="flex justify-end my-2">
-                                        {/* <Link to="https://google.com" className='flex items-center text-xl bg-bluetheme p-2 gap-2 text-theme rounded-md'><Icon icon="cil:link" /> Link</Link> */}
-                                        <div className="flex items-center justify-end text-bluetheme">
 
-                                            {/* <div className="flex items-center justify-evenly text-theme bg-bluetheme rounded-md"> <p>Start</p> End</div> */}
-                                            {language === 'en' ? selected.date : selected.arabicDate}
+                            <div className='flex flex-col'>
+                                <div className='h-56 w-full relative overflow-hidden'>
+                                    <img src={selected.img} alt={selected.name} className='w-full h-full object-cover' />
+                                    <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
+                                    <div className='absolute bottom-6 left-8 right-8 flex items-end justify-between'>
+                                        <div>
+                                            <span className='px-3 py-1 bg-bluetheme text-white text-xs font-bold rounded-full mb-2 inline-block'>
+                                                GPA {selected.gpa} / 4
+                                            </span>
+                                            <h2 className='text-2xl md:text-3xl font-bold text-white leading-tight'>
+                                                {language === 'en' ? selected.name : selected.arabicName}
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
+                                <div className='p-8 md:p-10'>
+                                    <div className='flex flex-wrap items-center justify-between gap-4 mb-6'>
+                                        <div>
+                                            <p className='text-bluetheme font-bold text-lg'>
+                                                {language === 'en' ? selected.degree : selected.arabicDegree} {language === 'en' ? selected.major : selected.arabicMajor}
+                                            </p>
+                                            <span className='text-sm text-gray-500 dark:text-gray-400 font-medium flex items-center gap-1 mt-1'>
+                                                <Icon icon="mdi:location" />
+                                                {language === 'en' ? selected.city : selected.arabicCity}, {language === 'en' ? selected.country : selected.arabicCountry}
+                                            </span>
+                                        </div>
+                                        <span className='px-4 py-2 bg-bluetheme/10 text-bluetheme rounded-xl font-bold text-sm'>
+                                            {language === 'en' ? selected.date : selected.arabicDate}
+                                        </span>
+                                    </div>
+                                    <div className='p-6 rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800'>
+                                        <p className='text-gray-700 dark:text-gray-300 italic'>
+                                            {language === 'en'
+                                                ? "Successfully completed the requirements for the mentioned degree with a focus on academic excellence and practical learning."
+                                                : "أكملت بنجاح متطلبات الدرجة المذكورة مع التركيز على التميز الأكاديمي والتعلم العملي."}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-
                         </motion.div>
-
                     </motion.div>
-                )
-
-                }
+                )}
             </AnimatePresence>
         </div>
-    )
-}
+    );
+};
 
 export default Education
