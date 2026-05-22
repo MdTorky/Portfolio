@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import Me from '../img/Torky.png'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import pdf from '../data/resume.pdf'
 import projectsData from '../data/projects.json'
 import servicesData from '../data/services.json'
+import { ProjectDetailModal } from './projects'
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -23,7 +24,207 @@ const FloatingOrb = ({ style }) => (
   />
 )
 
-const Home = ({ language, languageText }) => {
+// 1. EXTRACTED HOME PROJECT CARD COMPONENT (STABLE RATIO & CLICK MODAL SUPPORT)
+const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const [iframeLoaded, setIframeLoaded] = useState(false)
+  const scrollRef = useRef(null)
+
+  const isExternalDemo = p.liveDemo && p.liveDemo.startsWith('http')
+  const isGraphicDesign = p.technology === "Graphic Design" || p.id === 9
+
+  useEffect(() => {
+    let interval
+    if (isHovered && scrollRef.current && !isExternalDemo && !isGraphicDesign) {
+      const container = scrollRef.current
+      const scrollSpeed = 0.6 // slow premium scroll speed
+      interval = setInterval(() => {
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 1) {
+          clearInterval(interval)
+        } else {
+          container.scrollTop += scrollSpeed
+        }
+      }, 16)
+    } else if (!isHovered && scrollRef.current) {
+      scrollRef.current.scrollTop = 0
+    }
+    return () => clearInterval(interval)
+  }, [isHovered, isExternalDemo, isGraphicDesign])
+
+  return (
+    <motion.div
+      key={p.id}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.1, duration: 0.5 }}
+      whileHover={{ y: -8 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false)
+        setIframeLoaded(false)
+      }}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => {
+        setTimeout(() => setIsHovered(false), 2000)
+      }}
+      onClick={onClick}
+      className="group relative rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full bg-white/5 border transition-all duration-300"
+      style={{
+        background: darkMode ? '#0d0d1a' : '#ffffff',
+        border: darkMode ? '1px solid rgba(255,255,255,0.07)' : '1px solid rgba(0,0,0,0.05)',
+        boxShadow: darkMode ? 'none' : '0 10px 30px rgba(0,0,0,0.02)'
+      }}
+    >
+      {/* Stable aspect ratio container to prevent layout shifting flickering */}
+      <div className="relative w-full aspect-[16/10] overflow-hidden select-none bg-[#07070f] border-b border-black/5 dark:border-white/5">
+        {isGraphicDesign ? (
+          /* UNIQUE GRAPHIC COLLAGE PREVIEW */
+          <div className="relative w-full h-full flex items-center justify-center p-3">
+            <motion.div 
+              animate={{ 
+                rotate: isHovered ? -12 : -4,
+                x: isHovered ? -35 : -6,
+                scale: isHovered ? 0.85 : 0.9
+              }}
+              transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+              className="absolute w-[50%] h-[75%] rounded-xl border border-white/10 bg-slate-800 shadow-xl overflow-hidden pointer-events-none opacity-50 z-0"
+            >
+              <img src={p.image} alt="art-back-left" className="w-full h-full object-cover filter brightness-50 blur-[0.5px]" />
+            </motion.div>
+            <motion.div 
+              animate={{ 
+                rotate: isHovered ? 12 : 4,
+                x: isHovered ? 35 : 6,
+                scale: isHovered ? 0.85 : 0.9
+              }}
+              transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+              className="absolute w-[50%] h-[75%] rounded-xl border border-white/10 bg-slate-800 shadow-xl overflow-hidden pointer-events-none opacity-50 z-0"
+            >
+              <img src={p.image} alt="art-back-right" className="w-full h-full object-cover filter brightness-50 blur-[0.5px]" />
+            </motion.div>
+            <motion.div 
+              animate={{ 
+                scale: isHovered ? 1.05 : 0.95,
+                y: isHovered ? -4 : 0
+              }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="relative w-[55%] h-[80%] rounded-xl border border-white/20 shadow-2xl overflow-hidden bg-slate-900 z-10"
+            >
+              <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            </motion.div>
+          </div>
+        ) : isHovered && isExternalDemo ? (
+          /* BROWSER INTERACTIVE WEB PREVIEW */
+          <div className="w-full h-full flex flex-col bg-[#0b0b1a]">
+            {/* Header bar */}
+            <div className="w-full bg-black/50 border-b border-white/5 px-3 py-1 flex items-center gap-1.5">
+              <div className="flex gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5f56]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#27c93f]" />
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-md text-[8px] text-gray-400 px-2 py-0.5 flex-grow mx-3 text-center truncate font-mono">
+                {p.liveDemo.replace('https://', '').replace('/', '')}
+              </div>
+            </div>
+            
+            <div className="relative flex-grow w-full bg-white h-[calc(100%-20px)]">
+              {!iframeLoaded && (
+                <div className="absolute inset-0 bg-[#0b0b1a] flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="w-4 h-4 rounded-full border border-purple-500 border-t-transparent animate-spin" />
+                    <span className="text-[7px] text-gray-400 uppercase tracking-widest font-black">
+                      {language === 'ar' ? 'تحميل...' : 'Loading...'}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <iframe 
+                src={p.liveDemo}
+                title={p.name}
+                onLoad={() => setIframeLoaded(true)}
+                className="w-full h-full border-none pointer-events-none select-none"
+              />
+            </div>
+          </div>
+        ) : (
+          /* STATIC COVER */
+          <div ref={scrollRef} className="w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar">
+            <img
+              src={p.image}
+              alt={p.name}
+              className={`w-full ${isHovered ? 'h-auto object-top' : 'h-full object-cover object-top'} transition-all duration-300`}
+            />
+            {!isHovered && (
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 transition-opacity duration-300" />
+            )}
+            <AnimatePresence>
+              {isHovered && !isExternalDemo && !isGraphicDesign && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-full bg-purple-600/90 text-white text-[9px] font-black uppercase tracking-wider flex items-center gap-1 shadow-lg pointer-events-none"
+                >
+                  <span className="w-1 h-1 rounded-full bg-white animate-ping" />
+                  {language === 'ar' ? 'مرر للتصفح' : 'Scroll down'}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
+
+      {/* Details info */}
+      <div className="p-5 flex flex-col flex-grow bg-transparent transition-colors duration-300 text-start">
+        <div className="flex items-center justify-between mb-2">
+          <span
+            className="text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full"
+            style={{ background: 'rgba(168,85,247,0.15)', color: '#a855f7' }}
+          >
+            {p.technology}
+          </span>
+        </div>
+        <h3 className="text-base font-black text-darktheme dark:text-white mb-2 leading-tight group-hover:text-purple-500 transition-colors">
+          {language === 'ar' ? p.arabicName : p.name}
+        </h3>
+        <p className="text-xs text-slate-500 dark:text-gray-400 line-clamp-3 mb-4 leading-relaxed font-light">
+          {language === 'ar' ? p.arabicDescription : p.description}
+        </p>
+
+        <div className="flex gap-4 mt-auto pt-3 border-t border-black/5 dark:border-white/5">
+          {p.liveDemo && (
+            <Link
+              to={p.liveDemo}
+              target="_blank"
+              onClick={(e) => e.stopPropagation()}
+              className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-gray-400 hover:text-purple-500 flex items-center gap-1 transition-colors"
+            >
+              <Icon icon={isGraphicDesign ? "lucide:palette" : "lucide:external-link"} /> {isGraphicDesign ? (language === 'ar' ? 'المعرض' : 'Gallery') : 'Demo'}
+            </Link>
+          )}
+          {p.github && (
+            <Link
+              to={p.github}
+              target="_blank"
+              onClick={(e) => e.stopPropagation()}
+              className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-gray-400 hover:text-purple-500 flex items-center gap-1 transition-colors"
+            >
+              <Icon icon="mdi:github" /> Code
+            </Link>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+// 2. CORE HOME PAGE COMPONENT
+const Home = ({ language, languageText, darkMode }) => {
+  const [selectedProject, setSelectedProject] = useState(null)
+
   const handleDownload = () => {
     const a = document.createElement('a')
     a.href = pdf; a.download = 'CV.pdf'
@@ -39,26 +240,20 @@ const Home = ({ language, languageText }) => {
     <motion.div exit={{ opacity: 0, transition: { duration: 0.2 } }} className="w-full overflow-hidden">
 
       {/* ═══ HERO ═══════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center" style={{ background: 'linear-gradient(135deg,#07070f 0%,#0b0b1a 60%,#0e0a1e 100%)' }}>
-        <FloatingOrb style={{ width: 500, height: 500, top: '-10%', left: '-10%', background: 'radial-gradient(circle,rgba(82,92,235,0.18),transparent 70%)', delay: 0 }} />
-        <FloatingOrb style={{ width: 400, height: 400, bottom: '-5%', right: '-5%', background: 'radial-gradient(circle,rgba(168,85,247,0.14),transparent 70%)', delay: 2 }} />
-        <FloatingOrb style={{ width: 300, height: 300, top: '30%', right: '20%', background: 'radial-gradient(circle,rgba(16,185,129,0.1),transparent 70%)', delay: 4 }} />
+      <section className="relative min-h-screen flex items-center" style={{ background: darkMode ? 'linear-gradient(135deg,#07070f 0%,#0b0b1a 60%,#0e0a1e 100%)' : 'linear-gradient(135deg,#f4f7ff 0%,#eaeeff 60%,#e2e8fc 100%)' }}>
+        <FloatingOrb style={{ width: 500, height: 500, top: '-10%', left: '-10%', background: `radial-gradient(circle,${darkMode ? 'rgba(82,92,235,0.18)' : 'rgba(82,92,235,0.12)'},transparent 70%)`, delay: 0 }} />
+        <FloatingOrb style={{ width: 400, height: 400, bottom: '-5%', right: '-5%', background: `radial-gradient(circle,${darkMode ? 'rgba(168,85,247,0.14)' : 'rgba(168,85,247,0.1)'},transparent 70%)`, delay: 2 }} />
+        <FloatingOrb style={{ width: 300, height: 300, top: '30%', right: '20%', background: `radial-gradient(circle,${darkMode ? 'rgba(16,185,129,0.1)' : 'rgba(16,185,129,0.06)'},transparent 70%)`, delay: 4 }} />
 
         {/* Dot grid */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.8' fill='%23ffffff'/%3E%3C/svg%3E\")" }} />
+        <div className={`absolute inset-0 ${darkMode ? 'opacity-[0.04]' : 'opacity-[0.07]'}`} style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.8' fill='${darkMode ? '%23ffffff' : '%23000000'}'/%3E%3C/svg%3E")` }} />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-10 lg:px-20 w-full py-24 md:py-0">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
             {/* Left content */}
             <motion.div variants={container} initial="hidden" animate="visible" className="flex-1 text-center lg:text-start">
-              <motion.div variants={fadeUp(0)} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6"
-                style={{ background: 'rgba(82,92,235,0.12)', color: '#525ceb', border: '1px solid rgba(82,92,235,0.25)' }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-bluetheme animate-pulse" />
-                {language === 'en' ? 'Available for hire' : 'متاح للتوظيف'}
-              </motion.div>
-
-              <motion.h1 variants={fadeUp(0.1)} className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tighter mb-4">
+              <motion.h1 variants={fadeUp(0.1)} className="text-5xl md:text-7xl lg:text-8xl font-black text-darktheme dark:text-white leading-none tracking-tighter mb-4">
                 {language === 'en' ? <>Mohamed<br /><span className="text-gradient">Torky</span></> : languageText.MyName}
               </motion.h1>
 
@@ -66,10 +261,10 @@ const Home = ({ language, languageText }) => {
                 {language === 'en' ? 'Full-Stack Engineer & Data Scientist' : languageText.SoftwareEngineer || 'مهندس برمجيات'}
               </motion.p>
 
-              <motion.p variants={fadeUp(0.3)} className="text-base text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+              <motion.p variants={fadeUp(0.3)} className="text-base text-slate-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
                 {language === 'en'
-                  ? "I build blazing-fast web apps, beautiful UIs, and AI-powered solutions. Based in Egypt, working globally."
-                  : "أقوم ببناء تطبيقات ويب فائقة السرعة، وواجهات مستخدم جذابة، وحلول تعتمد على الذكاء الاصطناعي. مقري في مصر وأعمل مع عملاء من جميع أنحاء العالم."}
+                  ? "I build blazing-fast web apps, beautiful UIs, and AI-powered solutions. Working globally."
+                  : "أقوم ببناء تطبيقات ويب فائقة السرعة، وواجهات مستخدم جذابة، وحلول تعتمد على الذكاء الاصطناعي. أعمل مع عملاء من جميع أنحاء العالم."}
               </motion.p>
 
               <motion.div variants={fadeUp(0.4)} className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
@@ -79,8 +274,8 @@ const Home = ({ language, languageText }) => {
                   <Icon icon="lucide:briefcase" /> {language === 'en' ? 'Hire Me' : 'وظفني'}
                 </Link>
                 <button onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-sm text-white uppercase tracking-wide hover:scale-105 active:scale-95 transition-all"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-sm uppercase tracking-wide hover:scale-105 active:scale-95 transition-all text-darktheme dark:text-white"
+                  style={{ background: darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)', border: darkMode ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(0,0,0,0.08)' }}>
                   <Icon icon="lucide:download" /> {languageText.DownloadCV}
                 </button>
               </motion.div>
@@ -88,15 +283,22 @@ const Home = ({ language, languageText }) => {
               <motion.div variants={fadeUp(0.5)} className="flex gap-4 justify-center lg:justify-start">
                 {[
                   { href: 'mailto:mohamed2003torky@gmail.com', icon: 'mdi:gmail', color: '#ea4335' },
-                  { href: 'https://github.com/MdTorky', icon: 'mdi:github', color: '#e2e8f0' },
-                  { href: 'https://www.linkedin.com/in/mohamed-torky-243196221/', icon: 'mdi:linkedin', color: '#0a66c2' },
+                  { href: 'https://github.com/MdTorky', icon: 'mdi:github', color: '#000000' },
+                  { href: 'https://www.linkedin.com/in/mdtorky/', icon: 'mdi:linkedin', color: '#0a66c2' },
                   { href: 'http://wa.me/201554206775', icon: 'ic:baseline-whatsapp', color: '#25d366' },
                 ].map(({ href, icon, color }) => (
                   <Link key={href} to={href} target="_blank"
                     className="w-10 h-10 flex items-center justify-center rounded-xl text-lg transition-all duration-200 hover:scale-110"
-                    style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(200,200,220,0.7)' }}
+                    style={{
+                      background: darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                      border: darkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.08)',
+                      color: darkMode ? 'rgba(200,200,220,0.7)' : 'rgba(71,85,105,0.8)'
+                    }}
                     onMouseEnter={e => { e.currentTarget.style.color = color; e.currentTarget.style.borderColor = color + '50'; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = 'rgba(200,200,220,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}>
+                    onMouseLeave={e => {
+                      e.currentTarget.style.color = darkMode ? 'rgba(200,200,220,0.7)' : 'rgba(71,85,105,0.8)';
+                      e.currentTarget.style.borderColor = darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
+                    }}>
                     <Icon icon={icon} />
                   </Link>
                 ))}
@@ -109,7 +311,7 @@ const Home = ({ language, languageText }) => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
                 {/* Gradient ring */}
                 <div className="absolute inset-0 rounded-full p-1" style={{ background: 'linear-gradient(135deg,#525ceb,#a855f7,#10b981,#525ceb)', animation: 'spin 8s linear infinite' }}>
-                  <div className="w-full h-full rounded-full" style={{ background: '#0b0b1a' }} />
+                  <div className="w-full h-full rounded-full" style={{ background: darkMode ? '#0b0b1a' : '#f4f7ff' }} />
                 </div>
                 <img src={Me} alt="Mohamed Torky" className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover object-top rounded-full" style={{ mixBlendMode: 'luminosity' }} />
 
@@ -131,7 +333,7 @@ const Home = ({ language, languageText }) => {
 
         {/* Scroll indicator */}
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600">
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-500 dark:text-gray-600">
           <span className="text-[10px] uppercase tracking-widest font-bold">{language === 'en' ? 'Scroll' : 'مرر للأسفل'}</span>
           <Icon icon="lucide:chevron-down" className="text-sm" />
         </motion.div>
@@ -142,32 +344,36 @@ const Home = ({ language, languageText }) => {
         <motion.div animate={{ x: ['0%', '-50%'] }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           className="flex gap-10 whitespace-nowrap">
           {[...TECH, ...TECH].map((t, i) => (
-            <span key={i} className="text-xs font-black uppercase tracking-widest text-gray-500 flex items-center gap-3">
-              <span className="w-1 h-1 rounded-full bg-bluetheme" />{t}
+            <span key={i} className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-gray-400 flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-bluetheme" />{t}
             </span>
           ))}
         </motion.div>
       </div>
 
       {/* ═══ STATS ══════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-20" style={{ background: '#08080f' }}>
+      <section className="py-16 md:py-20" style={{ background: darkMode ? '#08080f' : '#f8fafc' }}>
         <div className="max-w-[1400px] mx-auto px-4 md:px-10 lg:px-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { num: '3.82', label: language === 'en' ? "Master's GPA" : "تقدير الماجستير", icon: 'lucide:brain', color: '#a855f7' },
-              { num: '30+', label: language === 'en' ? 'Projects Built' : "المشاريع المكتملة", icon: 'lucide:folder-code', color: '#525ceb' },
+              { num: '10+', label: language === 'en' ? 'Projects Built' : "المشاريع المكتملة", icon: 'lucide:folder-code', color: '#525ceb' },
               { num: '1st', label: language === 'en' ? 'Microsoft Hackathon' : "المركز الأول في مسابقة مايكروسوفت", icon: 'lucide:trophy', color: '#f59e0b' },
               { num: '4.9★', label: language === 'en' ? 'Client Rating' : "تقييم العملاء", icon: 'lucide:star', color: '#10b981' },
             ].map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="flex flex-col items-center text-center p-6 rounded-2xl"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                style={{
+                  background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.7)',
+                  border: darkMode ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(0,0,0,0.05)',
+                  boxShadow: darkMode ? 'none' : '0 4px 20px rgba(0,0,0,0.02)'
+                }}>
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 text-lg"
                   style={{ background: s.color + '15', color: s.color }}>
                   <Icon icon={s.icon} />
                 </div>
-                <div className="text-3xl font-black text-white mb-1" style={{ color: s.color }}>{s.num}</div>
-                <div className="text-xs text-gray-500 font-bold uppercase tracking-widest">{s.label}</div>
+                <div className="text-3xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
+                <div className="text-xs text-slate-500 dark:text-gray-500 font-bold uppercase tracking-widest">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -175,14 +381,14 @@ const Home = ({ language, languageText }) => {
       </section>
 
       {/* ═══ SERVICES PREVIEW ═══════════════════════════════════════ */}
-      <section className="py-16 md:py-24" style={{ background: 'linear-gradient(180deg,#08080f,#0a0a15)' }}>
+      <section className="py-16 md:py-24" style={{ background: darkMode ? 'linear-gradient(180deg,#08080f,#0a0a15)' : 'linear-gradient(180deg,#f8fafc,#f1f5f9)' }}>
         <div className="max-w-[1400px] mx-auto px-4 md:px-10 lg:px-20">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-end justify-between mb-10 flex-wrap gap-4 text-start">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: '#525ceb', fontFamily: 'monospace' }}>{'// services'}</p>
-              <h2 className="text-3xl md:text-4xl font-black text-white">{language === 'en' ? 'What I Build' : 'ما أبنيه'}</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-darktheme dark:text-white">{language === 'en' ? 'What I Build' : 'ما أبنيه'}</h2>
             </div>
-            <Link to="/services" className="flex items-center gap-2 text-sm font-black uppercase tracking-wide transition-colors duration-200 hover:text-white"
+            <Link to="/services" className="flex items-center gap-2 text-sm font-black uppercase tracking-wide transition-colors duration-200 hover:text-darktheme dark:hover:text-white"
               style={{ color: '#525ceb' }}>
               {language === 'en' ? 'All Services' : 'جميع الخدمات'} <Icon icon="lucide:arrow-right" />
             </Link>
@@ -196,14 +402,18 @@ const Home = ({ language, languageText }) => {
                 <motion.div key={pkg.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }}
                   whileHover={{ y: -6 }}
                   className="relative p-6 rounded-3xl overflow-hidden group"
-                  style={{ background: '#0d0d1a', border: `1px solid rgba(255,255,255,0.07)` }}>
+                  style={{
+                    background: darkMode ? '#0d0d1a' : '#ffffff',
+                    border: darkMode ? '1px solid rgba(255,255,255,0.07)' : '1px solid rgba(0,0,0,0.05)',
+                    boxShadow: darkMode ? 'none' : '0 10px 30px rgba(0,0,0,0.02)'
+                  }}>
                   <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${pkg.color}`} />
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl text-white mb-4"
                     style={{ background: `linear-gradient(135deg,${c},${c}aa)`, boxShadow: `0 6px 20px ${c}30` }}>
                     <Icon icon={pkg.icon} />
                   </div>
-                  <h3 className="text-base font-black text-white uppercase tracking-tight mb-2">{language === 'en' ? pkg.name : pkg.arabicName}</h3>
-                  <p className="text-xs text-gray-500 mb-5 leading-relaxed line-clamp-2">{language === 'en' ? pkg.description : pkg.arabicDescription}</p>
+                  <h3 className="text-base font-black text-darktheme dark:text-white uppercase tracking-tight mb-2">{language === 'en' ? pkg.name : pkg.arabicName}</h3>
+                  <p className="text-xs text-slate-500 dark:text-gray-500 mb-5 leading-relaxed line-clamp-2">{language === 'en' ? pkg.description : pkg.arabicDescription}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-black" style={{ color: c }}>{pkg.price}</span>
                     <Link to={`/services/${pkg.id}`} className="flex items-center gap-1 text-xs font-black uppercase tracking-wide transition-all duration-200 group-hover:gap-2"
@@ -219,55 +429,44 @@ const Home = ({ language, languageText }) => {
       </section>
 
       {/* ═══ FEATURED PROJECTS ══════════════════════════════════════ */}
-      <section className="py-16 md:py-24" style={{ background: '#0a0a15' }}>
+      <section className="py-16 md:py-24" style={{ background: darkMode ? '#0a0a15' : '#f1f5f9' }}>
         <div className="max-w-[1400px] mx-auto px-4 md:px-10 lg:px-20">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-end justify-between mb-10 flex-wrap gap-4 text-start">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: '#a855f7', fontFamily: 'monospace' }}>{'// projects'}</p>
-              <h2 className="text-3xl md:text-4xl font-black text-white">{language === 'en' ? 'Featured Work' : 'أبرز أعمالي'}</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-darktheme dark:text-white">{language === 'en' ? 'Featured Work' : 'أبرز أعمالي'}</h2>
             </div>
-            <Link to="/projects" className="flex items-center gap-2 text-sm font-black uppercase tracking-wide" style={{ color: '#a855f7' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#a855f7'}>
+            <Link to="/projects" className="flex items-center gap-2 text-sm font-black uppercase tracking-wide text-purple-600 dark:text-purple-400 hover:text-darktheme dark:hover:text-white">
               {language === 'en' ? 'All Projects' : 'جميع المشاريع'} <Icon icon="lucide:arrow-right" />
             </Link>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredProjects.map((p, i) => (
-              <motion.div key={p.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -6 }}
-                className="group relative rounded-3xl overflow-hidden"
-                style={{ background: '#0d0d1a', border: '1px solid rgba(255,255,255,0.07)' }}>
-                <div className="h-48 overflow-hidden">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 h-48 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                </div>
-                <div className="p-5">
-                  <span className="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full mb-3 inline-block"
-                    style={{ background: 'rgba(168,85,247,0.15)', color: '#a855f7' }}>{p.technology}</span>
-                  <h3 className="text-sm font-black text-white mb-2 leading-tight">{language === 'ar' ? p.arabicName : p.name}</h3>
-                  <div className="flex gap-3 mt-3">
-                    {p.liveDemo && <Link to={p.liveDemo} target="_blank" className="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition-colors"><Icon icon="lucide:external-link" /> Demo</Link>}
-                    {p.github && <Link to={p.github} target="_blank" className="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition-colors"><Icon icon="mdi:github" /> Code</Link>}
-                  </div>
-                </div>
-              </motion.div>
+              <HomeProjectCard 
+                key={p.id} 
+                p={p} 
+                i={i} 
+                language={language}
+                darkMode={darkMode}
+                onClick={() => setSelectedProject(p)}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* ═══ CTA ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24" style={{ background: '#08080f' }}>
+      <section className="py-16 md:py-24" style={{ background: darkMode ? '#08080f' : '#f8fafc' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="relative inline-block mb-6">
               <div className="absolute inset-0 blur-3xl opacity-30 rounded-full" style={{ background: 'radial-gradient(circle,#525ceb,#a855f7)' }} />
-              <h2 className="relative text-4xl md:text-6xl font-black text-white leading-tight">
+              <h2 className="relative text-4xl md:text-6xl font-black text-darktheme dark:text-white leading-tight">
                 {language === 'en' ? <>Let's build something <span className="text-gradient">incredible</span></> : <>لنقم ببناء شيء <span className="text-gradient">مذهل</span></>}
               </h2>
             </div>
-            <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-slate-600 dark:text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               {language === 'en' ? "Have a project in mind? Let's turn your vision into reality." : "هل لديك مشروع في ذهنك؟ لنحول رؤيتك إلى واقع ملموس."}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -275,14 +474,27 @@ const Home = ({ language, languageText }) => {
                 style={{ background: 'linear-gradient(135deg,#525ceb,#a855f7)', boxShadow: '0 12px 40px rgba(82,92,235,0.35)' }}>
                 <Icon icon="lucide:briefcase" /> {language === 'en' ? 'View Services' : 'الخدمات'}
               </Link>
-              <Link to="/about" className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-sm text-white uppercase tracking-wide hover:scale-105 transition-all"
-                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}>
+              <Link to="/about" className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wide hover:scale-105 transition-all text-darktheme dark:text-white"
+                style={{ background: darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)', border: darkMode ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(0,0,0,0.08)' }}>
                 <Icon icon="lucide:user" /> {language === 'en' ? 'About Me' : 'من أنا'}
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Dynamic Cinematic Detail Modal (Opens directly from Homepage clicks!) */}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectDetailModal 
+            project={selectedProject}
+            language={language}
+            languageText={languageText}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </AnimatePresence>
+
     </motion.div>
   )
 }

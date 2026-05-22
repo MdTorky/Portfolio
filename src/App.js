@@ -45,7 +45,7 @@ function App() {
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} toggleLanguage={toggleLanguage} language={language} languageText={languageText} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route exact path="/" element={<Home language={language} languageText={languageText} />} />
+          <Route exact path="/" element={<Home language={language} languageText={languageText} darkMode={darkMode} />} />
           <Route path="/projects" element={<Projects languageText={languageText} language={language} />} />
           <Route path="/resume" element={<Resume languageText={languageText} language={language} />} />
           <Route path="/about" element={<About languageText={languageText} language={language} />} />

@@ -3,11 +3,11 @@
     "id": 1,
     "name": "ISS Egypt Gateway at UTM",
     "arabicName": "موقع الاتحاد المصري في جامعة UTM",
-    "description": "• Architected and delivered a full-stack student portal serving 3,000+ active users, supporting academic, social, and administrative workflows.\n• Built role-based admin dashboards, committee management modules, advanced form builders, and interactive quiz/game systems.\n• Implemented secure authentication, RESTful APIs, and optimized MongoDB queries to support high concurrency and data integrity\n• Trained and curated a knowledge base with 100+ domain-specific questions, enabling accurate, context-aware responses\n •Integrated latest-generation LLMs (OpenAI ChatGPT & Google Gemini), delivering multi-model, highquality conversational responses with fallback handling",
+    "description": "• Architected and delivered a full-stack student portal serving 3,000+ active users, supporting academic, social, and administrative workflows.\n• Built role-based admin dashboards, committee management modules, advanced form builders, and interactive quiz/game systems.\n• Implemented secure authentication, RESTful APIs, and optimized MongoDB queries to support high concurrency and data integrity\n• Trained and curated a knowledge base with 100+ domain-specific questions, enabling accurate, context-aware responses\n Integrated latest-generation LLMs (OpenAI ChatGPT & Google Gemini), delivering multi-model, highquality conversational responses with fallback handling",
     "arabicDescription": "• قمت بتصميم وتقديم بوابة طلابية كاملة المزايا تخدم أكثر من 3000 مستخدم نشط، وتدعم العمليات الأكاديمية والاجتماعية والإدارية.\n• قمت ببناء لوحات تحكم إدارية تعتمد على الأدوار، ووحدات لإدارة اللجان، وأدوات بناء نماذج متقدمة، وأنظمة محادثات/ألعاب تفاعلية.\n• طورت نظام مصادقة آمن، وواجهات برمجية RESTful، وحسنت استعلامات MongoDB لدعم التزامن العالي وسلامة البيانات.\n• دربت وقمت بإنشاء قاعدة معرفية تحتوي على أكثر من 100 سؤال محدد المجال، مما يتيح تقديم إجابات دقيقة وحساسة للسياق.\n• دمجت أحدث نماذج اللغات الكبيرة (OpenAI ChatGPT وGoogle Gemini)، مما يوفر ردودًا محادثية عالية الجودة متعددة النماذج مع نظام احتياطي للتعامل مع الأخطاء.",
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/New_ISS_zi4ab5.png",
     "technology": "MERN STACK & Vite",
-    "liveDemo": "https://issegypt.vercel.app/",
+    "liveDemo": "https://issegypt.net",
     "github": "https://github.com/MdTorky/IssEgypt-frontend",
     "websiteLink": "/issEgypt"
   },

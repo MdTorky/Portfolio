@@ -7,19 +7,32 @@ const Certificates = ({ language }) => {
 
     const certificates = [
         {
-            id: 2,
-            name: "AWS Academy Graduate - AWS Academy Data Engineering",
-            arabicName: "خريج أكاديمية AWS - هندسة بيانات أكاديمية AWS",
-            company: "Amazon Web Services Training and Certification",
-            arabicCompany: "تدريب وشهادات أمازون ويب سيرفيسز",
-            date: "31 May 2025",
-            arabicDate: "31 مايو 2025",
-            description: "Gained expertise in data engineering on AWS, including data collection, storage, processing, analysis, and visualization. Mastered the use of AWS services like Glue, Athena, Redshift, and EMR to build robust data pipelines and analytical solutions.",
-            arabicDescription: "اكتسبت خبرة في هندسة البيانات على AWS، بما في ذلك جمع البيانات وتخزينها ومعالجتها وتحليلها وتصورها. أتقنت استخدام خدمات AWS مثل Glue و Athena و Redshift و EMR لبناء خطوط بيانات قوية وحلول تحليلية.",
-            icon: "mdi:aws",
-
-            img: "https://images.credly.com/size/340x340/images/8a28a66c-151d-4f2d-b021-ca7d3e146437/blob",
-            link: "https://www.credly.com/badges/513de1f9-0c84-47a6-81f1-a3a96f9afdf0/public_url"
+            id: 5,
+            name: "Operations Research (1): Models and Applications",
+            arabicName: "بحوث العمليات (1): النماذج والتطبيقات",
+            company: "National Taiwan University",
+            arabicCompany: "جامعة تايوان الوطنية",
+            date: "22 May 2026",
+            arabicDate: "22 مايو 2026",
+            description: "Learned to formulate different types of mathematical models to tackle optimization problems with business applications. Technically mastered the concepts and applications of Linear Programming, Integer Programming, and Nonlinear Programming, solving optimization problems using Microsoft Excel.",
+            arabicDescription: "تعلمت كيفية صياغة أنواع مختلفة من النماذج الرياضية لمعالجة مشاكل التحسين وتطبيقات الأعمال. غطت الدورة تقنياً مفاهيم وتطبيقات البرمجة الخطية، البرمجة الصحيحة، والبرمجة غير الخطية، وحل مشاكل التحسين باستخدام برنامج Microsoft Excel.",
+            icon: "simple-icons:coursera",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNtXLxk9lkQl7gsauaqv_slPaKnC_OQ2l_w&s",
+            link: "https://www.coursera.org/account/accomplishments/verify/OE3XVFDVP097"
+        },
+        {
+            id: 4,
+            name: "Mathematics for Machine Learning: Linear Algebra",
+            arabicName: "رياضيات تعلم الآلة: الجبر الخطي",
+            company: "Imperial College London",
+            arabicCompany: "إمبريال كوليدج لندن",
+            date: "22 Apr 2026",
+            arabicDate: "22 أبريل 2026",
+            description: "Mastered the core mathematical concepts of linear algebra required for machine learning. Gained comprehensive knowledge of vectors, matrices, eigenvalues, and eigenvectors, and learned how to apply linear algebra transformations to analyze data and train machine learning algorithms.",
+            arabicDescription: "أتقنت المفاهيم الرياضية الأساسية للجبر الخطي اللازمة لتعلم الآلة. اكتسبت معرفة شاملة بالمتجهات والمصفوفات والقيم الذاتية والمتجهات الذاتية، وتعلمت كيفية تطبيق تحويلات الجبر الخطي لتحليل البيانات وتدريب خوارزميات تعلم الآلة.",
+            icon: "simple-icons:coursera",
+            img: "https://weadapt.org/wp-content/uploads/2023/05/imperial_college_london_logo-vvallpaper.net_.jpg",
+            link: "https://www.coursera.org/account/accomplishments/verify/9V6AJC1L0J1J"
         },
         {
             id: 3,
@@ -34,6 +47,20 @@ const Certificates = ({ language }) => {
             icon: "mdi:aws",
             img: "https://images.credly.com/size/340x340/images/727c2754-d727-4e27-a1aa-3de2425ce239/blob",
             link: "https://www.credly.com/badges/6189ff23-de5b-4a36-9cdf-c03df624659e/public_url"
+        },
+        {
+            id: 2,
+            name: "AWS Academy Graduate - AWS Academy Data Engineering",
+            arabicName: "خريج أكاديمية AWS - هندسة بيانات أكاديمية AWS",
+            company: "Amazon Web Services Training and Certification",
+            arabicCompany: "تدريب وشهادات أمازون ويب سيرفيسز",
+            date: "31 May 2025",
+            arabicDate: "31 مايو 2025",
+            description: "Gained expertise in data engineering on AWS, including data collection, storage, processing, analysis, and visualization. Mastered the use of AWS services like Glue, Athena, Redshift, and EMR to build robust data pipelines and analytical solutions.",
+            arabicDescription: "اكتسبت خبرة في هندسة البيانات على AWS، بما في ذلك جمع البيانات وتخزينها ومعالجتها وتحليلها وتصورها. أتقنت استخدام خدمات AWS مثل Glue و Athena و Redshift و EMR لبناء خطوط بيانات قوية وحلول تحليلية.",
+            icon: "mdi:aws",
+            img: "https://images.credly.com/size/340x340/images/8a28a66c-151d-4f2d-b021-ca7d3e146437/blob",
+            link: "https://www.credly.com/badges/513de1f9-0c84-47a6-81f1-a3a96f9afdf0/public_url"
         },
         {
             id: 1,
