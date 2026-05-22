@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from '@iconify/react';
 import { gapi } from "gapi-script";
@@ -42,7 +42,7 @@ const CATEGORIES = [
         subTitle: { en: "Horizontal & Vertical Showcase Banners", ar: "لوحات إعلانية أفقية ورأسية فائقة الدقة" },
         icon: "material-symbols:planner-banner-ad-pt",
         folders: [
-            { name: "Horizontal", label: { en: "Horizontal", ar: "أفقي" }, id: "1BcEoRC9ZMbAtfmrNvOP-A5l9tmalcIU" },
+            { name: "Horizontal", label: { en: "Horizontal", ar: "أفقي" }, id: "1BcEoRC9qZMbAtfmrNvOP-A5l9tmalcIU" },
             { name: "Vertical", label: { en: "Vertical", ar: "رأسي" }, id: "1XWO6CIK1IuYOLNhSmoLkB3TGBwAarguW" }
         ]
     },
@@ -170,12 +170,12 @@ const Gallery = ({ language, languageText }) => {
                     const files = response.result.files || [];
                     // Sort alphanumerically
                     files.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true }));
-                    
+
                     return files.map(f => ({
                         ...f,
                         folderName,
                         // Pristine original high-res direct viewing URL bypassing fuzzy Drive thumbnails
-                        streamUrl: `https://docs.google.com/uc?export=view&id=${f.id}`,
+                        streamUrl: f.thumbnailLink ? f.thumbnailLink.replace(/=s\d+$/, "=s1600") : `https://docs.google.com/uc?export=view&id=${f.id}`,
                         downloadUrl: `https://docs.google.com/uc?export=download&id=${f.id}`
                     }));
                 };
@@ -275,37 +275,37 @@ const Gallery = ({ language, languageText }) => {
 
     return (
         <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto transitions">
-            
+
             {/* STUNNING HEADER BLOCK WITH GRADIENT GLOW */}
             <div className="relative text-center mb-16 z-10">
                 <div className="absolute inset-0 -top-12 flex items-center justify-center filter blur-3xl opacity-30 select-none pointer-events-none">
                     <span className="w-[30%] aspect-square bg-gradient-to-tr from-bluetheme to-purple-500 rounded-full" />
                 </div>
-                
-                <motion.h1 
+
+                <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-4xl sm:text-6xl font-black text-slate-800 dark:text-white uppercase tracking-tight leading-tight"
                 >
                     {language === 'ar' ? languageText.MyWork : "Artistic Canvas"}
                 </motion.h1>
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
                     className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-gray-400 font-light uppercase tracking-widest max-w-xl mx-auto"
                 >
-                    {language === 'ar' 
-                        ? "استكشف مجموعتي المتنوعة من تصاميم الجرافيك المذهلة والهويات البصرية الحديثة" 
+                    {language === 'ar'
+                        ? "استكشف مجموعتي المتنوعة من تصاميم الجرافيك المذهلة والهويات البصرية الحديثة"
                         : "Discover modern visual identities, creative layouts, and custom illustrations"}
                 </motion.p>
             </div>
 
             {/* SPLIT SCREEN CANVAS VIEW */}
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
-                
+
                 {/* 🧭 DESKTOP GLASSMORPHIC SIDEBAR */}
-                <motion.aside 
+                <motion.aside
                     variants={sidebarVariants}
                     initial="hidden"
                     animate="visible"
@@ -332,11 +332,10 @@ const Gallery = ({ language, languageText }) => {
                                 <button
                                     key={category.id}
                                     onClick={() => setActiveCategory(category)}
-                                    className={`w-full group px-4 py-3.5 rounded-2xl flex items-center gap-4 transition-all duration-300 relative border ${
-                                        isActive
-                                            ? 'bg-bluetheme border-bluetheme text-white shadow-xl shadow-bluetheme/25 scale-[1.02]'
-                                            : 'bg-white/10 dark:bg-white/5 border-slate-200/40 dark:border-white/5 text-slate-600 dark:text-gray-400 hover:border-bluetheme/30 dark:hover:border-bluetheme/20 hover:text-slate-800 dark:hover:text-white'
-                                    }`}
+                                    className={`w-full group px-4 py-3.5 rounded-2xl flex items-center gap-4 transition-all duration-300 relative border ${isActive
+                                        ? 'bg-bluetheme border-bluetheme text-white shadow-xl shadow-bluetheme/25 scale-[1.02]'
+                                        : 'bg-white/10 dark:bg-white/5 border-slate-200/40 dark:border-white/5 text-slate-600 dark:text-gray-400 hover:border-bluetheme/30 dark:hover:border-bluetheme/20 hover:text-slate-800 dark:hover:text-white'
+                                        }`}
                                 >
                                     <Icon icon={category.icon} className={`text-xl ${isActive ? 'text-white' : 'text-bluetheme'}`} />
                                     <div className="flex flex-col">
@@ -361,11 +360,10 @@ const Gallery = ({ language, languageText }) => {
                             <button
                                 key={category.id}
                                 onClick={() => setActiveCategory(category)}
-                                className={`flex-shrink-0 px-4 py-2.5 rounded-2xl flex items-center gap-2 border text-xs font-black uppercase tracking-wider transition-all ${
-                                    isActive
-                                        ? 'bg-bluetheme border-bluetheme text-white shadow-lg'
-                                        : 'bg-white/30 dark:bg-slate-900/30 border-slate-200/50 dark:border-white/5 text-slate-700 dark:text-gray-400'
-                                }`}
+                                className={`flex-shrink-0 px-4 py-2.5 rounded-2xl flex items-center gap-2 border text-xs font-black uppercase tracking-wider transition-all ${isActive
+                                    ? 'bg-bluetheme border-bluetheme text-white shadow-lg'
+                                    : 'bg-white/30 dark:bg-slate-900/30 border-slate-200/50 dark:border-white/5 text-slate-700 dark:text-gray-400'
+                                    }`}
                             >
                                 <Icon icon={category.icon} />
                                 {language === 'ar' ? category.title.ar : category.title.en}
@@ -376,7 +374,7 @@ const Gallery = ({ language, languageText }) => {
 
                 {/* 🎨 GALLERY CANVAS GRID */}
                 <main className="flex-grow w-full">
-                    
+
                     {/* Header Info Banner & Subfolder Filters */}
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-white/5 text-start">
                         <div>
@@ -393,11 +391,10 @@ const Gallery = ({ language, languageText }) => {
                             <div className="flex bg-slate-200/60 dark:bg-slate-950/40 p-1 border border-slate-200 dark:border-white/5 rounded-2xl gap-1 overflow-x-auto self-start md:self-auto scrollbar-none">
                                 <button
                                     onClick={() => setActiveSubFolder("All")}
-                                    className={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-shrink-0 ${
-                                        activeSubFolder === "All"
-                                            ? 'bg-bluetheme text-white'
-                                            : 'text-slate-500 hover:text-slate-800 dark:text-gray-400 hover:dark:text-white'
-                                    }`}
+                                    className={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-shrink-0 ${activeSubFolder === "All"
+                                        ? 'bg-bluetheme text-white'
+                                        : 'text-slate-500 hover:text-slate-800 dark:text-gray-400 hover:dark:text-white'
+                                        }`}
                                 >
                                     {language === 'ar' ? "الكل" : "All"}
                                 </button>
@@ -405,11 +402,10 @@ const Gallery = ({ language, languageText }) => {
                                     <button
                                         key={folder.id}
                                         onClick={() => setActiveSubFolder(folder.name)}
-                                        className={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-shrink-0 ${
-                                            activeSubFolder === folder.name
-                                                ? 'bg-bluetheme text-white'
-                                                : 'text-slate-500 hover:text-slate-800 dark:text-gray-400 hover:dark:text-white'
-                                        }`}
+                                        className={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-shrink-0 ${activeSubFolder === folder.name
+                                            ? 'bg-bluetheme text-white'
+                                            : 'text-slate-500 hover:text-slate-800 dark:text-gray-400 hover:dark:text-white'
+                                            }`}
                                     >
                                         {language === 'ar' ? folder.label.ar : folder.label.en}
                                     </button>
@@ -423,9 +419,8 @@ const Gallery = ({ language, languageText }) => {
                         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
                             {[...Array(6)].map((_, i) => (
                                 <div key={i} className="break-inside-avoid w-full rounded-3xl bg-white/40 dark:bg-slate-900/30 border border-slate-200/50 dark:border-white/5 p-4 flex flex-col gap-3 shadow-md animate-pulse">
-                                    <div className={`w-full bg-slate-300 dark:bg-slate-800 rounded-2xl ${
-                                        i % 3 === 0 ? 'aspect-[4/5]' : i % 3 === 1 ? 'aspect-[1/1]' : 'aspect-[16/10]'
-                                    }`} />
+                                    <div className={`w-full bg-slate-300 dark:bg-slate-800 rounded-2xl ${i % 3 === 0 ? 'aspect-[4/5]' : i % 3 === 1 ? 'aspect-[1/1]' : 'aspect-[16/10]'
+                                        }`} />
                                     <div className="h-4 bg-slate-300 dark:bg-slate-800 rounded-lg w-[70%]" />
                                     <div className="h-3 bg-slate-300 dark:bg-slate-800 rounded-lg w-[40%]" />
                                 </div>
@@ -441,7 +436,7 @@ const Gallery = ({ language, languageText }) => {
                                 {language === 'ar' ? "فشل الاتصال البرمجي" : "Cloud Connection Timeout"}
                             </h4>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 font-light">{error}</p>
-                            <button 
+                            <button
                                 onClick={() => window.location.reload()}
                                 className="px-5 py-2.5 bg-bluetheme text-white font-black text-xs uppercase tracking-widest rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg"
                             >
@@ -461,7 +456,7 @@ const Gallery = ({ language, languageText }) => {
                         </div>
                     ) : (
                         /* 📱 MASONRY COLUMNS DISPLAY */
-                        <motion.div 
+                        <motion.div
                             variants={gridContainerVariants}
                             initial="hidden"
                             animate="visible"
@@ -479,16 +474,16 @@ const Gallery = ({ language, languageText }) => {
                                 >
                                     {/* Preview container */}
                                     <div className="relative overflow-hidden w-full bg-[#07070f] select-none">
-                                        <img 
+                                        <img
                                             src={file.thumbnailLink.replace(/=s220$/, "=s600")} // Request slightly higher res preview for grid layout
-                                            alt={file.name} 
+                                            alt={file.name}
                                             className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                             loading="lazy"
                                         />
-                                        
+
                                         {/* HOVER GLASS OVERLAY */}
                                         <div className="absolute inset-0 bg-black/40 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                            <motion.div 
+                                            <motion.div
                                                 whileHover={{ scale: 1.1 }}
                                                 className="w-12 h-12 rounded-2xl bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center text-white text-xl shadow-lg"
                                             >
@@ -546,7 +541,7 @@ const Gallery = ({ language, languageText }) => {
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <button 
+                                <button
                                     onClick={handleCloseLightbox}
                                     className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white/15 hover:scale-105 active:scale-95 transition-all"
                                 >
@@ -557,7 +552,7 @@ const Gallery = ({ language, languageText }) => {
 
                         {/* B. LIGHTBOX CANVAS STAGE (ZOOM & PAN ENABLED VIA DRAG GESTURES) */}
                         <div className="flex-grow w-full relative flex items-center justify-center overflow-hidden py-4">
-                            
+
                             {/* Backdrop watermark category symbol */}
                             <div className="absolute inset-0 flex items-center justify-center filter blur-3xl opacity-10 pointer-events-none select-none">
                                 <Icon icon={activeCategory.icon} className="text-[40vh] text-white" />
@@ -565,7 +560,7 @@ const Gallery = ({ language, languageText }) => {
 
                             {/* Interactive Zoomable Slide Container */}
                             <div className="relative w-full h-full flex items-center justify-center">
-                                <motion.div 
+                                <motion.div
                                     key={activeImageIndex}
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
@@ -573,7 +568,7 @@ const Gallery = ({ language, languageText }) => {
                                     className="relative max-w-full max-h-[75vh]"
                                 >
                                     <motion.img
-                                        src={filteredImages[activeImageIndex].streamUrl}
+                                        src={filteredImages[activeImageIndex].img}
                                         alt={filteredImages[activeImageIndex].name}
                                         drag={zoom > 1}
                                         dragConstraints={{
@@ -584,9 +579,8 @@ const Gallery = ({ language, languageText }) => {
                                         }}
                                         animate={{ scale: zoom }}
                                         transition={{ type: "spring", stiffness: 280, damping: 24 }}
-                                        className={`max-w-full max-h-[72vh] object-contain rounded-2xl shadow-2xl ${
-                                            zoom > 1 ? 'cursor-grab active:cursor-grabbing' : ''
-                                        }`}
+                                        className={`max-w-full max-h-[72vh] object-contain rounded-2xl shadow-2xl ${zoom > 1 ? 'cursor-grab active:cursor-grabbing' : ''
+                                            }`}
                                     />
                                 </motion.div>
                             </div>
@@ -608,31 +602,30 @@ const Gallery = ({ language, languageText }) => {
 
                         {/* C. LIGHTBOX FOOTER ACTION HUD */}
                         <div className="w-full flex flex-col gap-4 sm:flex-row items-center justify-between py-3 border-t border-white/10 z-30">
-                            
+
                             {/* Slideshow and Share triggers */}
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setIsPlaying(!isPlaying)}
-                                    className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${
-                                        isPlaying 
-                                            ? 'bg-purple-600 text-white shadow-lg animate-pulse'
-                                            : 'bg-white/5 border border-white/10 text-white hover:bg-white/15'
-                                    }`}
+                                    className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${isPlaying
+                                        ? 'bg-purple-600 text-white shadow-lg animate-pulse'
+                                        : 'bg-white/5 border border-white/10 text-white hover:bg-white/15'
+                                        }`}
                                 >
                                     <Icon icon={isPlaying ? "lucide:pause-circle" : "lucide:play-circle"} className="text-base" />
                                     {isPlaying ? (language === 'ar' ? "إيقاف العرض" : "Pause Slides") : (language === 'ar' ? "بدء العرض" : "Play Slides")}
                                 </button>
-                                
+
                                 <button
                                     onClick={() => handleCopyLink(filteredImages[activeImageIndex].streamUrl)}
                                     className="px-4 py-2 rounded-xl text-xs bg-white/5 border border-white/10 text-white hover:bg-white/15 transition-all flex items-center gap-2 relative"
                                 >
                                     <Icon icon="lucide:link-2" />
                                     {copied ? (language === 'ar' ? "تم النسخ!" : "Copied!") : (language === 'ar' ? "نسخ الرابط" : "Share Link")}
-                                    
+
                                     <AnimatePresence>
                                         {copied && (
-                                            <motion.span 
+                                            <motion.span
                                                 initial={{ opacity: 0, y: -10 }}
                                                 animate={{ opacity: 1, y: -24 }}
                                                 exit={{ opacity: 0 }}
@@ -647,13 +640,13 @@ const Gallery = ({ language, languageText }) => {
 
                             {/* Center Active Zoom Controller Bar */}
                             <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full z-40">
-                                <button 
+                                <button
                                     onClick={() => setZoom(prev => Math.max(1, prev - 0.25))}
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
                                     <Icon icon="lucide:zoom-out" />
                                 </button>
-                                <input 
+                                <input
                                     type="range"
                                     min="1"
                                     max="3"
@@ -662,7 +655,7 @@ const Gallery = ({ language, languageText }) => {
                                     onChange={(e) => setZoom(parseFloat(e.target.value))}
                                     className="w-24 h-1 bg-white/20 rounded-full appearance-none outline-none accent-bluetheme cursor-pointer"
                                 />
-                                <button 
+                                <button
                                     onClick={() => setZoom(prev => Math.min(3, prev + 0.25))}
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
