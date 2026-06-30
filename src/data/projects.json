@@ -8,7 +8,6 @@
     "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1768580863/Portfolio/New_ISS_zi4ab5.png",
     "technology": "MERN STACK & Vite",
     "liveDemo": "https://issegypt.net",
-    "github": "https://github.com/MdTorky/IssEgypt-frontend",
     "websiteLink": "/issEgypt"
   },
   {
@@ -22,6 +21,18 @@
     "technology": "MERN STACK & Vite",
     "liveDemo": "https://nexus-4d.vercel.app/",
     "websiteLink": "/nexus4d"
+  },
+  {
+    "id": 5,
+    "name": "Kammel Farhetak",
+    "arabicName": "كمل فرحتك",
+    "description": "• Engineered a unified platform for planning and coordination of events, connecting users with vendors and services.\n• Implemented features for event discovery, budget management, and vendor communication, streamlining the planning process.\n• Built responsive interfaces for both users and vendors, ensuring a seamless experience across devices.\n• Optimized backend performance to handle event data and user interactions efficiently.",
+    "arabicDescription": "• صممت منصة موحدة لتخطيط وتنظيم الفعاليات، تربط المستخدمين بالموردين والخدمات.\n• قمت بتطبيق ميزات لاكتشاف الفعاليات، وإدارة الميزانية، والتواصل مع الموردين، مما يسهل عملية التخطيط.\n• قمت ببناء واجهات سريعة الاستجابة لكل من المستخدمين والموردين، مما يضمن تجربة سلسة عبر الأجهزة المختلفة.\n• قمت بتحسين أداء الواجهة الخلفية للتعامل مع بيانات الفعاليات وتفاعلات المستخدمين بكفاءة.",
+
+    "image": "https://res.cloudinary.com/du1c6dplu/image/upload/v1782789035/Portfolio/Kammel_ufw5c8.png",
+    "technology": "NextJs and NodeJs",
+    "liveDemo": "https://kammel-farhetak.vercel.app/",
+    "websiteLink": "/kammelFarhetak"
   },
   {
     "id": 3,

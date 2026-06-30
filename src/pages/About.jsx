@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import fullImage from '../img/Full-Image.jpg'
+import fullImage from '../img/Torky.png'
 import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react'
 import timelineData from '../data/timeLineData.json'
@@ -46,7 +46,7 @@ const About = ({ language, languageText }) => {
     const stats = [
         { num: '3.79', sub: language === 'en' ? 'GPA · BSc CS' : 'معدل تراكمي', icon: 'lucide:graduation-cap' },
         { num: '3.82', sub: language === 'en' ? 'GPA · MSc DS' : 'معدل دراسات عليا', icon: 'lucide:brain' },
-        { num: '30+', sub: language === 'en' ? 'Projects Built' : 'مشروع مكتمل', icon: 'lucide:folder-code' },
+        { num: '10+', sub: language === 'en' ? 'Projects Built' : 'مشروع مكتمل', icon: 'lucide:folder-code' },
         { num: '1st', sub: language === 'en' ? 'Microsoft Hackathon' : 'هاكاثون مايكروسوفت', icon: 'lucide:trophy' },
     ];
 

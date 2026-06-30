@@ -7,6 +7,7 @@ import pdf from '../data/resume.pdf'
 import projectsData from '../data/projects.json'
 import servicesData from '../data/services.json'
 import { ProjectDetailModal } from './projects'
+import { SHOW_PRICES } from '../config/priceConfig'
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -81,8 +82,8 @@ const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
         {isGraphicDesign ? (
           /* UNIQUE GRAPHIC COLLAGE PREVIEW */
           <div className="relative w-full h-full flex items-center justify-center p-3">
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 rotate: isHovered ? -12 : -4,
                 x: isHovered ? -35 : -6,
                 scale: isHovered ? 0.85 : 0.9
@@ -92,8 +93,8 @@ const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
             >
               <img src={p.image} alt="art-back-left" className="w-full h-full object-cover filter brightness-50 blur-[0.5px]" />
             </motion.div>
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 rotate: isHovered ? 12 : 4,
                 x: isHovered ? 35 : 6,
                 scale: isHovered ? 0.85 : 0.9
@@ -103,8 +104,8 @@ const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
             >
               <img src={p.image} alt="art-back-right" className="w-full h-full object-cover filter brightness-50 blur-[0.5px]" />
             </motion.div>
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 scale: isHovered ? 1.05 : 0.95,
                 y: isHovered ? -4 : 0
               }}
@@ -129,7 +130,7 @@ const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
                 {p.liveDemo.replace('https://', '').replace('/', '')}
               </div>
             </div>
-            
+
             <div className="relative flex-grow w-full bg-white h-[calc(100%-20px)]">
               {!iframeLoaded && (
                 <div className="absolute inset-0 bg-[#0b0b1a] flex items-center justify-center">
@@ -141,7 +142,7 @@ const HomeProjectCard = ({ p, i, language, darkMode, onClick }) => {
                   </div>
                 </div>
               )}
-              <iframe 
+              <iframe
                 src={p.liveDemo}
                 title={p.name}
                 onLoad={() => setIframeLoaded(true)}
@@ -263,8 +264,8 @@ const Home = ({ language, languageText, darkMode }) => {
 
               <motion.p variants={fadeUp(0.3)} className="text-base text-slate-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
                 {language === 'en'
-                  ? "I build blazing-fast web apps, beautiful UIs, and AI-powered solutions. Working globally."
-                  : "أقوم ببناء تطبيقات ويب فائقة السرعة، وواجهات مستخدم جذابة، وحلول تعتمد على الذكاء الاصطناعي. أعمل مع عملاء من جميع أنحاء العالم."}
+                  ? "I am specialized in creating premium, high-converting websites for brands that want their online presence to match the quality of their business."
+                  : "أنا متخصص في تصميم وتطوير مواقع ويب فاخرة وعالية التحويل للماركات التي ترغب في أن يضاهي حضورهم عبر الإنترنت جودة أعمالهم."}
               </motion.p>
 
               <motion.div variants={fadeUp(0.4)} className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
@@ -415,7 +416,7 @@ const Home = ({ language, languageText, darkMode }) => {
                   <h3 className="text-base font-black text-darktheme dark:text-white uppercase tracking-tight mb-2">{language === 'en' ? pkg.name : pkg.arabicName}</h3>
                   <p className="text-xs text-slate-500 dark:text-gray-500 mb-5 leading-relaxed line-clamp-2">{language === 'en' ? pkg.description : pkg.arabicDescription}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-black" style={{ color: c }}>{pkg.price}</span>
+                    {SHOW_PRICES && <span className="text-xl font-black" style={{ color: c }}>{pkg.price}</span>}
                     <Link to={`/services/${pkg.id}`} className="flex items-center gap-1 text-xs font-black uppercase tracking-wide transition-all duration-200 group-hover:gap-2"
                       style={{ color: c }}>
                       {language === 'en' ? 'Details' : 'تفاصيل'} <Icon icon="lucide:arrow-right" className="text-sm" />
@@ -443,10 +444,10 @@ const Home = ({ language, languageText, darkMode }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredProjects.map((p, i) => (
-              <HomeProjectCard 
-                key={p.id} 
-                p={p} 
-                i={i} 
+              <HomeProjectCard
+                key={p.id}
+                p={p}
+                i={i}
                 language={language}
                 darkMode={darkMode}
                 onClick={() => setSelectedProject(p)}
@@ -486,7 +487,7 @@ const Home = ({ language, languageText, darkMode }) => {
       {/* Dynamic Cinematic Detail Modal (Opens directly from Homepage clicks!) */}
       <AnimatePresence>
         {selectedProject && (
-          <ProjectDetailModal 
+          <ProjectDetailModal
             project={selectedProject}
             language={language}
             languageText={languageText}

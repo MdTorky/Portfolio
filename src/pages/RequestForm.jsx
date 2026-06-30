@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Icon } from '@iconify/react';
 import { useItemsContext } from '../hooks/useItemsContext'
 import "react-phone-input-2/lib/style.css";
+import { SHOW_PRICES } from '../config/priceConfig';
 
 
 
@@ -154,7 +155,7 @@ const RequestForm = ({ languageText, language, api }) => {
 
                         <section className={` "block border-gray-300 m-3 ${language === 'ar' ? "border-r" : "border-l"}`}>
                             <div className={` ${language === 'ar' ? "pr-3" : "pl-3"}`}>
-                                <h3 className="text-gray-600 dark:text-gray-50 font-semibold text-sm">{service.price}</h3>
+                                {SHOW_PRICES && <h3 className="text-gray-600 dark:text-gray-50 font-semibold text-sm">{service.price}</h3>}
                                 <h3 className="bg-clip-text text-transparent bg-gradient-to-l from-bluetheme dark:from-theme to-[#27272A] dark:to-gray-300 text-sm md:text-lg font-bold w-32 md:w-52">{language == "en" ? service.name : service.arabicName}</h3>
                             </div>
                         </section>

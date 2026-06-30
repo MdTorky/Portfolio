@@ -3,10 +3,10 @@ import { motion } from "framer-motion"
 import servicesData from '../data/services.json'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom'
+import { SHOW_PRICES } from '../config/priceConfig'
 
 const Services = ({ language, languageText }) => {
     const { web, graphic, writing } = servicesData;
-    const [hoveredId, setHoveredId] = useState(null);
 
     const webPackages = web.filter(s => s.features);
     const webStandalone = web.filter(s => !s.features);
@@ -25,8 +25,8 @@ const Services = ({ language, languageText }) => {
     //  PREMIUM PACKAGE CARD  (the 4 web tiers – dark glass, neon border)
     // ────────────────────────────────────────────────────────────────
     const PackageCard = ({ pkg }) => {
+        const [isHovered, setIsHovered] = useState(false);
         const isPopular = pkg.popular;
-        const isHovered = hoveredId === pkg.id;
 
         const borderColors = {
             'from-purple-600 to-indigo-600': '#7c3aed',
@@ -39,8 +39,8 @@ const Services = ({ language, languageText }) => {
         return (
             <motion.div
                 variants={fadeUp}
-                onHoverStart={() => setHoveredId(pkg.id)}
-                onHoverEnd={() => setHoveredId(null)}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
                 className="relative group h-full"
                 style={{ perspective: 1000 }}
             >
@@ -119,17 +119,19 @@ const Services = ({ language, languageText }) => {
                         </ul>
 
                         {/* Price */}
-                        <div className="border-t border-white/5 pt-5 mb-5">
-                            <p className="text-gray-600 text-[9px] font-black uppercase tracking-[0.2em] mb-1.5 text-center">
-                                {language === 'en' ? 'Starting from' : 'يبدأ من'}
-                            </p>
-                            <div className="flex items-baseline justify-center gap-1">
-                                <span className={`text-3xl font-black bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent`}>
-                                    {pkg.price}
-                                </span>
-                                <span className="text-[10px] text-gray-600 font-bold">USD</span>
+                        {SHOW_PRICES && (
+                            <div className="border-t border-white/5 pt-5 mb-5">
+                                <p className="text-gray-600 text-[9px] font-black uppercase tracking-[0.2em] mb-1.5 text-center">
+                                    {language === 'en' ? 'Starting from' : 'يبدأ من'}
+                                </p>
+                                <div className="flex items-baseline justify-center gap-1">
+                                    <span className={`text-3xl font-black bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent`}>
+                                        {pkg.price}
+                                    </span>
+                                    <span className="text-[10px] text-gray-600 font-bold">USD</span>
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* CTA */}
                         <Link
@@ -187,9 +189,11 @@ const Services = ({ language, languageText }) => {
                         <h3 className="text-sm font-bold text-darktheme dark:text-white leading-snug line-clamp-2">
                             {language === 'en' ? service.name : service.arabicName}
                         </h3>
-                        <span className="text-xs font-black mt-0.5 inline-block" style={{ color: accent }}>
-                            {service.price}
-                        </span>
+                        {SHOW_PRICES && (
+                            <span className="text-xs font-black mt-0.5 inline-block" style={{ color: accent }}>
+                                {service.price}
+                            </span>
+                        )}
                     </div>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed mb-4 line-clamp-2">

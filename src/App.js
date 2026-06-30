@@ -50,7 +50,7 @@ function App() {
           <Route path="/resume" element={<Resume languageText={languageText} language={language} />} />
           <Route path="/about" element={<About languageText={languageText} language={language} />} />
           <Route path="/services" element={<Services languageText={languageText} language={language} />} />
-          <Route path="/services/:id" element={<ServiceDetail languageText={languageText} language={language} />} />
+          <Route path="/services/:id" element={<ServiceDetail languageText={languageText} language={language} darkMode={darkMode} />} />
           <Route path="/gallery" element={<Gallery languageText={languageText} language={language} />} />
           <Route path="/requestform/:id" element={<RequestForm languageText={languageText} language={language} api={api} />} />
           <Route path="/terms" element={<Terms language={language} />} />

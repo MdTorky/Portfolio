@@ -60,12 +60,12 @@
     "icon": "ri:graduation-cap-fill"
   },
   {
-    "date": "Aug 2026",
-    "arabicDate": "أغسطس 2026",
+    "date": "Feb 2026",
+    "arabicDate": "فبراير 2026",
     "title": "Recieved my Masters Degree",
     "arabicTitle": "حصلت على درجة الماجستير",
     "location": "",
-    "description": "In August 2026, I finished my Master's degree in Data Science with a GPA of 3.82 out of 4.",
+    "description": "In February 2026, I finished my Master's degree in Data Science with a GPA of 3.82 out of 4.",
     "arabicDescription": "في أغسطس 2026، أنهيت درجة الماجستير في علم البيانات بمعدل تراكمي 3.82 من 4.",
     "icon": "ri:brain-fill"
   }
