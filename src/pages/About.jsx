@@ -116,8 +116,8 @@ const About = ({ language, languageText }) => {
                             <motion.p variants={fadeUp}
                                 className="text-base md:text-lg text-gray-400 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0 font-medium">
                                 {language === 'en'
-                                    ? "Full-Stack Developer & Data Scientist based in Egypt. I craft high-performance web applications, beautiful user interfaces, and AI-powered solutions. Currently pursuing a Master's in Data Science at UTM."
-                                    : 'مطور ويب متكامل وعالم بيانات من مصر. أبني تطبيقات ويب عالية الأداء، وواجهات مستخدم جميلة، وحلولاً مدعومة بالذكاء الاصطناعي. حاليًا أتابع دراسة الماجستير في علم البيانات في UTM.'}
+                                    ? "Full-Stack Developer & Data Scientist based in Egypt. I craft high-performance web applications, beautiful user interfaces, and AI-powered solutions. Recently I finished my Master's in Data Science at UTM."
+                                    : 'مطور ويب متكامل وعالم بيانات من مصر. أبني تطبيقات ويب عالية الأداء، وواجهات مستخدم جميلة، وحلولاً مدعومة بالذكاء الاصطناعي. مؤخرًا انتهيت من دراسة الماجستير في علم البيانات في جامعة UTM.'}
                             </motion.p>
 
                             {/* Contact links */}
